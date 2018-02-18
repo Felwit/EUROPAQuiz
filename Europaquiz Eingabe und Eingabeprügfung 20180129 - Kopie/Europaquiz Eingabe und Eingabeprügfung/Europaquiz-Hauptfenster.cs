@@ -53,7 +53,7 @@ namespace Europaquiz_Eingabe_und_Eingabeprügfung
         Random random = new Random();
         int anzLänder = 0;
         int Auswahl;
-        int[] gewälte = new int[1];//max größe ergibt sich eigentlich aus Schwierigkeit
+        int[] gewälte = new int[1];//max. Größe ergibt sich eigentlich aus Schwierigkeit
         public Europaquiz()
         {
             InitializeComponent();
@@ -75,7 +75,7 @@ namespace Europaquiz_Eingabe_und_Eingabeprügfung
                 {
                     if (!gewälte.Contains(Auswahl))
                     {
-                        //färbe gelb
+                        //färben gelb
                         i = true;
                     }
                 }
@@ -85,7 +85,7 @@ namespace Europaquiz_Eingabe_und_Eingabeprügfung
             {
                 string Land = tb_Land.Text;
                 string HStadt = tb_Hauptstadt.Text;
-                Prüfeland(Land,tb_Hauptstadt);//methode der klasse Land
+                Prüfeland(Land,tb_Hauptstadt);//Methode der Klasse Land
             }
 
 
