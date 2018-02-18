@@ -69,8 +69,8 @@ namespace Europaquiz_Eingabe_und_Eingabeprügfung
             bool i = false;//brake Variable
             if (Button_prüfe_Land_neu.Text == "Neues Land")
             {
-                Button_prüfe_Land_neu.Text = "Prüfe";
-                Auswahl = random.Next(1, anzLänder);
+                Button_prüfe_Land_neu.Text = "Prüfe";//ein Button für zwei Funktionen
+                Auswahl = random.Next(1, anzLänder);//ein land auswählen
                 while (i == false)
                 {
                     if (!gewälte.Contains(Auswahl))
