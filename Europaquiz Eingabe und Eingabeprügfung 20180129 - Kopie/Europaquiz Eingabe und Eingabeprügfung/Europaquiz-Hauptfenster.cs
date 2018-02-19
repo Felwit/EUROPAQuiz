@@ -70,7 +70,7 @@ namespace Europaquiz_Eingabe_und_Eingabeprügfung
             if (Button_prüfe_Land_neu.Text == "Neues Land")
             {
                 Button_prüfe_Land_neu.Text = "Prüfe";//ein Button für zwei Funktionen
-                Auswahl = random.Next(1, anzLänder);//ein land auswählen
+                Auswahl = random.Next(1, anzLänder);//ein Land auswählen
                 while (i == false)
                 {
                     if (!gewälte.Contains(Auswahl))
