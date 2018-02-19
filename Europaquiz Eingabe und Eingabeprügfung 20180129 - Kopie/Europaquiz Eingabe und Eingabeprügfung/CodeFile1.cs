@@ -1,1 +1,1 @@
-﻿public Prüfeeingabe()
+﻿//public Prüfeeingabe()

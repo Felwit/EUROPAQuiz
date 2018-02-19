@@ -13,8 +13,8 @@ namespace Europaquiz_Eingabe_und_Eingabeprügfung
     class Land
     {
         //Eigenschaften
-        public string Landname;
-        public string Hauptstadt;
+        private string Landname;
+        private string Hauptstadt;
 
 
         public Land(string Landname, string Hauptstadt)
@@ -30,7 +30,7 @@ namespace Europaquiz_Eingabe_und_Eingabeprügfung
         public void setHauptstadt(string Hauptstadt) { this.Hauptstadt = Hauptstadt; }
         public string getHauptstadt() { return this.Hauptstadt; }
 
-        Prüfeland(string Land, string Hauptstadt)
+        public void Prüfeland(string Land, string Hauptstadt)
         {
             if(this.Landname==Land)
             {
@@ -43,6 +43,10 @@ namespace Europaquiz_Eingabe_und_Eingabeprügfung
             else
             {
                 //färbe rot
+                if (this.Hauptstadt == Hauptstadt)
+                {
+                    //färbe orange
+                }
             }
         }
 
@@ -53,7 +57,7 @@ namespace Europaquiz_Eingabe_und_Eingabeprügfung
         Random random = new Random();
         int anzLänder = 0;
         int Auswahl;
-        int[] gewälte = new int[1];//max. Größe ergibt sich eigentlich aus Schwierigkeit
+        int[] gespielte = new int[1];//max. Größe ergibt sich eigentlich aus Schwierigkeit
         public Europaquiz()
         {
             InitializeComponent();
@@ -61,6 +65,10 @@ namespace Europaquiz_Eingabe_und_Eingabeprügfung
 
         private void Europaquiz_Load(object sender, EventArgs e)
         {
+           
+            Menü menü = new Menü(); //Deine 2. Form
+            menü.Show();
+            Hide();
 
         }
 
@@ -70,10 +78,10 @@ namespace Europaquiz_Eingabe_und_Eingabeprügfung
             if (Button_prüfe_Land_neu.Text == "Neues Land")
             {
                 Button_prüfe_Land_neu.Text = "Prüfe";//ein Button für zwei Funktionen
-                Auswahl = random.Next(1, anzLänder);//ein Land auswählen
                 while (i == false)
                 {
-                    if (!gewälte.Contains(Auswahl))
+                    Auswahl = random.Next(1, anzLänder);//ein Land auswählen
+                    if (!gespielte.Contains(Auswahl))
                     {
                         //färben gelb
                         i = true;
@@ -84,8 +92,8 @@ namespace Europaquiz_Eingabe_und_Eingabeprügfung
             else
             {
                 string Land = tb_Land.Text;
-                string HStadt = tb_Hauptstadt.Text;
-                Prüfeland(Land,tb_Hauptstadt);//Methode der Klasse Land
+                string Hauptstadt = tb_Hauptstadt.Text;
+                //Land[1].Prüfeland(Land,tb_Hauptstadt);//Methode der Klasse Land
             }
 
 
@@ -98,4 +106,4 @@ namespace Europaquiz_Eingabe_und_Eingabeprügfung
 
         }
     }
-}
+
