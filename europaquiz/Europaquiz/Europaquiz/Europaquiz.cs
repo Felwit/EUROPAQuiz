@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Europaquiz
 {
-    
+
     public partial class Europaquiz : Form
     {
         Random random = new Random();
@@ -25,7 +25,7 @@ namespace Europaquiz
         private void Europaquiz_Load(object sender, EventArgs e)
         {
 
-            
+
 
         }
 
@@ -54,47 +54,49 @@ namespace Europaquiz
             }
 
 
-        
-}
-class Land
-    {
-        //Eigenschaften
-        private string Landname;
-        private string Hauptstadt;
 
-
-        public Land(string Landname, string Hauptstadt)
-        {
-            this.Landname = Landname;
-            this.Hauptstadt = Hauptstadt;
         }
-
-        //Get & Set von Landname und Hauptstadt
-        public void setLandname(string Landname) { this.Landname = Landname; }
-        public string getLandname() { return this.Landname; }
-
-        public void setHauptstadt(string Hauptstadt) { this.Hauptstadt = Hauptstadt; }
-        public string getHauptstadt() { return this.Hauptstadt; }
-
-        public void Prüfeland(string Land, string Hauptstadt)
+        class Land
         {
-            if (this.Landname == Land)
+            //Eigenschaften
+            private string Landname;
+            private string Hauptstadt;
+
+
+            public Land(string Landname, string Hauptstadt)
             {
-                //färbe hellgrün
-                if (this.Hauptstadt == Hauptstadt)
+                this.Landname = Landname;
+                this.Hauptstadt = Hauptstadt;
+            }
+
+            //Get & Set von Landname und Hauptstadt
+            public void setLandname(string Landname) { this.Landname = Landname; }
+            public string getLandname() { return this.Landname; }
+
+            public void setHauptstadt(string Hauptstadt) { this.Hauptstadt = Hauptstadt; }
+            public string getHauptstadt() { return this.Hauptstadt; }
+
+            public void Prüfeland(string Land, string Hauptstadt)
+            {
+                if (this.Landname == Land)
                 {
-                    //färbe dunkelgrün
+                    //färbe hellgrün
+                    if (this.Hauptstadt == Hauptstadt)
+                    {
+                        //färbe dunkelgrün
+                    }
+                }
+                else
+                {
+                    //färbe rot
+                    if (this.Hauptstadt == Hauptstadt)
+                    {
+                        //färbe orange
+                    }
                 }
             }
-            else
-            {
-                //färbe rot
-                if (this.Hauptstadt == Hauptstadt)
-                {
-                    //färbe orange
-                }
-            }
+
+
         }
-
-
     }
+}
