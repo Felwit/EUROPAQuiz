@@ -10,11 +10,59 @@ using System.Windows.Forms;
 
 namespace Europaquiz
 {
+    
     public partial class Europaquiz : Form
     {
         public Europaquiz()
         {
             InitializeComponent();
         }
+
+        private void Europaquiz_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+class Land
+    {
+        //Eigenschaften
+        private string Landname;
+        private string Hauptstadt;
+
+
+        public Land(string Landname, string Hauptstadt)
+        {
+            this.Landname = Landname;
+            this.Hauptstadt = Hauptstadt;
+        }
+
+        //Get & Set von Landname und Hauptstadt
+        public void setLandname(string Landname) { this.Landname = Landname; }
+        public string getLandname() { return this.Landname; }
+
+        public void setHauptstadt(string Hauptstadt) { this.Hauptstadt = Hauptstadt; }
+        public string getHauptstadt() { return this.Hauptstadt; }
+
+        public void Prüfeland(string Land, string Hauptstadt)
+        {
+            if (this.Landname == Land)
+            {
+                //färbe hellgrün
+                if (this.Hauptstadt == Hauptstadt)
+                {
+                    //färbe dunkelgrün
+                }
+            }
+            else
+            {
+                //färbe rot
+                if (this.Hauptstadt == Hauptstadt)
+                {
+                    //färbe orange
+                }
+            }
+        }
+
+
+    }
