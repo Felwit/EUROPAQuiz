@@ -10,7 +10,21 @@ using System.Windows.Forms;
 
 namespace Europaquiz
 {
-    class Land
+    
+    public partial class Europaquiz : Form
+    {
+        public Europaquiz()
+        {
+            InitializeComponent();
+        }
+
+        private void Europaquiz_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
+class Land
     {
         //Eigenschaften
         private string Landname;
@@ -52,11 +66,3 @@ namespace Europaquiz
 
 
     }
-    public partial class Europaquiz : Form
-    {
-        public Europaquiz()
-        {
-            InitializeComponent();
-        }
-    }
-}

@@ -16,5 +16,10 @@ namespace Europaquiz_Eingabe_und_Eingabeprügfung
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

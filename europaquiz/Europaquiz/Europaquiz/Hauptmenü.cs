@@ -22,5 +22,12 @@ namespace Europaquiz
             
 
         }
+
+        private void Neues_Spiel_Click(object sender, EventArgs e)
+        {
+            Europaquiz f = new Europaquiz();
+            f.Show();
+          
+        }
     }
 }

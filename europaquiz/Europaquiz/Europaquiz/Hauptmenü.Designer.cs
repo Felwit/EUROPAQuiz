@@ -42,6 +42,7 @@
             this.Neues_Spiel.TabIndex = 0;
             this.Neues_Spiel.Text = "Spielen";
             this.Neues_Spiel.UseVisualStyleBackColor = true;
+            this.Neues_Spiel.Click += new System.EventHandler(this.Neues_Spiel_Click);
             // 
             // Anleitung
             // 
