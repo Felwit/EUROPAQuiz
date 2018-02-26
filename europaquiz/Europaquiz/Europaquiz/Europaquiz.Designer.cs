@@ -28,42 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Button_prüfe_Land_neu = new System.Windows.Forms.Button();
+            this.tb_Land = new System.Windows.Forms.TextBox();
+            this.tb_Hauptstadt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // Button_prüfe_Land_neu
             // 
-            this.button1.Location = new System.Drawing.Point(598, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 20);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Button_prüfe_Land_neu.Location = new System.Drawing.Point(598, 12);
+            this.Button_prüfe_Land_neu.Name = "Button_prüfe_Land_neu";
+            this.Button_prüfe_Land_neu.Size = new System.Drawing.Size(180, 20);
+            this.Button_prüfe_Land_neu.TabIndex = 0;
+            this.Button_prüfe_Land_neu.Text = "Nächstes Land";
+            this.Button_prüfe_Land_neu.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tb_Land
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(280, 20);
-            this.textBox1.TabIndex = 1;
+            this.tb_Land.Location = new System.Drawing.Point(12, 12);
+            this.tb_Land.Name = "tb_Land";
+            this.tb_Land.Size = new System.Drawing.Size(280, 20);
+            this.tb_Land.TabIndex = 1;
+            this.tb_Land.Text = "Bitte Land eingeben";
             // 
-            // textBox2
+            // tb_Hauptstadt
             // 
-            this.textBox2.Location = new System.Drawing.Point(301, 12);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(280, 20);
-            this.textBox2.TabIndex = 2;
+            this.tb_Hauptstadt.Location = new System.Drawing.Point(301, 12);
+            this.tb_Hauptstadt.Name = "tb_Hauptstadt";
+            this.tb_Hauptstadt.Size = new System.Drawing.Size(280, 20);
+            this.tb_Hauptstadt.TabIndex = 2;
+            this.tb_Hauptstadt.Text = "Bitte Hauptstadt eingeben";
             // 
             // Europaquiz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 611);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.tb_Hauptstadt);
+            this.Controls.Add(this.tb_Land);
+            this.Controls.Add(this.Button_prüfe_Land_neu);
             this.Name = "Europaquiz";
             this.Text = "Europaquiz";
             this.Load += new System.EventHandler(this.Europaquiz_Load);
@@ -74,8 +76,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button Button_prüfe_Land_neu;
+        private System.Windows.Forms.TextBox tb_Land;
+        private System.Windows.Forms.TextBox tb_Hauptstadt;
     }
 }

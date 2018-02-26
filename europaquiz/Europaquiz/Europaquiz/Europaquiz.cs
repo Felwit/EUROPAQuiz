@@ -13,6 +13,10 @@ namespace Europaquiz
     
     public partial class Europaquiz : Form
     {
+        Random random = new Random();
+        int anzLänder = 0;
+        int Auswahl;
+        int[] gespielte = new int[1];//max. Größe ergibt sich eigentlich aus Schwierigkeit
         public Europaquiz()
         {
             InitializeComponent();
@@ -21,8 +25,36 @@ namespace Europaquiz
         private void Europaquiz_Load(object sender, EventArgs e)
         {
 
+            
+
         }
-    }
+
+        private void Button_prüfe_Land_neu_Click(object sender, EventArgs e)
+        {
+            bool i = false;//brake Variable
+            if (Button_prüfe_Land_neu.Text == "Neues Land")
+            {
+                Button_prüfe_Land_neu.Text = "Prüfe";//ein Button für zwei Funktionen
+                while (i == false)
+                {
+                    Auswahl = random.Next(1, anzLänder);//ein Land auswählen
+                    if (!gespielte.Contains(Auswahl))
+                    {
+                        //färben gelb
+                        i = true;
+                    }
+                }
+            }
+
+            else
+            {
+                string Land = tb_Land.Text;
+                string Hauptstadt = tb_Hauptstadt.Text;
+                //Land[1].Prüfeland(Land,tb_Hauptstadt);//Methode der Klasse Land
+            }
+
+
+        
 }
 class Land
     {

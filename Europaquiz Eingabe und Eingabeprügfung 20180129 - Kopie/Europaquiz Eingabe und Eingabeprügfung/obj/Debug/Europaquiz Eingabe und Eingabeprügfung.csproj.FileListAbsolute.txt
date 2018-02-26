@@ -22,3 +22,6 @@ D:\EUROPAQuiz\Europaquiz Eingabe und Eingabeprügfung 20180129 - Kopie\Europaqui
 D:\EUROPAQuiz\Europaquiz Eingabe und Eingabeprügfung 20180129 - Kopie\Europaquiz Eingabe und Eingabeprügfung\obj\Debug\Europaquiz_Eingabe_und_Eingabeprügfung.Menü.resources
 D:\EUROPAQuiz\Europaquiz Eingabe und Eingabeprügfung 20180129 - Kopie\Europaquiz Eingabe und Eingabeprügfung\obj\Debug\Europaquiz_Eingabe_und_Eingabeprügfung.Properties.Resources.resources
 D:\EUROPAQuiz\Europaquiz Eingabe und Eingabeprügfung 20180129 - Kopie\Europaquiz Eingabe und Eingabeprügfung\obj\Debug\Europaquiz Eingabe und Eingabeprügfung.csproj.GenerateResource.Cache
+D:\Europa 25.02.2018\EUROPAQuiz\Europaquiz Eingabe und Eingabeprügfung 20180129 - Kopie\Europaquiz Eingabe und Eingabeprügfung\bin\Debug\Europaquiz Eingabe und Eingabeprügfung.exe.config
+D:\Europa 25.02.2018\EUROPAQuiz\Europaquiz Eingabe und Eingabeprügfung 20180129 - Kopie\Europaquiz Eingabe und Eingabeprügfung\obj\Debug\Europaquiz Eingabe und Eingabeprügfung.exe
+D:\Europa 25.02.2018\EUROPAQuiz\Europaquiz Eingabe und Eingabeprügfung 20180129 - Kopie\Europaquiz Eingabe und Eingabeprügfung\obj\Debug\Europaquiz Eingabe und Eingabeprügfung.pdb
