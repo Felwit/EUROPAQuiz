@@ -1,1 +1,2 @@
 C:\Users\FELiX\Documents\schulisches\AKBK\INF\Klasse 12\Infotag\europaquiz\Europaquiz\Europaquiz\bin\Debug\Europaquiz.exe.config
+D:\Europa 25.02.2018\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Europaquiz.exe.config

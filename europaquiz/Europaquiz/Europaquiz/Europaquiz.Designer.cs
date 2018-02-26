@@ -37,7 +37,7 @@
             // 
             this.button1.Location = new System.Drawing.Point(598, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(175, 20);
+            this.button1.Size = new System.Drawing.Size(180, 20);
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -46,21 +46,21 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(12, 12);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(283, 20);
+            this.textBox1.Size = new System.Drawing.Size(280, 20);
             this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(301, 12);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(283, 20);
+            this.textBox2.Size = new System.Drawing.Size(280, 20);
             this.textBox2.TabIndex = 2;
             // 
             // Europaquiz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 613);
+            this.ClientSize = new System.Drawing.Size(794, 611);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
