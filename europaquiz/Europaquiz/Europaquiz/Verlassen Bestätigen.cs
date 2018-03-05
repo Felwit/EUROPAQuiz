@@ -16,5 +16,10 @@ namespace Europaquiz
         {
             InitializeComponent();
         }
+
+        private void verlassen_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

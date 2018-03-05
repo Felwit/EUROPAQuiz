@@ -19,8 +19,8 @@ namespace Europaquiz
 
         private void Spiel_verlassen_Click(object sender, EventArgs e)
         {
-            
-
+            Europaquiz verl = new Europaquiz();
+            verl.Show();
         }
 
         private void Neues_Spiel_Click(object sender, EventArgs e)

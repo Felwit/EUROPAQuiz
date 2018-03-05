@@ -60,6 +60,7 @@
             this.verlassen.TabIndex = 2;
             this.verlassen.Text = "Ja";
             this.verlassen.UseVisualStyleBackColor = true;
+            this.verlassen.Click += new System.EventHandler(this.verlassen_Click);
             // 
             // VerlassenBestätigen
             // 
