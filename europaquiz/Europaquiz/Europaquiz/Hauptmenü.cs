@@ -15,12 +15,15 @@ namespace Europaquiz
         public Hauptmenü()
         {
             InitializeComponent();
+            
         }
 
+
+
+        
         private void Spiel_verlassen_Click(object sender, EventArgs e)
         {
-            Europaquiz verl = new Europaquiz();
-            verl.Show();
+            this.Close();
         }
 
         private void Neues_Spiel_Click(object sender, EventArgs e)
@@ -28,6 +31,11 @@ namespace Europaquiz
             Europaquiz f = new Europaquiz();
             f.Show();
           
+        }
+
+        private void Einstellungen_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

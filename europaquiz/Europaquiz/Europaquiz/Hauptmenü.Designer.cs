@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.Neues_Spiel = new System.Windows.Forms.Button();
-            this.Anleitung = new System.Windows.Forms.Button();
+            this.Tutorial = new System.Windows.Forms.Button();
             this.Einstellungen = new System.Windows.Forms.Button();
             this.Spiel_verlassen = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -44,14 +44,14 @@
             this.Neues_Spiel.UseVisualStyleBackColor = true;
             this.Neues_Spiel.Click += new System.EventHandler(this.Neues_Spiel_Click);
             // 
-            // Anleitung
+            // Tutorial
             // 
-            this.Anleitung.Location = new System.Drawing.Point(284, 150);
-            this.Anleitung.Name = "Anleitung";
-            this.Anleitung.Size = new System.Drawing.Size(200, 50);
-            this.Anleitung.TabIndex = 1;
-            this.Anleitung.Text = "Anleitung";
-            this.Anleitung.UseVisualStyleBackColor = true;
+            this.Tutorial.Location = new System.Drawing.Point(284, 150);
+            this.Tutorial.Name = "Tutorial";
+            this.Tutorial.Size = new System.Drawing.Size(200, 50);
+            this.Tutorial.TabIndex = 1;
+            this.Tutorial.Text = "Tutorial";
+            this.Tutorial.UseVisualStyleBackColor = true;
             // 
             // Einstellungen
             // 
@@ -61,6 +61,7 @@
             this.Einstellungen.TabIndex = 2;
             this.Einstellungen.Text = "Einstellungen";
             this.Einstellungen.UseVisualStyleBackColor = true;
+            this.Einstellungen.Click += new System.EventHandler(this.Einstellungen_Click);
             // 
             // Spiel_verlassen
             // 
@@ -79,7 +80,7 @@
             this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.Spiel_verlassen);
             this.Controls.Add(this.Einstellungen);
-            this.Controls.Add(this.Anleitung);
+            this.Controls.Add(this.Tutorial);
             this.Controls.Add(this.Neues_Spiel);
             this.Name = "Hauptmenü";
             this.Text = "Hauptmenü";
@@ -90,7 +91,7 @@
         #endregion
 
         private System.Windows.Forms.Button Neues_Spiel;
-        private System.Windows.Forms.Button Anleitung;
+        private System.Windows.Forms.Button Tutorial;
         private System.Windows.Forms.Button Einstellungen;
         private System.Windows.Forms.Button Spiel_verlassen;
     }

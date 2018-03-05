@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Europaquiz
 {
-    public partial class VerlassenBestätigen : Form
+    public partial class Einstellungen : Form
     {
-        public VerlassenBestätigen()
+        public Einstellungen()
         {
             InitializeComponent();
-        }
-
-        private void verlassen_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

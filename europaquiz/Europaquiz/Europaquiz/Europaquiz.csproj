@@ -52,11 +52,11 @@
     <Compile Include="Europaquiz.Designer.cs">
       <DependentUpon>Europaquiz.cs</DependentUpon>
     </Compile>
-    <Compile Include="Verlassen Bestätigen.cs">
+    <Compile Include="Einstellungen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Verlassen Bestätigen.Designer.cs">
-      <DependentUpon>Verlassen Bestätigen.cs</DependentUpon>
+    <Compile Include="Einstellungen.Designer.cs">
+      <DependentUpon>Einstellungen.cs</DependentUpon>
     </Compile>
     <Compile Include="Hauptmenü.cs">
       <SubType>Form</SubType>
@@ -66,14 +66,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserControl1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Europaquiz.resx">
       <DependentUpon>Europaquiz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Einstellungen.resx">
+      <DependentUpon>Einstellungen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Hauptmenü.resx">
       <DependentUpon>Hauptmenü.cs</DependentUpon>
@@ -87,9 +84,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Verlassen Bestätigen.resx">
-      <DependentUpon>Verlassen Bestätigen.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
