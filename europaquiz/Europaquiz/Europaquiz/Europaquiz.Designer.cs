@@ -33,7 +33,7 @@
             this.tb_Land = new System.Windows.Forms.TextBox();
             this.tb_Hauptstadt = new System.Windows.Forms.TextBox();
             this.TimerZumAntworten = new System.Windows.Forms.Timer(this.components);
-            this.TimerZumAntwortenAnzeige = new System.Windows.Forms.Label();
+            this.TimerAnzeige = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Button_starte_prüfe_Land
@@ -44,6 +44,7 @@
             this.Button_starte_prüfe_Land.TabIndex = 0;
             this.Button_starte_prüfe_Land.Text = "Starten";
             this.Button_starte_prüfe_Land.UseVisualStyleBackColor = true;
+            this.Button_starte_prüfe_Land.Click += new System.EventHandler(this.Button_starte_prüfe_Land_Click);
             // 
             // tb_Land
             // 
@@ -61,20 +62,27 @@
             this.tb_Hauptstadt.TabIndex = 2;
             this.tb_Hauptstadt.Text = "Bitte Hauptstadt eingeben";
             // 
-            // TimerZumAntwortenAnzeige
+            // TimerZumAntworten
             // 
-            this.TimerZumAntwortenAnzeige.AutoSize = true;
-            this.TimerZumAntwortenAnzeige.Location = new System.Drawing.Point(663, 96);
-            this.TimerZumAntwortenAnzeige.Name = "TimerZumAntwortenAnzeige";
-            this.TimerZumAntwortenAnzeige.Size = new System.Drawing.Size(0, 13);
-            this.TimerZumAntwortenAnzeige.TabIndex = 3;
+            this.TimerZumAntworten.Interval = 1000;
+            this.TimerZumAntworten.Tick += new System.EventHandler(this.TimerZumAntworten_Tick);
+            // 
+            // TimerAnzeige
+            // 
+            this.TimerAnzeige.AutoSize = true;
+            this.TimerAnzeige.Location = new System.Drawing.Point(650, 103);
+            this.TimerAnzeige.Name = "TimerAnzeige";
+            this.TimerAnzeige.Size = new System.Drawing.Size(19, 13);
+            this.TimerAnzeige.TabIndex = 4;
+            this.TimerAnzeige.Text = "10";
+            this.TimerAnzeige.Click += new System.EventHandler(this.TimerAnzeige_Click);
             // 
             // Europaquiz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 611);
-            this.Controls.Add(this.TimerZumAntwortenAnzeige);
+            this.Controls.Add(this.TimerAnzeige);
             this.Controls.Add(this.tb_Hauptstadt);
             this.Controls.Add(this.tb_Land);
             this.Controls.Add(this.Button_starte_prüfe_Land);
@@ -92,6 +100,6 @@
         private System.Windows.Forms.TextBox tb_Land;
         private System.Windows.Forms.TextBox tb_Hauptstadt;
         private System.Windows.Forms.Timer TimerZumAntworten;
-        private System.Windows.Forms.Label TimerZumAntwortenAnzeige;
+        private System.Windows.Forms.Label TimerAnzeige;
     }
 }

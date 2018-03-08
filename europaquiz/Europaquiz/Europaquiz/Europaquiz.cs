@@ -29,11 +29,12 @@ namespace Europaquiz
         private void TimerZumAntworten_Tick(object sender, EventArgs e)
         {
             countdown--;
-            TimerZumAntwortenAnzeige.Text = countdown.ToString();
+            TimerAnzeige.Text = countdown.ToString();
 
-            if (TimerZumAntwortenAnzeige.Text == "0")
+            if (TimerAnzeige.Text == "0")
             {
                 TimerZumAntworten.Stop();
+                TimerAnzeige.Text = "10";
 
             }
         }
@@ -41,7 +42,7 @@ namespace Europaquiz
         private void Button_starte_prüfe_Land_Click(object sender, EventArgs e)
         {
             countdown = 10;
-            Button_starte_prüfe_Land.Text = "Neues Land";
+            Button_starte_prüfe_Land.Text = "Nächstes Land";
             TimerZumAntworten.Start();
 
 
@@ -113,6 +114,14 @@ namespace Europaquiz
             }
         }
 
+        private void TimerAnzeige_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void TimerZumAntwortenAnzeige_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

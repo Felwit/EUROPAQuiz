@@ -22,7 +22,6 @@ C:\Users\schule\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Deb
 C:\Users\schule\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Europaquiz.resources
 C:\Users\schule\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Hauptmenü.resources
 C:\Users\schule\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Properties.Resources.resources
-C:\Users\schule\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.VerlassenBestätigen.resources
 C:\Users\schule\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.csproj.GenerateResource.Cache
 D:\Europa 5.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Europaquiz.exe.config
 D:\Europa 5.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.exe
@@ -35,3 +34,4 @@ D:\Europa 5.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.H
 D:\Europa 5.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Properties.Resources.resources
 D:\Europa 5.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.VerlassenBestätigen.resources
 D:\Europa 5.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.csproj.GenerateResource.Cache
+C:\Users\schule\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Einstellungen.resources
