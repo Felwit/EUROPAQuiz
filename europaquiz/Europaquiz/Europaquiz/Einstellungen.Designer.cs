@@ -39,7 +39,7 @@
             // 
             // Speichern
             // 
-            this.Speichern.Location = new System.Drawing.Point(83, 230);
+            this.Speichern.Location = new System.Drawing.Point(111, 117);
             this.Speichern.Name = "Speichern";
             this.Speichern.Size = new System.Drawing.Size(75, 27);
             this.Speichern.TabIndex = 0;
@@ -113,7 +113,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(281, 269);
+            this.ClientSize = new System.Drawing.Size(281, 156);
             this.Controls.Add(this.info_Eing_art);
             this.Controls.Add(this.Eingabe_Art);
             this.Controls.Add(this.Eing_Art);
