@@ -23,7 +23,7 @@ namespace Europaquiz
             InitializeComponent();
         }
 
-        private void Europaquiz_Load(object sender, EventArgs e) { }
+        private void Europaquiz_Load(object sender, EventArgs e) {}
 
 
         private void TimerZumAntworten_Tick(object sender, EventArgs e)
@@ -34,8 +34,8 @@ namespace Europaquiz
             if (TimerAnzeige.Text == "0")
             {
                 TimerZumAntworten.Stop();
-                TimerAnzeige.Text = "10";
-
+                Button_starte_prüfe_Land.Show();
+                TimerAnzeige.Hide();
             }
         }
 
@@ -43,8 +43,11 @@ namespace Europaquiz
         {
             countdown = 10;
             Button_starte_prüfe_Land.Text = "Nächstes Land";
-            TimerZumAntworten.Start();
+            Button_starte_prüfe_Land.Hide();
+            TimerAnzeige.Show();
+            TimerZumAntworten.Start(); //Timer startet
 
+           
 
 
             //    bool i = false;//brake Variable
@@ -82,7 +85,7 @@ namespace Europaquiz
             {
                 this.Landname = Landname;
                 this.Hauptstadt = Hauptstadt;
-            }
+             }
 
             //Get & Set von Landname und Hauptstadt
             public void setLandname(string Landname) { this.Landname = Landname; }

@@ -34,6 +34,7 @@
             this.tb_Hauptstadt = new System.Windows.Forms.TextBox();
             this.TimerZumAntworten = new System.Windows.Forms.Timer(this.components);
             this.TimerAnzeige = new System.Windows.Forms.Label();
+            this.LandAnzeige = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Button_starte_prüfe_Land
@@ -70,18 +71,29 @@
             // TimerAnzeige
             // 
             this.TimerAnzeige.AutoSize = true;
-            this.TimerAnzeige.Location = new System.Drawing.Point(650, 103);
+            this.TimerAnzeige.Location = new System.Drawing.Point(679, 16);
             this.TimerAnzeige.Name = "TimerAnzeige";
             this.TimerAnzeige.Size = new System.Drawing.Size(19, 13);
             this.TimerAnzeige.TabIndex = 4;
             this.TimerAnzeige.Text = "10";
+            this.TimerAnzeige.Visible = false;
             this.TimerAnzeige.Click += new System.EventHandler(this.TimerAnzeige_Click);
+            // 
+            // LandAnzeige
+            // 
+            this.LandAnzeige.AutoSize = true;
+            this.LandAnzeige.Location = new System.Drawing.Point(545, 161);
+            this.LandAnzeige.Name = "LandAnzeige";
+            this.LandAnzeige.Size = new System.Drawing.Size(35, 13);
+            this.LandAnzeige.TabIndex = 5;
+            this.LandAnzeige.Text = "label1";
             // 
             // Europaquiz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 611);
+            this.Controls.Add(this.LandAnzeige);
             this.Controls.Add(this.TimerAnzeige);
             this.Controls.Add(this.tb_Hauptstadt);
             this.Controls.Add(this.tb_Land);
@@ -101,5 +113,6 @@
         private System.Windows.Forms.TextBox tb_Hauptstadt;
         private System.Windows.Forms.Timer TimerZumAntworten;
         private System.Windows.Forms.Label TimerAnzeige;
+        private System.Windows.Forms.Label LandAnzeige;
     }
 }
