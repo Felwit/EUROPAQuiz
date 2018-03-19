@@ -46,3 +46,14 @@ D:\europa 8.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.E
 D:\europa 8.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Hauptmenü.resources
 D:\europa 8.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Properties.Resources.resources
 D:\europa 8.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.csproj.GenerateResource.Cache
+E:\europa 8.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Europaquiz.exe.config
+E:\europa 8.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.exe
+E:\europa 8.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.pdb
+E:\europa 8.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.csprojResolveAssemblyReference.cache
+E:\europa 8.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Europaquiz.resources
+E:\europa 8.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Einstellungen.resources
+E:\europa 8.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Hauptmenü.resources
+E:\europa 8.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Properties.Resources.resources
+E:\europa 8.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.csproj.GenerateResource.Cache
+E:\europa 8.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Europaquiz.exe
+E:\europa 8.3\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Europaquiz.pdb
