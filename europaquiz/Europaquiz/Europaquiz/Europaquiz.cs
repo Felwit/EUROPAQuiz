@@ -7,73 +7,153 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Svg;
+
 
 namespace Europaquiz
 {
 
     public partial class Europaquiz : Form
     {
+        /// <summary>
+        /// Instance reference for the svgDocument used and updated throughout the manipulation of the image.
+        /// </summary>
+        private Svg.SvgDocument svgDocument;
+
+
         Random random = new Random();
         int anzLänder = 0;
         int Auswahl;
         int countdown = 0;
         int[] gespielte = new int[1];//max. Größe ergibt sich eigentlich aus Schwierigkeit
+
+        
+     
         public Europaquiz()
         {
             InitializeComponent();
            // LetzteLösung.BackColor = Color.FromArgb(1,0,50,50);
         }
 
+
         private void Europaquiz_Load(object sender, EventArgs e)
         {
+            this.Bounds = Screen.PrimaryScreen.Bounds; // Formulargröße auf Größe des Bildschirms festlegen
+
+            // Textdatei öffnen, Umlaute richtig lesen
+            System.IO.StreamReader DateiLesen = new System.IO.StreamReader(@"D:\EUROPAQuiz\europaquiz\Europaquiz\Länder und Hauptsadt.txt", Encoding.Default);
+            // Solange Dateiende nicht erreicht
+            while (!DateiLesen.EndOfStream)
+            {
+                //eine Zeile aus der Textdatei lese
+                string zeile = DateiLesen.ReadLine();
+                string[] spalten = zeile.Split(';');
+            }
+
+            svgDocument = SvgDocument.Open(@"D:\EUROPAQuiz\europaquiz\Europaquiz\Europa.svg");
+
+
+            SVGParser.MaximumSize = new Size(pictureBox1.Width, pictureBox1.Height);
+
+            pictureBox1.Image = SVGParser.GetBitmapFromSVG(@"D:\EUROPAQuiz\europaquiz\Europaquiz\Europa.svg");
+
+
+            //private void TimerZumAntworten_Tick(object sender, EventArgs e)
+            //{
+            //    countdown--;
+            //    TimerZumAntwortenAnzeige.Text = countdown.ToString();
+
+            //    if (TimerZumAntwortenAnzeige.Text == "0")
+            //    {
+            //        TimerZumAntworten.Stop();
+
+            //    }
+            //}
+
+            //private void Button_starte_prüfe_Land_Click(object sender, EventArgs e)
+            //{
+            //    countdown = 10;
+            //    Button_starte_prüfe_Land.Text = "Neues Land";
+            //    TimerZumAntworten.Start();
+
+
+
+            //    bool i = false;//brake Variable
+            //    if (Button_starte_prüfe_Land.Text == "Neues Land")
+            //    {
+            //        Button_starte_prüfe_Land.Text = "Prüfe";//ein Button für zwei Funktionen
+            //        while (i == false)
+            //        {
+            //            Auswahl = random.Next(1, anzLänder);//ein Land auswählen
+            //            if (!gespielte.Contains(Auswahl))
+            //            {
+            //                //färben gelb
+            //                i = true;
+            //            }
+            //        }
+            //    }
+
+            //    else
+            //    {
+            //        string Land = tb_Land.Text;
+            //        string Hauptstadt = tb_Hauptstadt.Text;
+            //        //Land[1].Prüfeland(Land,tb_Hauptstadt);//Methode der Klasse Land
+            //    }
         }
 
+        /// <summary>
+        /// Checks if there is an image selected.
+        /// </summary>
+        /// <returns>Returns the boolean results whether an image is selected.</returns>
+        private bool ValidateFormControls()
+        {
+            if (svgDocument == null)
+            {
+                MessageBox.Show("Please select a SVG image to continue");
+                return false;
+            }
+            return true;
+        }
 
-        //private void TimerZumAntworten_Tick(object sender, EventArgs e)
-        //{
-        //    countdown--;
-        //    TimerZumAntwortenAnzeige.Text = countdown.ToString();
+        /// <summary>
+        ///  Recursive fill function to change the color of a selected node and all of its children.
+        /// </summary>
+        /// <param name="element">The current element been resolved.</param>
+        /// <param name="sourceColor">The source color to search for.</param>
+        /// <param name="replaceColor">The color to be replaced the source color with.</param>
+        private void ChangeFill(SvgElement element, Color sourceColor, Color replaceColor)
+        {
+            if (element is SvgPath)
+            {
+                if (((element as SvgPath).Fill as SvgColourServer).Colour.ToArgb() == sourceColor.ToArgb())
+                {
+                    (element as SvgPath).Fill = new SvgColourServer(replaceColor);
+                }
+            }
 
-        //    if (TimerZumAntwortenAnzeige.Text == "0")
-        //    {
-        //        TimerZumAntworten.Stop();
+            if (element.Children.Count > 0)
+            {
+                foreach (var item in element.Children)
+                {
+                    ChangeFill(item, sourceColor, replaceColor);
+                }
+            }
 
-        //    }
-        //}
+        }
+        int i = -1;
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (!ValidateFormControls())
+                return;
+            i++;
+            //for (int i=20; i<svgDocument.Children[1].Children.Count;i++)
+            {
+                ChangeFill(svgDocument.Children[1].Children[i], Color.White, Color.Red);// bestimmtes Land rot färben
+            }
+            pictureBox1.Image = svgDocument.Draw();
+        }
 
-        //private void Button_starte_prüfe_Land_Click(object sender, EventArgs e)
-        //{
-        //    countdown = 10;
-        //    Button_starte_prüfe_Land.Text = "Neues Land";
-        //    TimerZumAntworten.Start();
-
-
-
-        //    bool i = false;//brake Variable
-        //    if (Button_starte_prüfe_Land.Text == "Neues Land")
-        //    {
-        //        Button_starte_prüfe_Land.Text = "Prüfe";//ein Button für zwei Funktionen
-        //        while (i == false)
-        //        {
-        //            Auswahl = random.Next(1, anzLänder);//ein Land auswählen
-        //            if (!gespielte.Contains(Auswahl))
-        //            {
-        //                //färben gelb
-        //                i = true;
-        //            }
-        //        }
-        //    }
-
-        //    else
-        //    {
-        //        string Land = tb_Land.Text;
-        //        string Hauptstadt = tb_Hauptstadt.Text;
-        //        //Land[1].Prüfeland(Land,tb_Hauptstadt);//Methode der Klasse Land
-        //    }
-    }
-
-
-    class Land
+        class Land
         {
             //Eigenschaften
             private string Landname;
@@ -118,4 +198,4 @@ namespace Europaquiz
 
 
     }
-//}
+}
