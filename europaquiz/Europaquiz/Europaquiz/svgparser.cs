@@ -21,7 +21,7 @@ namespace Europaquiz
         /// <summary>
         /// Converts an SVG file to a Bitmap image.
         /// </summary>
-        /// <param name="@"D:\EUROPAQuiz\europaquiz\Europaquiz\Europa.svg"">The full path of the SVG image.</param>
+        /// <param name="@"D:\Europa09.04\EUROPAQuiz\europaquiz\Europaquiz\Europa.svg"">The full path of the SVG image.</param>
         /// <returns>Returns the converted Bitmap image.</returns>
         public static Bitmap GetBitmapFromSVG(string file)
         {
@@ -35,7 +35,7 @@ namespace Europaquiz
         /// <summary>
         /// Gets a SvgDocument for manipulation using the path provided.
         /// </summary>
-        /// <param name="@"D:\EUROPAQuiz\europaquiz\Europaquiz\Europa.svg"">The path of the Bitmap image.</param>
+        /// <param name="@"D:\Europa09.04\EUROPAQuiz\europaquiz\Europaquiz\Europa.svg"">The path of the Bitmap image.</param>
         /// <returns>Returns the SVG Document.</returns>
         public static SvgDocument GetSvgDocument(string file)
         {

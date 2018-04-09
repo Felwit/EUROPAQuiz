@@ -71,7 +71,7 @@
             this.Spiel_verlassen.TabIndex = 3;
             this.Spiel_verlassen.Text = "Spiel verlassen";
             this.Spiel_verlassen.UseVisualStyleBackColor = true;
-            this.Spiel_verlassen.Click += new System.EventHandler(this.Spiel_verlassen_Click);
+            this.Spiel_verlassen.Click += new System.EventHandler(this.Spiel_verlassen_Click_1);
             // 
             // Hauptmenü
             // 

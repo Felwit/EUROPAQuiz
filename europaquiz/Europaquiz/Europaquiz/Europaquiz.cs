@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Svg;
-
+using System.Speech.Recognition;
 
 namespace Europaquiz
 {
@@ -26,22 +26,23 @@ namespace Europaquiz
         int Auswahl;
         int countdown = 0;
         int[] gespielte = new int[1];//max. Größe ergibt sich eigentlich aus Schwierigkeit
+        bool click1 = true;
 
-        
-     
+
         public Europaquiz()
         {
             InitializeComponent();
-           // LetzteLösung.BackColor = Color.FromArgb(1,0,50,50);
+            // LetzteLösung.BackColor = Color.FromArgb(1,0,50,50);
         }
 
+        private SpeechRecognitionEngine spracherkennung = new SpeechRecognitionEngine();
 
         private void Europaquiz_Load(object sender, EventArgs e)
         {
             this.Bounds = Screen.PrimaryScreen.Bounds; // Formulargröße auf Größe des Bildschirms festlegen
 
             // Textdatei öffnen, Umlaute richtig lesen
-            System.IO.StreamReader DateiLesen = new System.IO.StreamReader(@"D:\EUROPAQuiz\europaquiz\Europaquiz\Länder und Hauptsadt.txt", Encoding.Default);
+            System.IO.StreamReader DateiLesen = new System.IO.StreamReader(@"D:\Europa09.04\EUROPAQuiz\europaquiz\Europaquiz\Länder und Hauptsadt.txt", Encoding.Default);
             // Solange Dateiende nicht erreicht
             while (!DateiLesen.EndOfStream)
             {
@@ -50,56 +51,26 @@ namespace Europaquiz
                 string[] spalten = zeile.Split(';');
             }
 
-            svgDocument = SvgDocument.Open(@"D:\EUROPAQuiz\europaquiz\Europaquiz\Europa.svg");
+            svgDocument = SvgDocument.Open(@"D:\Europa09.04\EUROPAQuiz\europaquiz\Europaquiz\Europa.svg");
 
 
             SVGParser.MaximumSize = new Size(pictureBox1.Width, pictureBox1.Height);
 
-            pictureBox1.Image = SVGParser.GetBitmapFromSVG(@"D:\EUROPAQuiz\europaquiz\Europaquiz\Europa.svg");
-
-
-            //private void TimerZumAntworten_Tick(object sender, EventArgs e)
-            //{
-            //    countdown--;
-            //    TimerZumAntwortenAnzeige.Text = countdown.ToString();
-
-            //    if (TimerZumAntwortenAnzeige.Text == "0")
-            //    {
-            //        TimerZumAntworten.Stop();
-
-            //    }
-            //}
-
-            //private void Button_starte_prüfe_Land_Click(object sender, EventArgs e)
-            //{
-            //    countdown = 10;
-            //    Button_starte_prüfe_Land.Text = "Neues Land";
-            //    TimerZumAntworten.Start();
-
-
-
-            //    bool i = false;//brake Variable
-            //    if (Button_starte_prüfe_Land.Text == "Neues Land")
-            //    {
-            //        Button_starte_prüfe_Land.Text = "Prüfe";//ein Button für zwei Funktionen
-            //        while (i == false)
-            //        {
-            //            Auswahl = random.Next(1, anzLänder);//ein Land auswählen
-            //            if (!gespielte.Contains(Auswahl))
-            //            {
-            //                //färben gelb
-            //                i = true;
-            //            }
-            //        }
-            //    }
-
-            //    else
-            //    {
-            //        string Land = tb_Land.Text;
-            //        string Hauptstadt = tb_Hauptstadt.Text;
-            //        //Land[1].Prüfeland(Land,tb_Hauptstadt);//Methode der Klasse Land
-            //    }
+            pictureBox1.Image = SVGParser.GetBitmapFromSVG(@"D:\Europa09.04\EUROPAQuiz\europaquiz\Europaquiz\Europa.svg");
         }
+
+        //private void TimerZumAntworten_Tick(object sender, EventArgs e)
+        //{
+        //    countdown--;
+        //    TimerZumAntwortenAnzeige.Text = countdown.ToString();
+
+        //    if (TimerZumAntwortenAnzeige.Text == "0")
+        //    {
+        //        TimerZumAntworten.Stop();
+
+        //    }
+        //}
+
 
         /// <summary>
         /// Checks if there is an image selected.
@@ -196,6 +167,72 @@ namespace Europaquiz
             }
         }
 
+        private void Button_prüfe_Land_neu_Click(object sender, EventArgs e)
+        {
+            if (click1 == true)
+            {
+                spracherkennung.SetInputToDefaultAudioDevice();
+                spracherkennung.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(spracherkennung_SpeechRecognized);
 
+
+
+                try
+                {
+                    //Wörter laden
+                    Grammar grammar = new Grammar("grammar.xml", "LuS");
+                    spracherkennung.UnloadAllGrammars();
+                    spracherkennung.LoadGrammar(grammar);
+
+                    //Erkennung starten
+                    spracherkennung.RecognizeAsync(RecognizeMode.Multiple);
+                }
+                catch (Exception a)
+                {
+                    MessageBox.Show("Exception aufgetreten: " + a.Message);
+                    Application.Exit();
+                }
+                click1 = false;
+            }
+
+        }
+        //countdown = 10;
+        //Button_starte_prüfe_Land.Text = "Neues Land";
+        //TimerZumAntworten.Start();
+
+
+
+        //bool i = false;//brake Variable
+        //if (Button_starte_prüfe_Land.Text == "Neues Land")
+        //{
+        //    Button_starte_prüfe_Land.Text = "Prüfe";//ein Button für zwei Funktionen
+        //    while (i == false)
+        //    {
+        //        Auswahl = random.Next(1, anzLänder);//ein Land auswählen
+        //        if (!gespielte.Contains(Auswahl))
+        //        {
+        //            //färben gelb
+        //            i = true;
+        //        }
+        //    }
+        //}
+
+        //else
+        //{
+        //    string Land = tb_Land.Text;
+        //    string Hauptstadt = tb_Hauptstadt.Text;
+        //    //Land[1].Prüfeland(Land,tb_Hauptstadt);//Methode der Klasse Land
+        //}
+
+        void spracherkennung_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        {
+            MessageBox.Show(e.Result.Text);
+            //foreach (RecognizedWordUnit wort in e.Result.Words)
+            //{
+            //    listBox1.Items.Add(wort.Text);
+            //}
+        }
     }
+
+
 }
+

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Europaquiz
 {
     public partial class Hauptmenü : Form
@@ -20,12 +21,6 @@ namespace Europaquiz
 
 
 
-        
-        private void Spiel_verlassen_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void Neues_Spiel_Click(object sender, EventArgs e)
         {
             Europaquiz f = new Europaquiz();
@@ -36,6 +31,12 @@ namespace Europaquiz
         private void Einstellungen_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Spiel_verlassen_Click_1(object sender, EventArgs e)
+        {
+            Verlassen_bestätigen v = new Verlassen_bestätigen();
+            v.Show();
         }
     }
 }

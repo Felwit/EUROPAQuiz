@@ -54,6 +54,7 @@
             this.Button_prüfe_Land_neu.TabIndex = 0;
             this.Button_prüfe_Land_neu.Text = "Nächstes Land";
             this.Button_prüfe_Land_neu.UseVisualStyleBackColor = true;
+            this.Button_prüfe_Land_neu.Click += new System.EventHandler(this.Button_prüfe_Land_neu_Click);
             // 
             // tb_Land
             // 
