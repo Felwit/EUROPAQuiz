@@ -40,6 +40,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.Ergebnis_speichern = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -174,11 +175,22 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(275, 580);
             this.tableLayoutPanel3.TabIndex = 11;
             // 
+            // Ergebnis_speichern
+            // 
+            this.Ergebnis_speichern.Location = new System.Drawing.Point(304, 280);
+            this.Ergebnis_speichern.Name = "Ergebnis_speichern";
+            this.Ergebnis_speichern.Size = new System.Drawing.Size(264, 110);
+            this.Ergebnis_speichern.TabIndex = 12;
+            this.Ergebnis_speichern.Text = "Ergebnis speichern";
+            this.Ergebnis_speichern.UseVisualStyleBackColor = true;
+            this.Ergebnis_speichern.Click += new System.EventHandler(this.Ergebnis_speichern_Click);
+            // 
             // Europaquiz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 611);
+            this.Controls.Add(this.Ergebnis_speichern);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.pictureBox1);
@@ -207,5 +219,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Button Ergebnis_speichern;
     }
 }

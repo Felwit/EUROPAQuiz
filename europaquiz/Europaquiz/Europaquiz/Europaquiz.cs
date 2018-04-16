@@ -231,6 +231,11 @@ namespace Europaquiz
             //    listBox1.Items.Add(wort.Text);
             //}
         }
+
+        private void Ergebnis_speichern_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

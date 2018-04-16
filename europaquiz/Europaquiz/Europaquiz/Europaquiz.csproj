@@ -33,6 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\..\..\Desktop\itextsharp\itextsharp-dll-core\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.pdfa">
+      <HintPath>..\..\..\..\..\..\Desktop\itextsharp\itextsharp-dll-pdfa\itextsharp.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>..\..\..\..\..\..\Desktop\itextsharp\itextsharp-dll-xtra\itextsharp.xtra.dll</HintPath>
+    </Reference>
     <Reference Include="Svg, Version=2.2.1.39233, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
       <HintPath>..\packages\Svg.2.3.0\lib\net35\Svg.dll</HintPath>
       <Private>True</Private>
@@ -51,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ergebnis Speichern.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ergebnis Speichern.Designer.cs">
+      <DependentUpon>Ergebnis Speichern.cs</DependentUpon>
+    </Compile>
     <Compile Include="Europaquiz.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +93,9 @@
     <Compile Include="Verlassen bestätigen.Designer.cs">
       <DependentUpon>Verlassen bestätigen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Ergebnis Speichern.resx">
+      <DependentUpon>Ergebnis Speichern.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Europaquiz.resx">
       <DependentUpon>Europaquiz.cs</DependentUpon>
     </EmbeddedResource>
