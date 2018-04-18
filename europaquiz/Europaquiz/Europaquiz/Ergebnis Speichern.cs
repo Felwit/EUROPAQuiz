@@ -68,7 +68,7 @@ namespace Europaquiz
             iTextSharp.text.Font bigunderline = FontFactory.GetFont("Arial", 18, iTextSharp.text.Font.UNDERLINE);
 
             pdfdoc.Add(new Paragraph(""));
-            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(@"C:\Users\FELiX\Documents\visual studio 2015\Projects\WindowsFormsApplication6\WindowsFormsApplication6\Logoneu.jpg");
+            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(Application.StartupPath + @"\Logoneu.jpg");
             logo.ScalePercent(7);
             logo.SetAbsolutePosition(0, 765);
 
@@ -95,11 +95,11 @@ namespace Europaquiz
             pdfdoc.Add(new Paragraph("Ihr Ergebnis als Bild:", standardbold));
 
             //read svg document from file system
-            var svgDocument = SvgDocument.Open(@"C:\Users\FELiX\test\EUROPAQuiz\europaquiz\Europaquiz\Europa.svg");
+            var svgDocument = SvgDocument.Open(Application.StartupPath + @"\Europa.svg");
             var bitmap = svgDocument.Draw();
             //save converted svg to file system
-            bitmap.Save(@"C:\Users\FELiX\test\EUROPAQuiz\europaquiz\Europaquiz\Europa.png", ImageFormat.Png);
-            iTextSharp.text.Image Karte = iTextSharp.text.Image.GetInstance(@"C:\Users\FELiX\test\EUROPAQuiz\europaquiz\Europaquiz\Europa.png");
+            bitmap.Save(Application.StartupPath + @"\Europa.png", ImageFormat.Png);
+            iTextSharp.text.Image Karte = iTextSharp.text.Image.GetInstance(Application.StartupPath + @"\Europa.png");
             Karte.ScaleToFit(pdfdoc.PageSize);
             Karte.SetAbsolutePosition(0, 90);
             pdfdoc.Add(Karte);
@@ -129,6 +129,11 @@ namespace Europaquiz
 
             CreatePDF();
             MessageBox.Show("Erstellen erfolgreich");
+        }
+
+        private void Ergebnis_Speichern_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

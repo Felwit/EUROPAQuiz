@@ -125,6 +125,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "Ergebnis_Speichern";
             this.Text = "Ergebnis_Speichern";
+            this.Load += new System.EventHandler(this.Ergebnis_Speichern_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

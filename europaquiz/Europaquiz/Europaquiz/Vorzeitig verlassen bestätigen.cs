@@ -10,26 +10,28 @@ using System.Windows.Forms;
 
 namespace Europaquiz
 {
-    public partial class Verlassen_bestätigen : Form
+    public partial class Vorzeitig_verlassen_bestätigen : Form
     {
-        public Verlassen_bestätigen()
+        public Vorzeitig_verlassen_bestätigen()
         {
             InitializeComponent();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void Kontrollfrage_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Nein_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Ja_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            
+           // Europaquiz.Close(); wie?
         }
     }
 }

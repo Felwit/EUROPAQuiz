@@ -9,25 +9,29 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Svg;
 using System.Speech.Recognition;
+using System.IO;
 
 namespace Europaquiz
 {
 
     public partial class Europaquiz : Form
     {
-        /// <summary>
-        /// Instance reference for the svgDocument used and updated throughout the manipulation of the image.
-        /// </summary>
-        private Svg.SvgDocument svgDocument;
-
-
+        string[] SVG = File.ReadAllLines(Application.StartupPath + @"\Europa.svg");
+        int[] LH = new int[47]; // Die Anzahl der Länder mit Array
+        int Länder = 0;
         Random random = new Random();
         int anzLänder = 0;
         int Auswahl;
         int countdown = 0;
         int[] gespielte = new int[1];//max. Größe ergibt sich eigentlich aus Schwierigkeit
         bool click1 = true;
+        string[] zeilen;
+        int schwierigkeit;
+        int schwierigkeitL = 0;
+        string istland;
+        string isths;
 
+        private SpeechRecognitionEngine spracherkennung = new SpeechRecognitionEngine();
 
         public Europaquiz()
         {
@@ -35,28 +39,19 @@ namespace Europaquiz
             // LetzteLösung.BackColor = Color.FromArgb(1,0,50,50);
         }
 
-        private SpeechRecognitionEngine spracherkennung = new SpeechRecognitionEngine();
-
         private void Europaquiz_Load(object sender, EventArgs e)
         {
             this.Bounds = Screen.PrimaryScreen.Bounds; // Formulargröße auf Größe des Bildschirms festlegen
 
-            // Textdatei öffnen, Umlaute richtig lesen
-            System.IO.StreamReader DateiLesen = new System.IO.StreamReader(@"D:\Europa09.04\EUROPAQuiz\europaquiz\Europaquiz\Länder und Hauptsadt.txt", Encoding.Default);
-            // Solange Dateiende nicht erreicht
-            while (!DateiLesen.EndOfStream)
+            File.WriteAllLines(Application.StartupPath + @"\NeueEuropa.svg", SVG);// Soll darauf zugreifen
+            webBrowser1.Navigate(Application.StartupPath + @"\NeueEuropa.svg");
+
+            for (int i = 0; i < LH.Length; i++)
             {
-                //eine Zeile aus der Textdatei lese
-                string zeile = DateiLesen.ReadLine();
-                string[] spalten = zeile.Split(';');
+                LH[i] = -1;// Damit Array nicht mit 0 gefüllt werden soll 
             }
 
-            svgDocument = SvgDocument.Open(@"D:\Europa09.04\EUROPAQuiz\europaquiz\Europaquiz\Europa.svg");
 
-
-            SVGParser.MaximumSize = new Size(pictureBox1.Width, pictureBox1.Height);
-
-            pictureBox1.Image = SVGParser.GetBitmapFromSVG(@"D:\Europa09.04\EUROPAQuiz\europaquiz\Europaquiz\Europa.svg");
         }
 
         //private void TimerZumAntworten_Tick(object sender, EventArgs e)
@@ -72,57 +67,8 @@ namespace Europaquiz
         //}
 
 
-        /// <summary>
-        /// Checks if there is an image selected.
-        /// </summary>
-        /// <returns>Returns the boolean results whether an image is selected.</returns>
-        private bool ValidateFormControls()
-        {
-            if (svgDocument == null)
-            {
-                MessageBox.Show("Please select a SVG image to continue");
-                return false;
-            }
-            return true;
-        }
 
-        /// <summary>
-        ///  Recursive fill function to change the color of a selected node and all of its children.
-        /// </summary>
-        /// <param name="element">The current element been resolved.</param>
-        /// <param name="sourceColor">The source color to search for.</param>
-        /// <param name="replaceColor">The color to be replaced the source color with.</param>
-        private void ChangeFill(SvgElement element, Color sourceColor, Color replaceColor)
-        {
-            if (element is SvgPath)
-            {
-                if (((element as SvgPath).Fill as SvgColourServer).Colour.ToArgb() == sourceColor.ToArgb())
-                {
-                    (element as SvgPath).Fill = new SvgColourServer(replaceColor);
-                }
-            }
 
-            if (element.Children.Count > 0)
-            {
-                foreach (var item in element.Children)
-                {
-                    ChangeFill(item, sourceColor, replaceColor);
-                }
-            }
-
-        }
-        int i = -1;
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            if (!ValidateFormControls())
-                return;
-            i++;
-            //for (int i=20; i<svgDocument.Children[1].Children.Count;i++)
-            {
-                ChangeFill(svgDocument.Children[1].Children[i], Color.White, Color.Red);// bestimmtes Land rot färben
-            }
-            pictureBox1.Image = svgDocument.Draw();
-        }
 
         class Land
         {
@@ -167,22 +113,19 @@ namespace Europaquiz
             }
         }
 
+
         private void Button_prüfe_Land_neu_Click(object sender, EventArgs e)
         {
             if (click1 == true)
             {
                 spracherkennung.SetInputToDefaultAudioDevice();
                 spracherkennung.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(spracherkennung_SpeechRecognized);
-
-
-
                 try
                 {
                     //Wörter laden
                     Grammar grammar = new Grammar("grammar.xml", "LuS");
                     spracherkennung.UnloadAllGrammars();
                     spracherkennung.LoadGrammar(grammar);
-
                     //Erkennung starten
                     spracherkennung.RecognizeAsync(RecognizeMode.Multiple);
                 }
@@ -192,9 +135,47 @@ namespace Europaquiz
                     Application.Exit();
                 }
                 click1 = false;
+            // Text Datei einfügen 
+            zeilen = File.ReadAllLines(Application.StartupPath + @"\Länder und Hauptstadt.txt");
+
             }
 
+
+
+            int Land = -1;
+
+            do
+            {
+                Land = random.Next(0, zeilen.Length);// Anderes Land nehmen wenn das eine Land schon vor kam
+                istland = zeilen[Land].Split(';')[0];// 0 Weil der bei 0 anfängt zu zählen und ; weil der dort sich von HP trennt.
+                isths = zeilen[Land].Split(';')[1];
+                schwierigkeitL= Convert.ToInt32( zeilen[Land].Split(';')[2]);
+            } while (LH.Contains(Land) &&  schwierigkeitL > schwierigkeit); // Damit kein Land nochmal vor kommt
+
+            LH[Länder] = Land;// Land wird auf dem Wert gesetzt welches dann vorkommt
+            Länder++;// Die Werte werden mehr
+
+
+            
+
+            for (int i = 24; i < SVG.Length; i++)// Die Zeile durch gehen
+            {
+                if (SVG[i].Contains(istland)) // Das was in der SVG steht soll in Label1 stehen
+                {
+                    SVG[i] = SVG[i].Replace("fil1", "fil4");
+                }
+            }
+
+            File.WriteAllLines(Application.StartupPath + @"\NeueEuropa.svg", SVG); // Soll das in diesem Namen speichern
+
+            webBrowser1.Refresh();// Wb neu Laden wenn was ändert
+
+
         }
+
+
+
+
         //countdown = 10;
         //Button_starte_prüfe_Land.Text = "Neues Land";
         //TimerZumAntworten.Start();
@@ -234,10 +215,17 @@ namespace Europaquiz
 
         private void Ergebnis_speichern_Click(object sender, EventArgs e)
         {
+            Ergebnis_Speichern es = new Ergebnis_Speichern();
+            es.Show();
+        }
 
+        private void Vorzeitig_beenden_Click(object sender, EventArgs e)
+        {
+            Vorzeitig_verlassen_bestätigen vb = new Vorzeitig_verlassen_bestätigen();
+            vb.Show();
         }
     }
-
-
 }
+
+
 
