@@ -37,13 +37,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tb_Hauptstadt = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.Zoom = new System.Windows.Forms.PictureBox();
+            this.Vorzeitig_beenden = new System.Windows.Forms.Button();
             this.Ergebnis_speichern = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.Zoom = new System.Windows.Forms.PictureBox();
-            this.Vorzeitig_beenden = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoom)).BeginInit();
             this.SuspendLayout();
@@ -140,6 +141,7 @@
             this.tableLayoutPanel3.Controls.Add(this.Button_prüfe_Land_neu, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.Zoom, 1, 5);
             this.tableLayoutPanel3.Controls.Add(this.Vorzeitig_beenden, 2, 5);
+            this.tableLayoutPanel3.Controls.Add(this.label6, 1, 4);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(426, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -154,9 +156,28 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(368, 611);
             this.tableLayoutPanel3.TabIndex = 11;
             // 
+            // Zoom
+            // 
+            this.Zoom.Location = new System.Drawing.Point(93, 248);
+            this.Zoom.Name = "Zoom";
+            this.Zoom.Size = new System.Drawing.Size(131, 122);
+            this.Zoom.TabIndex = 8;
+            this.Zoom.TabStop = false;
+            // 
+            // Vorzeitig_beenden
+            // 
+            this.Vorzeitig_beenden.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Vorzeitig_beenden.Location = new System.Drawing.Point(230, 585);
+            this.Vorzeitig_beenden.Name = "Vorzeitig_beenden";
+            this.Vorzeitig_beenden.Size = new System.Drawing.Size(135, 23);
+            this.Vorzeitig_beenden.TabIndex = 9;
+            this.Vorzeitig_beenden.Text = "Vorzeitig beenden";
+            this.Vorzeitig_beenden.UseVisualStyleBackColor = true;
+            this.Vorzeitig_beenden.Click += new System.EventHandler(this.Vorzeitig_beenden_Click);
+            // 
             // Ergebnis_speichern
             // 
-            this.Ergebnis_speichern.Location = new System.Drawing.Point(236, 183);
+            this.Ergebnis_speichern.Location = new System.Drawing.Point(201, 125);
             this.Ergebnis_speichern.Name = "Ergebnis_speichern";
             this.Ergebnis_speichern.Size = new System.Drawing.Size(245, 110);
             this.Ergebnis_speichern.TabIndex = 12;
@@ -200,24 +221,14 @@
             this.label5.TabIndex = 16;
             this.label5.Text = "label5";
             // 
-            // Zoom
+            // label6
             // 
-            this.Zoom.Location = new System.Drawing.Point(93, 248);
-            this.Zoom.Name = "Zoom";
-            this.Zoom.Size = new System.Drawing.Size(131, 122);
-            this.Zoom.TabIndex = 8;
-            this.Zoom.TabStop = false;
-            // 
-            // Vorzeitig_beenden
-            // 
-            this.Vorzeitig_beenden.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Vorzeitig_beenden.Location = new System.Drawing.Point(230, 585);
-            this.Vorzeitig_beenden.Name = "Vorzeitig_beenden";
-            this.Vorzeitig_beenden.Size = new System.Drawing.Size(135, 23);
-            this.Vorzeitig_beenden.TabIndex = 9;
-            this.Vorzeitig_beenden.Text = "Vorzeitig beenden";
-            this.Vorzeitig_beenden.UseVisualStyleBackColor = true;
-            this.Vorzeitig_beenden.Click += new System.EventHandler(this.Vorzeitig_beenden_Click);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(93, 196);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "label6";
             // 
             // Europaquiz
             // 
@@ -261,5 +272,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox Zoom;
         private System.Windows.Forms.Button Vorzeitig_beenden;
+        private System.Windows.Forms.Label label6;
     }
 }

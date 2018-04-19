@@ -12,16 +12,12 @@ namespace Europaquiz
 {
     public partial class Einstellungen : Form
     {
-
         public Einstellungen()
         {
             InitializeComponent();
             Schwierigkeitsbox.SelectedItem = "Anfänger";        //Standardauswahl
             Eingabe_Artbox.SelectedItem = "Text";
-
-
         }
-
 
         public void Einstellungen_Load(object sender, EventArgs e)
         {
@@ -31,11 +27,17 @@ namespace Europaquiz
 
         public void Speichern_Click(object sender, EventArgs e)
         {
+
             string Schwierigkeitsgrad = Schwierigkeitsbox.Text;        // NOCH NICHT FERTIG
+            string Eingabeart = Eingabe_Artbox.Text;
 
-            string Eingabe_Art = Eingabe_Artbox.Text;
+            Europaquiz.Einstellungen l = new Europaquiz.Einstellungen(Schwierigkeitsgrad, Eingabeart);
 
-            this.Close();
+
+
+            //string Eingabe_Art = Eingabe_Artbox.Text;
+
+            //this.Close();
         }
     }
-}
+  }

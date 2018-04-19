@@ -30,6 +30,8 @@ namespace Europaquiz
         int schwierigkeitL = 0;
         string istland;
         string isths;
+       
+
 
         private SpeechRecognitionEngine spracherkennung = new SpeechRecognitionEngine();
 
@@ -37,6 +39,8 @@ namespace Europaquiz
         {
             InitializeComponent();
             // LetzteLösung.BackColor = Color.FromArgb(1,0,50,50);
+
+            
         }
 
         private void Europaquiz_Load(object sender, EventArgs e)
@@ -67,10 +71,27 @@ namespace Europaquiz
         //}
 
 
+        public class Einstellungen
+        {
+
+            //Einstellungen Schwieriegkeit und Eingabe Art
+            string Schwierigkeitsgrad;
+            string Spracheingabe;
 
 
+            public Einstellungen(string Schwierigkeitsgrad, string Spracheingabe)
+            {
+                this.Schwierigkeitsgrad = Schwierigkeitsgrad;
+                this.Spracheingabe = Spracheingabe;
+            }
 
-        class Land
+            public void setSchwierigkeit(string Schwierigkeitsgrad) { this.Schwierigkeitsgrad = Schwierigkeitsgrad; }
+            public string getSchwierigkeit() { return this.Schwierigkeitsgrad; }
+            
+        }
+
+
+        public class Land
         {
             //Eigenschaften
             private string Landname;
@@ -131,6 +152,9 @@ namespace Europaquiz
                 }
                 catch (Exception a)
                 {
+
+                    
+
                     MessageBox.Show("Exception aufgetreten: " + a.Message);
                     Application.Exit();
                 }
