@@ -30,10 +30,10 @@
         {
             this.Speichern = new System.Windows.Forms.Button();
             this.Schwierigkeit = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Schwierigkeitsbox = new System.Windows.Forms.ComboBox();
             this.info_Schwierigkeit = new System.Windows.Forms.Button();
             this.Eing_Art = new System.Windows.Forms.Label();
-            this.Eingabe_Art = new System.Windows.Forms.ComboBox();
+            this.Eingabe_Artbox = new System.Windows.Forms.ComboBox();
             this.info_Eing_art = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -56,17 +56,18 @@
             this.Schwierigkeit.TabIndex = 1;
             this.Schwierigkeit.Text = "Schwierigkeit";
             // 
-            // comboBox1
+            // Schwierigkeitsbox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.Schwierigkeitsbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Schwierigkeitsbox.FormattingEnabled = true;
+            this.Schwierigkeitsbox.Items.AddRange(new object[] {
             "Anfänger",
             "Fortgeschritten",
             "Profi"});
-            this.comboBox1.Location = new System.Drawing.Point(111, 27);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 2;
+            this.Schwierigkeitsbox.Location = new System.Drawing.Point(111, 27);
+            this.Schwierigkeitsbox.Name = "Schwierigkeitsbox";
+            this.Schwierigkeitsbox.Size = new System.Drawing.Size(121, 21);
+            this.Schwierigkeitsbox.TabIndex = 2;
             // 
             // info_Schwierigkeit
             // 
@@ -88,16 +89,17 @@
             this.Eing_Art.TabIndex = 4;
             this.Eing_Art.Text = "Eingabe Art";
             // 
-            // Eingabe_Art
+            // Eingabe_Artbox
             // 
-            this.Eingabe_Art.FormattingEnabled = true;
-            this.Eingabe_Art.Items.AddRange(new object[] {
+            this.Eingabe_Artbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Eingabe_Artbox.FormattingEnabled = true;
+            this.Eingabe_Artbox.Items.AddRange(new object[] {
             "Microfon",
             "Text"});
-            this.Eingabe_Art.Location = new System.Drawing.Point(111, 73);
-            this.Eingabe_Art.Name = "Eingabe_Art";
-            this.Eingabe_Art.Size = new System.Drawing.Size(121, 21);
-            this.Eingabe_Art.TabIndex = 5;
+            this.Eingabe_Artbox.Location = new System.Drawing.Point(111, 73);
+            this.Eingabe_Artbox.Name = "Eingabe_Artbox";
+            this.Eingabe_Artbox.Size = new System.Drawing.Size(121, 21);
+            this.Eingabe_Artbox.TabIndex = 5;
             // 
             // info_Eing_art
             // 
@@ -115,14 +117,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(281, 156);
             this.Controls.Add(this.info_Eing_art);
-            this.Controls.Add(this.Eingabe_Art);
+            this.Controls.Add(this.Eingabe_Artbox);
             this.Controls.Add(this.Eing_Art);
             this.Controls.Add(this.info_Schwierigkeit);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.Schwierigkeitsbox);
             this.Controls.Add(this.Schwierigkeit);
             this.Controls.Add(this.Speichern);
             this.Name = "Einstellungen";
             this.Text = "Einstellungen";
+            this.Load += new System.EventHandler(this.Einstellungen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,10 +135,10 @@
 
         private System.Windows.Forms.Button Speichern;
         private System.Windows.Forms.Label Schwierigkeit;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox Schwierigkeitsbox;
         private System.Windows.Forms.Button info_Schwierigkeit;
         private System.Windows.Forms.Label Eing_Art;
-        private System.Windows.Forms.ComboBox Eingabe_Art;
+        private System.Windows.Forms.ComboBox Eingabe_Artbox;
         private System.Windows.Forms.Button info_Eing_art;
     }
 }

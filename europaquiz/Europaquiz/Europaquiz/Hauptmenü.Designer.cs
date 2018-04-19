@@ -84,6 +84,7 @@
             this.Controls.Add(this.Neues_Spiel);
             this.Name = "Hauptmenü";
             this.Text = "Hauptmenü";
+            this.Load += new System.EventHandler(this.Hauptmenü_Load);
             this.ResumeLayout(false);
 
         }

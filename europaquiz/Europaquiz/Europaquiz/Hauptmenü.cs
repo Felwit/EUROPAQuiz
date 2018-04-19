@@ -30,13 +30,19 @@ namespace Europaquiz
 
         private void Einstellungen_Click(object sender, EventArgs e)
         {
-
+            Einstellungen E = new Einstellungen();
+            E.Show();
         }
 
         private void Spiel_verlassen_Click_1(object sender, EventArgs e)
         {
             Verlassen_bestätigen v = new Verlassen_bestätigen();
             v.Show();
+        }
+
+        private void Hauptmenü_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
