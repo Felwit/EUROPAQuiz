@@ -15,7 +15,7 @@ namespace Europaquiz
        bool micophon=true;
         string art;
         int schwierigkeit=2;
-
+        
         public Einstellungen()
         {
             InitializeComponent();
@@ -33,7 +33,6 @@ namespace Europaquiz
             Eingabe_Artbox.SelectedItem = Eingabe_Artbox;
         }
 
-        
 
         private void Speichern_Click_1(object sender, EventArgs e)
         {
@@ -55,9 +54,8 @@ namespace Europaquiz
                 schwierigkeit = 3;
             else
                 schwierigkeit = 2;
-
-
-            this.Close();
+            //EinstellungenQuiz EinstQ = new EinstellungenQuiz(micophon,schwierigkeit);
+                this.Close();
         }
 
         private void info_Schwierigkeit_Click(object sender, EventArgs e)
@@ -68,8 +66,23 @@ namespace Europaquiz
 
         private void info_Eing_art_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Wählen Sie ihre Eingabemethode.Wenn Sie kein Mikrofon besitzen oder kein Mikrofon angeschlossen hben wählen Sie 'Text'.");
+            MessageBox.Show("Wählen Sie ihre Eingabemethode.Wenn Sie kein Mikrofon besitzen oder kein Mikrofon angeschlossen haben wählen Sie 'Text'.");
         }
         
     }
-  }
+    public class EinstellungenQuiz
+    {
+
+        //Einstellungen Schwieriegkeit und Eingabe Art
+
+        public static int Schwierigkeitsgrad { get; set; }
+        public static bool Spracheingabe { get; set; }
+
+        public EinstellungenQuiz(bool Spracheingabe, int Schwierigkeitsgrad)
+        {
+            EinstellungenQuiz.Schwierigkeitsgrad = Schwierigkeitsgrad;
+            EinstellungenQuiz.Spracheingabe = Spracheingabe;
+        }
+
+    }
+}

@@ -20,14 +20,16 @@ namespace Europaquiz
         int[] LH = new int[48]; // Die Anzahl der Länder mit Array
         int Länder = 0;
         Random random = new Random();
-        int anzLänder = 0;
-        int Auswahl;
-        int countdown = 0;
-        int[] gespielte = new int[1];//max. Größe ergibt sich eigentlich aus Schwierigkeit
+        //int anzLänder = 0;
+        //int Auswahl;
+        //int countdown = 0;
+        //int[] gespielte = new int[1];//max. Größe ergibt sich eigentlich aus Schwierigkeit
         Land[] LänderListe = new Land[2];
         string[] zeilen;
-        int schwierigkeit;
-        int schwierigkeitL = 0;
+        
+        int schwierigkeit = EinstellungenQuiz.Schwierigkeitsgrad;
+        bool EingabeArt = EinstellungenQuiz.Spracheingabe;
+        int schwierigkeitL =0;
         string istland;
         string isths;
         bool click1 = true;
@@ -38,7 +40,7 @@ namespace Europaquiz
         public Europaquiz()
         {
             InitializeComponent();
-            // LetzteLösung.BackColor = Color.FromArgb(1,0,50,50);
+            
 
 
         }
@@ -72,24 +74,7 @@ namespace Europaquiz
         //}
 
 
-        public class Einstellungen
-        {
-
-            //Einstellungen Schwieriegkeit und Eingabe Art
-            string Schwierigkeitsgrad;
-            string Spracheingabe;
-
-
-            public Einstellungen(string Schwierigkeitsgrad, string Spracheingabe)
-            {
-                this.Schwierigkeitsgrad = Schwierigkeitsgrad;
-                this.Spracheingabe = Spracheingabe;
-            }
-
-            public void setSchwierigkeit(string Schwierigkeitsgrad) { this.Schwierigkeitsgrad = Schwierigkeitsgrad; }
-            public string getSchwierigkeit() { return this.Schwierigkeitsgrad; }
-
-        }
+        
 
 
         public class Land
@@ -334,10 +319,23 @@ namespace Europaquiz
             else
             { }
         }
+    }
+    public class PunktE
+    {
+
+
+        public static int maxpunkte { get; set; }
+        public static int punkte { get; set; }
+
+        public PunktE(int maxpunkte, int punkte)
+        {
+            PunktE.maxpunkte = maxpunkte;
+            PunktE.punkte = punkte;
+        }
 
     }
-    }
 
-
+}
+    
 
 

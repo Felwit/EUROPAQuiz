@@ -22,6 +22,7 @@ namespace Europaquiz
         string Nachname;
         string Vorname;
 
+
         public Ergebnis_Speichern()
         {
             InitializeComponent();
@@ -85,7 +86,7 @@ namespace Europaquiz
             pdfdoc.Add(CreateParagraph($"Ausgestellt für:{Vorname}{Name} ", standard));
             pdfdoc.Add(CreateParagraph($"Das Quiz wurde am {DateTime.Now.ToLongDateString()} absolviert.", standard));
             pdfdoc.Add(AddEmptyParagraph(10));
-            pdfdoc.Add(CreateParagraph($"{""} hat Punkte {""} erieicht.", standard));
+            pdfdoc.Add(CreateParagraph($"{Vorname}{Name} hat {PunktE.punkte} Punkte von {PunktE.maxpunkte} Punkten erieicht.", standard));
 
             pdfdoc.Add(AddEmptyParagraph(20));
            
