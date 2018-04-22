@@ -47,11 +47,11 @@ namespace Europaquiz
             }
         }
 
-        private static void CreatePDF(string Name, string Vorname)
+        private static void CreatePDF(string Name, string Vorname, string pfad)
         {
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format(@"Chunk\{0}.pdf", Guid.NewGuid()));
 
-            PdfWriter writer = PdfWriter.GetInstance(pdfdoc, new FileStream(@"C:\Users\FELiX\Desktop\test2.pdf", FileMode.Create));
+            PdfWriter writer = PdfWriter.GetInstance(pdfdoc, new FileStream(pfad, FileMode.Create));
             writer.PageEvent = new Footer();
             pdfdoc.Open();
 
@@ -126,7 +126,17 @@ namespace Europaquiz
             pdfdoc.SetMargins(50, 50, 50, 50);
             Name = NameTB.Text;
             Vorname = VornameTB.Text;
-            CreatePDF(Name,Vorname);
+            SaveFileDialog sfd = new SaveFileDialog();
+            string sfdname = saveFileDialog1.FileName;
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                Path.GetFullPath(sfd.FileName);
+            }
+
+            string pfad =  Path.GetFullPath(sfd.FileName+".pdf");
+
+
+            CreatePDF(Name,Vorname,pfad);
             Application.Restart();
 
         }

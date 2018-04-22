@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.NameTB = new System.Windows.Forms.TextBox();
             this.VornameTB = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Info = new System.Windows.Forms.Label();
             this.erstellen = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // NameTB
@@ -92,11 +91,6 @@
             this.erstellen.Visible = false;
             this.erstellen.Click += new System.EventHandler(this.erstellen_Click);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // Ergebnis_Speichern
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,6 +117,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label Info;
         private System.Windows.Forms.Button erstellen;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
