@@ -1,0 +1,100 @@
+<grammar xmlns="http://www.w3.org/2001/06/grammar"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.w3.org/2001/06/grammar
+                             http://www.w3.org/TR/speech-grammar/grammar.xsd"
+         xml:lang="de-DE" version="1.0">
+  <rule id="LuS" scope="public">
+    <one-of>
+		<item>Andorra</item>
+		<item>Andorra la Vella</item>
+		<item>Belgien</item>
+		<item>Brüssel</item>
+		<item>Bosnien</item>
+		<item>Sarajevo</item>
+		<item>Bulgarien</item>
+		<item>Sofia</item>
+		<item>Deutschland</item>
+		<item>Berlin</item>
+		<item>Dänemark</item>
+		<item>Kopenhagen</item>
+		<item>Estland</item>
+		<item>Tallinn</item>
+		<item>Finnland</item>
+		<item>Helsinki</item>
+		<item>Frankreich</item>
+		<item>Paris</item>
+		<item>Griechenland</item>
+		<item>Athen</item>
+		<item>Irland</item>
+		<item>Dublin</item>
+		<item>Island</item>
+		<item>Reykjavík</item>
+		<item>Italien</item>
+		<item>Rom</item>
+		<item>Kroatien</item>
+		<item>Zagreb</item>
+		<item>Lettland</item>
+		<item>Riga</item>
+		<item>Liechtenstein</item>
+		<item>Vaduz</item>
+		<item>Litauen</item>
+		<item>Vilnius</item>
+		<item>Luxemburg</item>
+		<item>Malta</item>
+		<item>Valletta</item>
+		<item>Mazedonien</item>
+		<item>Skopje</item>
+		<item>Moldawien</item>
+		<item>Kischinau</item>
+		<item>Monaco</item>
+		<item>Montenegro</item>
+		<item>Podgorica</item>
+		<item>Niederlande</item>
+		<item>Amsterdam</item>
+		<item>Norwegen</item>
+		<item>Oslo</item>
+		<item>Österreich</item>
+		<item>Wien</item>
+		<item>Polen</item>
+		<item>Warschau</item>
+		<item>Portugal</item>
+		<item>Lissabon</item>
+		<item>Rumänien</item>
+		<item>Bukarest</item><!-- test-->
+		<item>Russland</item>
+		<item>Moskau</item>
+		<item>San Marino</item>
+		<item>Schweden</item>
+		<item>Stockholm</item>
+		<item>Schweiz</item>
+		<item>Bern</item>
+		<item>Serbien</item>
+		<item>Belgrad</item>
+		<item>Slowakei</item>
+		<item>Bratislava</item><!-- test-->
+		<item>Slowenien</item>
+		<item>Ljubljana</item> <!-- test-->
+		<item>Spanien</item>
+		<item>Madrid</item>
+		<item>Tschechien</item>
+		<item>Prag</item>
+		<item>Türkei</item>
+		<item>Ankara</item>
+		<item>Ukraine</item>
+		<item>Kiew</item>
+		<item>Ungarn</item>
+		<item>Budapest</item><!-- test-->
+		<item>Vatikanstadt</item>
+		<item>Vereinigtes Königreich</item>
+		<item>Großbritannien</item>
+		<item>London</item>
+		<item>Weißrussland</item>
+		<item>Minsk</item>
+		<item>Kosovo</item>
+		<item>Pristina</item>
+		<item>Albanien</item>
+		<item>Tirana</item>
+		<item>Vatikanstadt</item>
+    </one-of>
+  </rule>
+ </grammar>

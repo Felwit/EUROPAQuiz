@@ -1,0 +1,47 @@
+Albanien;Tirana		
+Andorra;Andorra la Vella
+Belgien;Brüssel
+Bosnien;Sarajevo	
+Bulgarien;Sofia
+Deutschland;Berlin	
+Dänemark;Kopenhagen	
+Estland;Tallinn
+Finnland;Helsinki
+Frankreich;Paris	
+Griechenland;Athen	
+Irland;Dublin
+Island;Reykjavík
+Italien;Rom
+Kasachstan;Astana	
+Kosovo;	Priština
+Kroatien;Zagreb	
+Lettland;Riga	
+Liechtenstein;Vaduz	
+Litauen;Vilnius
+Luxemburg;Luxemburg	
+Malta;Valletta	
+Mazedonien;Skopje
+Moldawien;Kischinau	
+Monaco;Monaco	
+Montenegro;Podgorica	
+Niederlande;Amsterdam	
+Norwegen;Oslo
+Österreich;Wien	
+Polen;	Warschau	
+Portugal;Lissabon	
+Rumänien;Bukarest	
+Russland;Moskau	
+San Marino;San Marino	
+Schweden;Stockholm	
+Schweiz;Bern	
+Serbien;Belgrad
+Slowakei;Bratislava	
+Slowenien;Ljubljana	
+Spanien;Madrid
+Tschechien;Prag
+Türkei;Ankara	
+Ukraine;Kiew
+Ungarn;	Budapest	
+Vatikanstadt;Vatikanstadt
+Großbritannien;London
+Weißrussland;Minsk	
