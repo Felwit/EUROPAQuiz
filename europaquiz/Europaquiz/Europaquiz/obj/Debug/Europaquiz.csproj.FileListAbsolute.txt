@@ -137,3 +137,21 @@ C:\Users\schule\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Deb
 C:\Users\schule\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Einstellungen.resources
 C:\Users\schule\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Verlassen_bestätigen.resources
 C:\Users\schule\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Vorzeitig_verlassen_bestätigen.resources
+D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Europaquiz.exe.config
+D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.exe
+D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.pdb
+D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Europaquiz.exe
+D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Europaquiz.pdb
+D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Svg.dll
+D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\itextsharp.xml
+D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Svg.pdb
+D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Svg.xml
+D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.csprojResolveAssemblyReference.cache
+D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Ergebnis_Speichern.resources
+D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Europaquiz.resources
+D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Einstellungen.resources
+D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Hauptmenü.resources
+D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Properties.Resources.resources
+D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Verlassen_bestätigen.resources
+D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Vorzeitig_verlassen_bestätigen.resources
+D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.csproj.GenerateResource.Cache

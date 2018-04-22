@@ -45,6 +45,7 @@
             this.Speichern.TabIndex = 0;
             this.Speichern.Text = "Speichern";
             this.Speichern.UseVisualStyleBackColor = true;
+            this.Speichern.Click += new System.EventHandler(this.Speichern_Click_1);
             // 
             // Schwierigkeit
             // 
@@ -61,9 +62,9 @@
             this.Schwierigkeitsbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Schwierigkeitsbox.FormattingEnabled = true;
             this.Schwierigkeitsbox.Items.AddRange(new object[] {
-            "Anfänger",
-            "Fortgeschritten",
-            "Profi"});
+            "Anfänger(1)",
+            "Fortgeschritten(2)",
+            "Profi(3)"});
             this.Schwierigkeitsbox.Location = new System.Drawing.Point(111, 27);
             this.Schwierigkeitsbox.Name = "Schwierigkeitsbox";
             this.Schwierigkeitsbox.Size = new System.Drawing.Size(121, 21);

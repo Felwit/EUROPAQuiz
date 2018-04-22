@@ -19,6 +19,8 @@ namespace Europaquiz
     {
         private static Document pdfdoc;
         string pfad;
+        string Nachname;
+        string Vorname;
 
         public Ergebnis_Speichern()
         {
@@ -44,7 +46,7 @@ namespace Europaquiz
             }
         }
 
-        private static void CreatePDF()
+        private static void CreatePDF(string Name, string Vorname)
         {
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format(@"Chunk\{0}.pdf", Guid.NewGuid()));
 
@@ -68,7 +70,7 @@ namespace Europaquiz
             iTextSharp.text.Font bigunderline = FontFactory.GetFont("Arial", 18, iTextSharp.text.Font.UNDERLINE);
 
             pdfdoc.Add(new Paragraph(""));
-            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(Application.StartupPath + @"\Logoneu.jpg");
+            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(Application.StartupPath + @"\Logo.jpeg");
             logo.ScalePercent(7);
             logo.SetAbsolutePosition(0, 765);
 
@@ -85,7 +87,7 @@ namespace Europaquiz
             pdfdoc.Add(AddEmptyParagraph());
             pdfdoc.Add(AddEmptyParagraph());
             pdfdoc.Add(AddEmptyParagraph());
-            pdfdoc.Add(CreateParagraph("Ausgestellt für: Mario Meir-Huber", standard));
+            pdfdoc.Add(CreateParagraph($"Ausgestellt für:{Vorname}{Name} ", standard));
             pdfdoc.Add(CreateParagraph($"Das Quiz wurde am {DateTime.Now.ToLongDateString()} absolviert.", standard));
             pdfdoc.Add(AddEmptyParagraph());
             pdfdoc.Add(CreateParagraph($"{""} hat Punkte {""} erieicht.", standard));
@@ -126,14 +128,34 @@ namespace Europaquiz
         {
             pdfdoc = new Document(iTextSharp.text.PageSize.A4);
             pdfdoc.SetMargins(50, 50, 50, 50);
-
-            CreatePDF();
+            Name = NameTB.Text;
+            Vorname = VornameTB.Text;
+            CreatePDF(Name,Vorname);
             MessageBox.Show("Erstellen erfolgreich");
         }
 
-        private void Ergebnis_Speichern_Load(object sender, EventArgs e)
+        private void NameTB_TextChanged(object sender, EventArgs e)
         {
+            if (this.Text != "" && VornameTB.Text != "")
+            {
+                erstellen.Show();
+            }
+            else
+            {
+                erstellen.Hide();
+            }
+        }
 
+        private void VornameTB_TextChanged(object sender, EventArgs e)
+        {
+            if(this.Text!=""&& NameTB.Text!="")
+            {
+                erstellen.Show();
+            }
+            else
+            {
+                erstellen.Hide();
+            }
         }
     }
 }
