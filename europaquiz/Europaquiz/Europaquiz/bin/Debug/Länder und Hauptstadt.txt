@@ -1,20 +1,20 @@
-Russland;Moskau;1
+﻿Russland;Moskau;1
 Norwegen;Oslo;1
 Schweden;Stockholm;1
 Finnland;Helsinki;1
-Daenemark;Kopenhagen;1	
+Dänemark;Kopenhagen;1	
 Estland;Tallinn;2
 Lettland;Riga;2
 Litauen;Vilnius;3
-Weissrussland;Minsk;2	
+Weißrussland;Minsk;2	
 Polen;Warschau;1
 Deutschland;Berlin;1	
 Ukraine;Kiew;2
 Moldawien;Kischinau;3	
-Rumaenien;Bukarest;2
+Rumänien;Bukarest;2
 Bulgarien;Sofia;3
 Griechenland;Athen;1	
-Tuerkei;Ankara;1
+Türkei;Ankara;1
 Serbien;Belgrad;2
 Kosovo;Pristina;3
 Mazedonien;Skopje;3
@@ -26,15 +26,15 @@ Tschechien;Prag;1
 Ungarn;	Budapest;2
 Slowenien;Ljubljana;2
 Slowakei;Bratislava;3
-Oesterreich;Wien;1	
+Österreich;Wien;1	
 Liechtenstein;Vaduz;1	
 Schweiz;Bern;1
 Niederlande;Amsterdam,1
 Luxemburg;Luxemburg;1	
-Belgien;Bruessel;1	
+Belgien;Brüssel;1	
 Italien;Rom;1
 San Marino;San Marino;2	
-Vereinigtes Koenigreich;London;1
+Vereinigtes Königreich;London;1
 Irland;Dublin;1
 Frankreich;Paris;1
 Monaco;Monaco;2
@@ -43,3 +43,4 @@ Portugal;Lissabon;1
 Andorra;Andorra la Vella;3	
 Malta;Valletta;2
 Island;Reykjavik;3
+Vatikansadt;Vatikanstadt;2

@@ -79,6 +79,7 @@
             this.info_Schwierigkeit.TabIndex = 3;
             this.info_Schwierigkeit.Text = "i";
             this.info_Schwierigkeit.UseVisualStyleBackColor = true;
+            this.info_Schwierigkeit.Click += new System.EventHandler(this.info_Schwierigkeit_Click);
             // 
             // Eing_Art
             // 
@@ -111,6 +112,7 @@
             this.info_Eing_art.TabIndex = 6;
             this.info_Eing_art.Text = "i";
             this.info_Eing_art.UseVisualStyleBackColor = true;
+            this.info_Eing_art.Click += new System.EventHandler(this.info_Eing_art_Click);
             // 
             // Einstellungen
             // 

@@ -89,6 +89,7 @@
             this.erstellen.TabIndex = 7;
             this.erstellen.Text = "erstellen";
             this.erstellen.UseVisualStyleBackColor = true;
+            this.erstellen.Visible = false;
             this.erstellen.Click += new System.EventHandler(this.erstellen_Click);
             // 
             // contextMenuStrip1

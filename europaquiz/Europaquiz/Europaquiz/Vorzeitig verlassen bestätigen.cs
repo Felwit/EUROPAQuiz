@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Europaquiz
 {
     public partial class Vorzeitig_verlassen_bestätigen : Form
@@ -29,9 +30,7 @@ namespace Europaquiz
 
         private void Ja_Click(object sender, EventArgs e)
         {
-            this.Close();
-            
-           // Europaquiz.Close(); wie?
+            Application.Restart();
         }
     }
 }

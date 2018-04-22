@@ -24,13 +24,13 @@ namespace Europaquiz
         int Auswahl;
         int countdown = 0;
         int[] gespielte = new int[1];//max. Größe ergibt sich eigentlich aus Schwierigkeit
-        
+        Land[] LänderListe = new Land[2];
         string[] zeilen;
         int schwierigkeit;
         int schwierigkeitL = 0;
         string istland;
         string isths;
-       bool click1 = true;
+        bool click1 = true;
 
 
         private SpeechRecognitionEngine spracherkennung = new SpeechRecognitionEngine();
@@ -39,8 +39,8 @@ namespace Europaquiz
         {
             InitializeComponent();
             // LetzteLösung.BackColor = Color.FromArgb(1,0,50,50);
-            
-            
+
+
         }
 
         private void Europaquiz_Load(object sender, EventArgs e)
@@ -54,7 +54,7 @@ namespace Europaquiz
             {
                 LH[i] = -1;// Damit Array nicht mit 0 gefüllt werden soll 
             }
-            
+
 
 
         }
@@ -88,7 +88,7 @@ namespace Europaquiz
 
             public void setSchwierigkeit(string Schwierigkeitsgrad) { this.Schwierigkeitsgrad = Schwierigkeitsgrad; }
             public string getSchwierigkeit() { return this.Schwierigkeitsgrad; }
-            
+
         }
 
 
@@ -98,6 +98,7 @@ namespace Europaquiz
             private string Landname;
             private string Hauptstadt;
             private int Schwierigkeit;
+
 
 
             public Land(string Landname, string Hauptstadt, int Schwierigkeit)
@@ -117,39 +118,14 @@ namespace Europaquiz
             public void setSchwierigkei(int Schwierigkeit) { this.Schwierigkeit = Schwierigkeit; }
             public int getschwierigkeit() { return this.Schwierigkeit; }
 
-            public void Prüfeland(string Land, string Hauptstadt)
-            {
-                if (this.Landname == Land)
-                {
-
-
-                    //färbe hellgrün
-                    
-                    if (this.Hauptstadt == Hauptstadt)
-                    {
-                        //färbe dunkelgrün
-                        
-                    }
-                }
-                else
-                {
-                    //färbe rot
-                    
-                }
-            }
         }
-
-
-
-
 
         private void Button_prüfe_Land_neu_Click(object sender, EventArgs e)
         {
 
             if (Button_prüfe_Land_neu.Text == "Nächstes Land")
             {
-                Land[] LänderListe = new Land[2];
-            //LänderListe[0] = new Land("", "", 0);
+
                 zeilen = File.ReadAllLines(Application.StartupPath + @"\Länder und Hauptstadt.txt");
                 int Land = -1;
 
@@ -159,12 +135,13 @@ namespace Europaquiz
                     istland = zeilen[Land].Split(';')[0];// 0 Weil der bei 0 anfängt zu zählen und ; weil der dort sich von HP trennt.
                     isths = zeilen[Land].Split(';')[1];
                     schwierigkeitL = Convert.ToInt32(zeilen[Land].Split(';')[2]);
+                    
 
                 } while (LH.Contains(Land) && schwierigkeitL > schwierigkeit); // Damit kein Land nochmal vor kommt
 
                 LänderListe[0] = new Land(istland, isths, schwierigkeitL);
 
-                Färbe("fil1","fil8");
+                Färbe("fil1", "fil8");
                 LH[Länder] = Land;// Land wird auf dem Wert gesetzt welches dann vorkommt NR des gespielten Landes
                 Länder++;// Die Werte werden mehr // # der gespielten Länder
 
@@ -190,40 +167,58 @@ namespace Europaquiz
                     }
 
                     click1 = false;
-                    // Text Datei einfügen 
-
-                    
 
                 }
 
                 tb_Land.Show();
                 Button_prüfe_Land_neu.Hide();
 
-
-
-                
-
-
-
-
             }
-            else if (Button_prüfe_Land_neu.Text=="Prüfe")
+            else if (Button_prüfe_Land_neu.Text == "Prüfe")
             {
-                string eingLand = tb_Land.Text;
-                
-                if (eingLand== LänderListe[0].getLandname())
+                if (tb_Land.Visible == true)
                 {
-                    Färbe("fil8","fil9");
-                    // Färben mit methode-> Hell Grün (Wenn Land richtig Hauptstad nach fragen)
+                    string eingLand = tb_Land.Text;
+
+                    if (eingLand == LänderListe[0].getLandname())
+                    {
+                        Färbe("fil8", "fil9");
+                        // Färben mit methode-> Hell Grün (Wenn Land richtig Hauptstad nach fragen)
+                        tb_Land.Hide();
+                        tb_Hauptstadt.Show();
+
+                    }
+
+                    else
+                    {
+                        Färbe("fil8", "fil11");
+                        Button_prüfe_Land_neu.Text = "Nächstes Land";
+                        tb_Land.Hide();
+                        
+                    }
                 }
                 else
                 {
-                    Färbe("fil8","fil11");
-                    //nächstes Land
+                    string eingStadt = tb_Hauptstadt.Text;
+
+                    if (eingStadt == LänderListe[0].getHauptstadt())
+                    {
+                        Färbe("fil9", "fil10");
+                        Button_prüfe_Land_neu.Text = "Nächstes Land";
+                        tb_Hauptstadt.Hide();
+
+                    }
+                    else
+                    {
+                        Button_prüfe_Land_neu.Text = "Nächstes Land";
+                        tb_Hauptstadt.Hide();
+                    }
+
                 }
+
+
+
             }
-
-
         }
 
 
@@ -236,26 +231,7 @@ namespace Europaquiz
 
 
         //bool i = false;//brake Variable
-        //if (Button_starte_prüfe_Land.Text == "Neues Land")
-        //{
-        //    Button_starte_prüfe_Land.Text = "Prüfe";//ein Button für zwei Funktionen
-        //    while (i == false)
-        //    {
-        //        Auswahl = random.Next(1, anzLänder);//ein Land auswählen
-        //        if (!gespielte.Contains(Auswahl))
-        //        {
-        //            //färben gelb
-        //            i = true;
-        //        }
-        //    }
-        //}
 
-        //else
-        //{
-        //    string Land = tb_Land.Text;
-        //    string Hauptstadt = tb_Hauptstadt.Text;
-        //    //Land[1].Prüfeland(Land,tb_Hauptstadt);//Methode der Klasse Land
-        //}
         public void Färbe(string istfarbe, string farbe)
         {
 
@@ -305,10 +281,63 @@ namespace Europaquiz
                 Button_prüfe_Land_neu.Text = "Prüfe";
                 Button_prüfe_Land_neu.Show();
             }
-
         }
+
+     
+
+        private void tb_Land_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string eingLand = tb_Land.Text;
+
+                if (eingLand == LänderListe[0].getLandname())
+                {
+                    Färbe("fil8", "fil9");
+                    // Färben mit methode-> Hell Grün (Wenn Land richtig Hauptstad nach fragen)
+                    tb_Land.Hide();
+                    tb_Hauptstadt.Show();
+
+                }
+
+                else
+                {
+                    Färbe("fil8", "fil11");
+                    Button_prüfe_Land_neu.Text = "Nächstes Land";
+                    tb_Land.Hide();
+
+                }
+            }
+            else { }
+        }
+
+        private void tb_Hauptstadt_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string eingStadt = tb_Hauptstadt.Text;
+
+                if (eingStadt == LänderListe[0].getHauptstadt())
+                {
+                    Färbe("fil9", "fil10");
+                    Button_prüfe_Land_neu.Text = "Nächstes Land";
+                    tb_Hauptstadt.Hide();
+
+                }
+                else
+                {
+                    Button_prüfe_Land_neu.Text = "Nächstes Land";
+                    tb_Hauptstadt.Hide();
+                }
+
+            }
+            else
+            { }
+        }
+
     }
-}
+    }
+
 
 
 

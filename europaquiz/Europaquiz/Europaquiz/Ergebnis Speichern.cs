@@ -50,7 +50,7 @@ namespace Europaquiz
         {
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, string.Format(@"Chunk\{0}.pdf", Guid.NewGuid()));
 
-            PdfWriter writer = PdfWriter.GetInstance(pdfdoc, new FileStream(@"C:\Users\FELiX\Desktop\test3.pdf", FileMode.Create));
+            PdfWriter writer = PdfWriter.GetInstance(pdfdoc, new FileStream(@"C:\Users\FELiX\Desktop\test2.pdf", FileMode.Create));
             writer.PageEvent = new Footer();
             pdfdoc.Open();
 
@@ -59,16 +59,12 @@ namespace Europaquiz
             pdfdoc.Add(Kopfzeile);
 
             PdfContentByte pdfcontent = writer.DirectContent;
-            iTextSharp.text.Font title = FontFactory.GetFont("Arial", 20);
+            
             iTextSharp.text.Font big = FontFactory.GetFont("Arial", 18);
             iTextSharp.text.Font standard = FontFactory.GetFont("Arial", 14);
-            iTextSharp.text.Font small = FontFactory.GetFont("Arial", 8);
-
             iTextSharp.text.Font standardbold = FontFactory.GetFont("Arial", 14, iTextSharp.text.Font.BOLD);
-            iTextSharp.text.Font smallitalic = FontFactory.GetFont("Arial", 8, iTextSharp.text.Font.ITALIC);
             iTextSharp.text.Font Titleunderline = FontFactory.GetFont("Arial", 20, iTextSharp.text.Font.UNDERLINE);
-            iTextSharp.text.Font bigunderline = FontFactory.GetFont("Arial", 18, iTextSharp.text.Font.UNDERLINE);
-
+            
             pdfdoc.Add(new Paragraph(""));
             iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance(Application.StartupPath + @"\Logo.jpeg");
             logo.ScalePercent(7);
@@ -80,33 +76,32 @@ namespace Europaquiz
             headline.Alignment = Element.ALIGN_CENTER;
             pdfdoc.Add(headline);
 
-            pdfdoc.Add(AddEmptyParagraph());
+            pdfdoc.Add(AddEmptyParagraph(10));
             pdfdoc.Add(CreateParagraph("für die Teilanhme am Europa - Quiz des", big));
             pdfdoc.Add(CreateParagraph("des Adolfkolping-Berufskoleg", big));
 
-            pdfdoc.Add(AddEmptyParagraph());
-            pdfdoc.Add(AddEmptyParagraph());
-            pdfdoc.Add(AddEmptyParagraph());
+            
+            pdfdoc.Add(AddEmptyParagraph(30));
             pdfdoc.Add(CreateParagraph($"Ausgestellt für:{Vorname}{Name} ", standard));
             pdfdoc.Add(CreateParagraph($"Das Quiz wurde am {DateTime.Now.ToLongDateString()} absolviert.", standard));
-            pdfdoc.Add(AddEmptyParagraph());
+            pdfdoc.Add(AddEmptyParagraph(10));
             pdfdoc.Add(CreateParagraph($"{""} hat Punkte {""} erieicht.", standard));
 
-            pdfdoc.Add(AddEmptyParagraph());
-            pdfdoc.Add(AddEmptyParagraph());
+            pdfdoc.Add(AddEmptyParagraph(20));
+           
             pdfdoc.Add(new Paragraph("Ihr Ergebnis als Bild:", standardbold));
 
             //read svg document from file system
             var svgDocument = SvgDocument.Open(Application.StartupPath + @"\Europa.svg");
             var bitmap = svgDocument.Draw();
-            //save converted svg to file system
+            
             bitmap.Save(Application.StartupPath + @"\Europa.png", ImageFormat.Png);
             iTextSharp.text.Image Karte = iTextSharp.text.Image.GetInstance(Application.StartupPath + @"\Europa.png");
             Karte.ScaleToFit(pdfdoc.PageSize);
             Karte.SetAbsolutePosition(0, 90);
             pdfdoc.Add(Karte);
-            pdfdoc.Add(AddEmptyParagraph());
-            pdfdoc.Add(AddEmptyParagraph());
+            pdfdoc.Add(AddEmptyParagraph(20));
+            
 
             pdfdoc.Close();
         }
@@ -116,10 +111,10 @@ namespace Europaquiz
             return new iTextSharp.text.Paragraph(new iTextSharp.text.Chunk(text, font));
         }
 
-        public static Paragraph AddEmptyParagraph()
+        public static Paragraph AddEmptyParagraph(int höhe)
         {
 
-            iTextSharp.text.Font standard = FontFactory.GetFont("Tahoma", 10);
+            iTextSharp.text.Font standard = FontFactory.GetFont("Tahoma", höhe);
             return CreateParagraph(Environment.NewLine, standard);
 
         }
@@ -131,7 +126,8 @@ namespace Europaquiz
             Name = NameTB.Text;
             Vorname = VornameTB.Text;
             CreatePDF(Name,Vorname);
-            MessageBox.Show("Erstellen erfolgreich");
+            Application.Restart();
+
         }
 
         private void NameTB_TextChanged(object sender, EventArgs e)

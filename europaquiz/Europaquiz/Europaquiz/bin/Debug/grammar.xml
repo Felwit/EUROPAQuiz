@@ -85,10 +85,16 @@
 		<item>Ungarn</item>
 		<item>Budapest</item><!-- test-->
 		<item>Vatikanstadt</item>
+		<item>Vereinigtes Königreich</item>
 		<item>Großbritannien</item>
 		<item>London</item>
 		<item>Weißrussland</item>
 		<item>Minsk</item>
+		<item>Kosovo</item>
+		<item>Pristina</item>
+		<item>Albanien</item>
+		<item>Tirana</item>
+		<item>Vatikanstadt</item>
     </one-of>
   </rule>
  </grammar>

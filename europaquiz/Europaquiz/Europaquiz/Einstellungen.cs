@@ -59,5 +59,17 @@ namespace Europaquiz
 
             this.Close();
         }
+
+        private void info_Schwierigkeit_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Wählen Sie ihre Schwiegigkeitsstufe.");
+
+        }
+
+        private void info_Eing_art_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Wählen Sie ihre Eingabemethode.Wenn Sie kein Mikrofon besitzen oder kein Mikrofon angeschlossen hben wählen Sie 'Text'.");
+        }
+        
     }
   }
