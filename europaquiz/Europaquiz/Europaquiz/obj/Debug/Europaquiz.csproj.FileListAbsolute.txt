@@ -155,3 +155,21 @@ D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Eu
 D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Verlassen_bestätigen.resources
 D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Vorzeitig_verlassen_bestätigen.resources
 D:\Eigene Dateien\Dokumente\schulisches\AKBK\europa2204\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.csproj.GenerateResource.Cache
+C:\Users\SENEL\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Europaquiz.exe.config
+C:\Users\SENEL\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.exe
+C:\Users\SENEL\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.pdb
+C:\Users\SENEL\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.csprojResolveAssemblyReference.cache
+C:\Users\SENEL\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Ergebnis_Speichern.resources
+C:\Users\SENEL\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Europaquiz.resources
+C:\Users\SENEL\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Einstellungen.resources
+C:\Users\SENEL\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Hauptmenü.resources
+C:\Users\SENEL\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Properties.Resources.resources
+C:\Users\SENEL\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Verlassen_bestätigen.resources
+C:\Users\SENEL\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Vorzeitig_verlassen_bestätigen.resources
+C:\Users\SENEL\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.csproj.GenerateResource.Cache
+C:\Users\SENEL\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Europaquiz.exe
+C:\Users\SENEL\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Europaquiz.pdb
+C:\Users\SENEL\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Svg.dll
+C:\Users\SENEL\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\itextsharp.xml
+C:\Users\SENEL\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Svg.pdb
+C:\Users\SENEL\Source\Repos\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Svg.xml

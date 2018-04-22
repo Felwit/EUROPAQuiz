@@ -39,12 +39,9 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.Zoom = new System.Windows.Forms.PictureBox();
             this.Vorzeitig_beenden = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.Ergebnis_speichern = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoom)).BeginInit();
             this.SuspendLayout();
@@ -66,6 +63,8 @@
             this.tb_Land.Size = new System.Drawing.Size(131, 20);
             this.tb_Land.TabIndex = 1;
             this.tb_Land.Text = "Bitte Land eingeben";
+            this.tb_Land.Visible = false;
+            this.tb_Land.TextChanged += new System.EventHandler(this.tb_Land_TextChanged);
             // 
             // Punkte
             // 
@@ -124,6 +123,7 @@
             this.tb_Hauptstadt.Size = new System.Drawing.Size(135, 20);
             this.tb_Hauptstadt.TabIndex = 2;
             this.tb_Hauptstadt.Text = "Bitte Hauptstadt eingeben";
+            this.tb_Hauptstadt.Visible = false;
             // 
             // tableLayoutPanel3
             // 
@@ -138,10 +138,10 @@
             this.tableLayoutPanel3.Controls.Add(this.label2, 2, 2);
             this.tableLayoutPanel3.Controls.Add(this.tb_Hauptstadt, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.tb_Land, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.Button_prüfe_Land_neu, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.Zoom, 1, 5);
             this.tableLayoutPanel3.Controls.Add(this.Vorzeitig_beenden, 2, 5);
             this.tableLayoutPanel3.Controls.Add(this.label6, 1, 4);
+            this.tableLayoutPanel3.Controls.Add(this.Button_prüfe_Land_neu, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(426, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -173,11 +173,21 @@
             this.Vorzeitig_beenden.TabIndex = 9;
             this.Vorzeitig_beenden.Text = "Vorzeitig beenden";
             this.Vorzeitig_beenden.UseVisualStyleBackColor = true;
+            this.Vorzeitig_beenden.Visible = false;
             this.Vorzeitig_beenden.Click += new System.EventHandler(this.Vorzeitig_beenden_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(93, 196);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "label6";
             // 
             // Ergebnis_speichern
             // 
-            this.Ergebnis_speichern.Location = new System.Drawing.Point(201, 125);
+            this.Ergebnis_speichern.Location = new System.Drawing.Point(125, 158);
             this.Ergebnis_speichern.Name = "Ergebnis_speichern";
             this.Ergebnis_speichern.Size = new System.Drawing.Size(245, 110);
             this.Ergebnis_speichern.TabIndex = 12;
@@ -194,51 +204,12 @@
             this.webBrowser1.Size = new System.Drawing.Size(794, 611);
             this.webBrowser1.TabIndex = 13;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(144, 125);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "label3";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(147, 154);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "label4";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(150, 183);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "label5";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(93, 196);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "label6";
-            // 
             // Europaquiz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 611);
             this.ControlBox = false;
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.Ergebnis_speichern);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.webBrowser1);
@@ -250,7 +221,6 @@
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoom)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -267,9 +237,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button Ergebnis_speichern;
         private System.Windows.Forms.WebBrowser webBrowser1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox Zoom;
         private System.Windows.Forms.Button Vorzeitig_beenden;
         private System.Windows.Forms.Label label6;
