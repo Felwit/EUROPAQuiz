@@ -26,10 +26,10 @@ namespace Europaquiz
         //int[] gespielte = new int[1];//max. Größe ergibt sich eigentlich aus Schwierigkeit
         Land[] LänderListe = new Land[2];
         string[] zeilen;
-        
+
         int schwierigkeit = EinstellungenQuiz.Schwierigkeitsgrad;
         bool EingabeArt = EinstellungenQuiz.Spracheingabe;
-        int schwierigkeitL =0;
+        int schwierigkeitL = 0;
         string istland;
         string isths;
         bool click1 = true;
@@ -40,7 +40,7 @@ namespace Europaquiz
         public Europaquiz()
         {
             InitializeComponent();
-            
+
 
 
         }
@@ -74,7 +74,7 @@ namespace Europaquiz
         //}
 
 
-        
+
 
 
         public class Land
@@ -120,7 +120,7 @@ namespace Europaquiz
                     istland = zeilen[Land].Split(';')[0];// 0 Weil der bei 0 anfängt zu zählen und ; weil der dort sich von HP trennt.
                     isths = zeilen[Land].Split(';')[1];
                     schwierigkeitL = Convert.ToInt32(zeilen[Land].Split(';')[2]);
-                    
+
 
                 } while (LH.Contains(Land) && schwierigkeitL > schwierigkeit); // Damit kein Land nochmal vor kommt
 
@@ -179,7 +179,7 @@ namespace Europaquiz
                         Färbe("fil8", "fil11");
                         Button_prüfe_Land_neu.Text = "Nächstes Land";
                         tb_Land.Hide();
-                        
+
                     }
                 }
                 else
@@ -200,140 +200,160 @@ namespace Europaquiz
                     }
 
                 }
+                string Switchcase = LänderListe[Länder].getLandname();
+                switch (Switchcase)// Für die Zoom Funktion
+                {
+                    case "Andorra":
+                        string[] Land_ID = File.ReadAllLines(Application.StartupPath + @"\Kleine Länder\Andorra");
+                        break;
+                    case "Malta":
+                        Land_ID = File.ReadAllLines(Application.StartupPath + @"\Kleine Länder\Malta");
+                        break;
+                    case "San Marino":
+                        Land_ID = File.ReadAllLines(Application.StartupPath + @"\Kleine Länder\San Marino");
+                        break;
+                    case "Vatikanstadt":
+                        Land_ID = File.ReadAllLines(Application.StartupPath + @"\Kleine Länder\Vatikanstadt");
+                        break;
+                    case "Monaco":
+                       Land_ID = File.ReadAllLines(Application.StartupPath + @"\Kleine Länder\Monaco");
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+        }
+    }
 
 
+
+
+    //countdown = 10;
+    //Button_starte_prüfe_Land.Text = "Neues Land";
+    //TimerZumAntworten.Start();
+
+
+
+    //bool i = false;//brake Variable
+
+    public void Färbe(string istfarbe, string farbe)
+    {
+
+        for (int i = 24; i < SVG.Length; i++)// Die Zeile durch gehen
+        {
+            if (SVG[i].Contains(istland)) // Das was in der SVG steht soll in Label1 stehen
+            {
+                SVG[i] = SVG[i].Replace(istfarbe, farbe);
+
+            }
+        }  // Auswählen = Gelb/Orange fil8
+           // Land richtig = Hell Grün fil9
+           // Land und Hauptstad richtig = Dunkel Grün fil10
+           // Alles falsch = Rot fil11
+
+        File.WriteAllLines(Application.StartupPath + @"\NeueEuropa.svg", SVG); // Soll das in diesem Namen speichern
+
+        webBrowser1.Refresh();// Wb neu Laden wenn was ändert
+    }
+
+
+    void spracherkennung_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+    {
+        MessageBox.Show(e.Result.Text);
+        //foreach (RecognizedWordUnit wort in e.Result.Words)
+        //{
+        //    listBox1.Items.Add(wort.Text);
+        //}
+    }
+
+    private void Ergebnis_speichern_Click(object sender, EventArgs e)
+    {
+        Ergebnis_Speichern es = new Ergebnis_Speichern();
+        es.Show();
+    }
+
+    private void Vorzeitig_beenden_Click(object sender, EventArgs e)
+    {
+        Vorzeitig_verlassen_bestätigen vb = new Vorzeitig_verlassen_bestätigen();
+        vb.Show();
+    }
+
+    private void tb_Land_TextChanged(object sender, EventArgs e)
+    {
+        if (this.Text != "")
+        {
+            Button_prüfe_Land_neu.Text = "Prüfe";
+            Button_prüfe_Land_neu.Show();
+        }
+    }
+
+
+
+    private void tb_Land_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.Enter)
+        {
+            string eingLand = tb_Land.Text;
+
+            if (eingLand == LänderListe[0].getLandname())
+            {
+                Färbe("fil8", "fil9");
+                // Färben mit methode-> Hell Grün (Wenn Land richtig Hauptstad nach fragen)
+                tb_Land.Hide();
+                tb_Hauptstadt.Show();
+
+            }
+
+            else
+            {
+                Färbe("fil8", "fil11");
+                Button_prüfe_Land_neu.Text = "Nächstes Land";
+                tb_Land.Hide();
 
             }
         }
+        else { }
+    }
 
-
-
-
-        //countdown = 10;
-        //Button_starte_prüfe_Land.Text = "Neues Land";
-        //TimerZumAntworten.Start();
-
-
-
-        //bool i = false;//brake Variable
-
-        public void Färbe(string istfarbe, string farbe)
+    private void tb_Hauptstadt_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.KeyCode == Keys.Enter)
         {
+            string eingStadt = tb_Hauptstadt.Text;
 
-            for (int i = 24; i < SVG.Length; i++)// Die Zeile durch gehen
+            if (eingStadt == LänderListe[0].getHauptstadt())
             {
-                if (SVG[i].Contains(istland)) // Das was in der SVG steht soll in Label1 stehen
-                {
-                    SVG[i] = SVG[i].Replace(istfarbe, farbe);
-
-                }
-            }  // Auswählen = Gelb/Orange fil8
-               // Land richtig = Hell Grün fil9
-               // Land und Hauptstad richtig = Dunkel Grün fil10
-               // Alles falsch = Rot fil11
-
-            File.WriteAllLines(Application.StartupPath + @"\NeueEuropa.svg", SVG); // Soll das in diesem Namen speichern
-
-            webBrowser1.Refresh();// Wb neu Laden wenn was ändert
-        }
-
-
-        void spracherkennung_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
-        {
-            MessageBox.Show(e.Result.Text);
-            //foreach (RecognizedWordUnit wort in e.Result.Words)
-            //{
-            //    listBox1.Items.Add(wort.Text);
-            //}
-        }
-
-        private void Ergebnis_speichern_Click(object sender, EventArgs e)
-        {
-            Ergebnis_Speichern es = new Ergebnis_Speichern();
-            es.Show();
-        }
-
-        private void Vorzeitig_beenden_Click(object sender, EventArgs e)
-        {
-            Vorzeitig_verlassen_bestätigen vb = new Vorzeitig_verlassen_bestätigen();
-            vb.Show();
-        }
-
-        private void tb_Land_TextChanged(object sender, EventArgs e)
-        {
-            if (this.Text != "")
-            {
-                Button_prüfe_Land_neu.Text = "Prüfe";
-                Button_prüfe_Land_neu.Show();
-            }
-        }
-
-     
-
-        private void tb_Land_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                string eingLand = tb_Land.Text;
-
-                if (eingLand == LänderListe[0].getLandname())
-                {
-                    Färbe("fil8", "fil9");
-                    // Färben mit methode-> Hell Grün (Wenn Land richtig Hauptstad nach fragen)
-                    tb_Land.Hide();
-                    tb_Hauptstadt.Show();
-
-                }
-
-                else
-                {
-                    Färbe("fil8", "fil11");
-                    Button_prüfe_Land_neu.Text = "Nächstes Land";
-                    tb_Land.Hide();
-
-                }
-            }
-            else { }
-        }
-
-        private void tb_Hauptstadt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                string eingStadt = tb_Hauptstadt.Text;
-
-                if (eingStadt == LänderListe[0].getHauptstadt())
-                {
-                    Färbe("fil9", "fil10");
-                    Button_prüfe_Land_neu.Text = "Nächstes Land";
-                    tb_Hauptstadt.Hide();
-
-                }
-                else
-                {
-                    Button_prüfe_Land_neu.Text = "Nächstes Land";
-                    tb_Hauptstadt.Hide();
-                }
+                Färbe("fil9", "fil10");
+                Button_prüfe_Land_neu.Text = "Nächstes Land";
+                tb_Hauptstadt.Hide();
 
             }
             else
-            { }
+            {
+                Button_prüfe_Land_neu.Text = "Nächstes Land";
+                tb_Hauptstadt.Hide();
+            }
+
         }
+        else
+        { }
     }
-    public class PunktE
+}
+public class PunktE
+{
+
+
+    public static int maxpunkte { get; set; }
+    public static int punkte { get; set; }
+
+    public PunktE(int maxpunkte, int punkte)
     {
-
-
-        public static int maxpunkte { get; set; }
-        public static int punkte { get; set; }
-
-        public PunktE(int maxpunkte, int punkte)
-        {
-            PunktE.maxpunkte = maxpunkte;
-            PunktE.punkte = punkte;
-        }
-
+        PunktE.maxpunkte = maxpunkte;
+        PunktE.punkte = punkte;
     }
+
+}
 
 }
     
