@@ -22,7 +22,7 @@ namespace Europaquiz
         Random random = new Random();
         //int anzLänder = 0;
         //int Auswahl;
-        //int countdown = 0;
+        int countdown = 10;
         //int[] gespielte = new int[1];//max. Größe ergibt sich eigentlich aus Schwierigkeit
         Land[] LänderListe = new Land[2];
         string[] zeilen;
@@ -61,19 +61,6 @@ namespace Europaquiz
 
         }
 
-        //private void TimerZumAntworten_Tick(object sender, EventArgs e)
-        //{
-        //    countdown--;
-        //    TimerZumAntwortenAnzeige.Text = countdown.ToString();
-
-        //    if (TimerZumAntwortenAnzeige.Text == "0")
-        //    {
-        //        TimerZumAntworten.Stop();
-
-        //    }
-        //}
-
-
         
 
 
@@ -107,7 +94,9 @@ namespace Europaquiz
 
         private void Button_prüfe_Land_neu_Click(object sender, EventArgs e)
         {
-
+            countdown = 10;
+            CountdownZaehler.Text = countdown.ToString();
+            Timer.Start();
             if (Button_prüfe_Land_neu.Text == "Nächstes Land")
             {
 
@@ -132,41 +121,44 @@ namespace Europaquiz
 
 
 
-                if (click1 == true)
-                {
-                    spracherkennung.SetInputToDefaultAudioDevice();
-                    spracherkennung.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(spracherkennung_SpeechRecognized);
-                    try
-                    {
-                        //Wörter laden
-                        Grammar grammar = new Grammar("grammar.xml", "LuS");
-                        spracherkennung.UnloadAllGrammars();
-                        spracherkennung.LoadGrammar(grammar);
-                        //Erkennung starten
-                        spracherkennung.RecognizeAsync(RecognizeMode.Multiple);
-                    }
-                    catch (Exception a)
-                    {
-                        MessageBox.Show("Exception aufgetreten: " + a.Message);
-                        Application.Exit();
-                    }
+                //if (click1 == true)
+                //{
+                //    spracherkennung.SetInputToDefaultAudioDevice();
+                //    spracherkennung.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(spracherkennung_SpeechRecognized);
+                //    try
+                //    {
+                //        //Wörter laden
+                //        Grammar grammar = new Grammar("grammar.xml", "LuS");
+                //        spracherkennung.UnloadAllGrammars();
+                //        spracherkennung.LoadGrammar(grammar);
+                //        //Erkennung starten
+                //        spracherkennung.RecognizeAsync(RecognizeMode.Multiple);
+                //    }
+                //    catch (Exception a)
+                //    {
+                //        MessageBox.Show("Exception aufgetreten: " + a.Message);
+                //        Application.Exit();
+                //    }
 
-                    click1 = false;
+                //    click1 = false;
 
-                }
+                //}
 
                 tb_Land.Show();
                 Button_prüfe_Land_neu.Hide();
-
             }
+
             else if (Button_prüfe_Land_neu.Text == "Prüfe")
             {
+
+
                 if (tb_Land.Visible == true)
                 {
                     string eingLand = tb_Land.Text;
 
                     if (eingLand == LänderListe[0].getLandname())
                     {
+                        Timer.Stop();
                         Färbe("fil8", "fil9");
                         // Färben mit methode-> Hell Grün (Wenn Land richtig Hauptstad nach fragen)
                         tb_Land.Hide();
@@ -176,10 +168,10 @@ namespace Europaquiz
 
                     else
                     {
+
                         Färbe("fil8", "fil11");
                         Button_prüfe_Land_neu.Text = "Nächstes Land";
-                        tb_Land.Hide();
-                        
+                        tb_Land.Hide();                        
                     }
                 }
                 else
@@ -188,6 +180,9 @@ namespace Europaquiz
 
                     if (eingStadt == LänderListe[0].getHauptstadt())
                     {
+                        countdown = 10;
+                        Timer.Start();
+
                         Färbe("fil9", "fil10");
                         Button_prüfe_Land_neu.Text = "Nächstes Land";
                         tb_Hauptstadt.Hide();
@@ -206,16 +201,6 @@ namespace Europaquiz
             }
         }
 
-
-
-
-        //countdown = 10;
-        //Button_starte_prüfe_Land.Text = "Neues Land";
-        //TimerZumAntworten.Start();
-
-
-
-        //bool i = false;//brake Variable
 
         public void Färbe(string istfarbe, string farbe)
         {
@@ -271,7 +256,7 @@ namespace Europaquiz
      
 
         private void tb_Land_KeyDown(object sender, KeyEventArgs e)
-        {
+       {
             if (e.KeyCode == Keys.Enter)
             {
                 string eingLand = tb_Land.Text;
@@ -293,7 +278,14 @@ namespace Europaquiz
 
                 }
             }
-            else { }
+            else {
+                if (CountdownZaehler.Text == "0")
+                {
+                    Färbe("fil8", "fil11");
+                    tb_Land.Hide();
+                    Button_prüfe_Land_neu.Show();
+                }
+            }
         }
 
         private void tb_Hauptstadt_KeyDown(object sender, KeyEventArgs e)
@@ -313,11 +305,23 @@ namespace Europaquiz
                 {
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Hauptstadt.Hide();
+                    Timer.Stop();
                 }
 
             }
             else
             { }
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            countdown--;
+            CountdownZaehler.Text = countdown.ToString();
+
+            if (CountdownZaehler.Text == "0")
+            {
+                Timer.Stop();
+            }
         }
     }
     public class PunktE
