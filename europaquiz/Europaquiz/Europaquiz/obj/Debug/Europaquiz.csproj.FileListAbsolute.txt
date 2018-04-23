@@ -191,3 +191,15 @@ D:\Europa2304\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Svg.dll
 D:\Europa2304\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\itextsharp.xml
 D:\Europa2304\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Svg.pdb
 D:\Europa2304\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Svg.xml
+F:\Europa2304\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Europaquiz.exe.config
+F:\Europa2304\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.exe
+F:\Europa2304\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.pdb
+F:\Europa2304\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.csprojResolveAssemblyReference.cache
+F:\Europa2304\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Ergebnis_Speichern.resources
+F:\Europa2304\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Europaquiz.resources
+F:\Europa2304\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Einstellungen.resources
+F:\Europa2304\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Hauptmenü.resources
+F:\Europa2304\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Properties.Resources.resources
+F:\Europa2304\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Verlassen_bestätigen.resources
+F:\Europa2304\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Vorzeitig_verlassen_bestätigen.resources
+F:\Europa2304\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.csproj.GenerateResource.Cache
