@@ -31,25 +31,26 @@
             this.Ja = new System.Windows.Forms.Button();
             this.Nein = new System.Windows.Forms.Button();
             this.Kontrollfrage = new System.Windows.Forms.Label();
+            this.mitSpeichern = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Ja
             // 
-            this.Ja.Location = new System.Drawing.Point(42, 85);
+            this.Ja.Location = new System.Drawing.Point(15, 72);
             this.Ja.Name = "Ja";
-            this.Ja.Size = new System.Drawing.Size(75, 23);
+            this.Ja.Size = new System.Drawing.Size(75, 52);
             this.Ja.TabIndex = 5;
-            this.Ja.Text = "Ja";
+            this.Ja.Text = "Ja, ohne Speichern";
             this.Ja.UseVisualStyleBackColor = true;
             this.Ja.Click += new System.EventHandler(this.Ja_Click);
             // 
             // Nein
             // 
-            this.Nein.Location = new System.Drawing.Point(183, 85);
+            this.Nein.Location = new System.Drawing.Point(199, 72);
             this.Nein.Name = "Nein";
-            this.Nein.Size = new System.Drawing.Size(75, 23);
+            this.Nein.Size = new System.Drawing.Size(75, 52);
             this.Nein.TabIndex = 4;
-            this.Nein.Text = "Nein";
+            this.Nein.Text = "Nein. Nicht verlassen";
             this.Nein.UseVisualStyleBackColor = true;
             this.Nein.Click += new System.EventHandler(this.Nein_Click);
             // 
@@ -63,11 +64,22 @@
             this.Kontrollfrage.Text = "Wirklich Beenden? Es kann keine Urkunde erstellt werden!";
             this.Kontrollfrage.Click += new System.EventHandler(this.Kontrollfrage_Click);
             // 
+            // mitSpeichern
+            // 
+            this.mitSpeichern.Location = new System.Drawing.Point(107, 72);
+            this.mitSpeichern.Name = "mitSpeichern";
+            this.mitSpeichern.Size = new System.Drawing.Size(75, 52);
+            this.mitSpeichern.TabIndex = 6;
+            this.mitSpeichern.Text = "Ja, aber denoch speichern";
+            this.mitSpeichern.UseVisualStyleBackColor = true;
+            this.mitSpeichern.Click += new System.EventHandler(this.mitSpeichern_Click);
+            // 
             // Vorzeitig_verlassen_bestätigen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(311, 158);
+            this.Controls.Add(this.mitSpeichern);
             this.Controls.Add(this.Ja);
             this.Controls.Add(this.Nein);
             this.Controls.Add(this.Kontrollfrage);
@@ -83,5 +95,6 @@
         private System.Windows.Forms.Button Ja;
         private System.Windows.Forms.Button Nein;
         private System.Windows.Forms.Label Kontrollfrage;
+        private System.Windows.Forms.Button mitSpeichern;
     }
 }

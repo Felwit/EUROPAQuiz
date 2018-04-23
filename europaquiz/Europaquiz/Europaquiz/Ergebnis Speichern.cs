@@ -87,8 +87,8 @@ namespace Europaquiz
             pdfdoc.Add(CreateParagraph($"Das Quiz wurde am {DateTime.Now.ToLongDateString()} absolviert.", standard));
             pdfdoc.Add(AddEmptyParagraph(10));
             pdfdoc.Add(CreateParagraph($"{Vorname}{Name} hat {PunktE.punkte} Punkte von {PunktE.maxpunkte} Punkten erieicht.", standard));
-
-            pdfdoc.Add(AddEmptyParagraph(20));
+            pdfdoc.Add(CreateParagraph($"Es wurde(n) {PunktE.anzGespLändder}Land/Ländern  von 15 Ländern gespielt.", standard));
+            pdfdoc.Add(AddEmptyParagraph(10));
            
             pdfdoc.Add(new Paragraph("Ihr Ergebnis als Bild:", standardbold));
 

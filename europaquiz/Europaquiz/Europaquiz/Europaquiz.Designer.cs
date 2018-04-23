@@ -42,6 +42,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.Ergebnis_speichern = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.Ohne_Speichern = new System.Windows.Forms.Button();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoom)).BeginInit();
             this.SuspendLayout();
@@ -188,12 +189,13 @@
             // 
             // Ergebnis_speichern
             // 
-            this.Ergebnis_speichern.Location = new System.Drawing.Point(125, 158);
+            this.Ergebnis_speichern.Location = new System.Drawing.Point(632, 334);
             this.Ergebnis_speichern.Name = "Ergebnis_speichern";
             this.Ergebnis_speichern.Size = new System.Drawing.Size(245, 110);
             this.Ergebnis_speichern.TabIndex = 12;
             this.Ergebnis_speichern.Text = "Ergebnis speichern";
             this.Ergebnis_speichern.UseVisualStyleBackColor = true;
+            this.Ergebnis_speichern.Visible = false;
             this.Ergebnis_speichern.Click += new System.EventHandler(this.Ergebnis_speichern_Click);
             // 
             // webBrowser1
@@ -204,6 +206,18 @@
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(1584, 961);
             this.webBrowser1.TabIndex = 13;
+            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
+            // 
+            // Ohne_Speichern
+            // 
+            this.Ohne_Speichern.Location = new System.Drawing.Point(274, 334);
+            this.Ohne_Speichern.Name = "Ohne_Speichern";
+            this.Ohne_Speichern.Size = new System.Drawing.Size(245, 110);
+            this.Ohne_Speichern.TabIndex = 14;
+            this.Ohne_Speichern.Text = "ohne Speichern verlassen";
+            this.Ohne_Speichern.UseVisualStyleBackColor = true;
+            this.Ohne_Speichern.Visible = false;
+            this.Ohne_Speichern.Click += new System.EventHandler(this.Ohne_Speichern_Click);
             // 
             // Europaquiz
             // 
@@ -211,6 +225,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1584, 961);
             this.ControlBox = false;
+            this.Controls.Add(this.Ohne_Speichern);
             this.Controls.Add(this.Ergebnis_speichern);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.webBrowser1);
@@ -241,5 +256,6 @@
         private System.Windows.Forms.PictureBox Zoom;
         private System.Windows.Forms.Button Vorzeitig_beenden;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button Ohne_Speichern;
     }
 }

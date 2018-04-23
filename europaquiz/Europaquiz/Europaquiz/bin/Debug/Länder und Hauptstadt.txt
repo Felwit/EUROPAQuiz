@@ -29,7 +29,7 @@ Slowakei;Bratislava;3
 Österreich;Wien;1	
 Liechtenstein;Vaduz;1	
 Schweiz;Bern;1
-Niederlande;Amsterdam,1
+Niederlande;Amsterdam;1
 Luxemburg;Luxemburg;1	
 Belgien;Brüssel;1	
 Italien;Rom;1
