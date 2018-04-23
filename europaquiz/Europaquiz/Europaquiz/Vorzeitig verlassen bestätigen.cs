@@ -32,5 +32,11 @@ namespace Europaquiz
         {
             Application.Restart();
         }
+
+        private void mitSpeichern_Click(object sender, EventArgs e)
+        {
+            Ergebnis_Speichern es = new Ergebnis_Speichern();
+            es.Show();
+        }
     }
 }
