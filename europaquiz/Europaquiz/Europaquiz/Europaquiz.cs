@@ -22,7 +22,7 @@ namespace Europaquiz
         Random random = new Random();
         //int anzLänder = 0;
         //int Auswahl;
-        //int countdown = 0;
+        int countdown = 10;
         //int[] gespielte = new int[1];//max. Größe ergibt sich eigentlich aus Schwierigkeit
         Land[] LänderListe = new Land[2];
         string[] zeilen;
@@ -41,7 +41,7 @@ namespace Europaquiz
         public Europaquiz()
         {
             InitializeComponent();
-
+            
 
 
         }
@@ -62,20 +62,7 @@ namespace Europaquiz
 
         }
 
-        //private void TimerZumAntworten_Tick(object sender, EventArgs e)
-        //{
-        //    countdown--;
-        //    TimerZumAntwortenAnzeige.Text = countdown.ToString();
-
-        //    if (TimerZumAntwortenAnzeige.Text == "0")
-        //    {
-        //        TimerZumAntworten.Stop();
-
-        //    }
-        //}
-
-
-
+        
 
 
         public class Land
@@ -182,14 +169,6 @@ namespace Europaquiz
         }
 
 
-        //countdown = 10;
-        //Button_starte_prüfe_Land.Text = "Neues Land";
-        //TimerZumAntworten.Start();
-
-
-
-        //bool i = false;//brake Variable
-
         public void Färbe(string istfarbe, string farbe)
         {
 
@@ -242,7 +221,7 @@ namespace Europaquiz
 
 
         private void tb_Land_KeyDown(object sender, KeyEventArgs e)
-        {
+       {
             if (e.KeyCode == Keys.Enter)
             {
                 Prüfe();
@@ -316,6 +295,17 @@ namespace Europaquiz
         private void Ohne_Speichern_Click(object sender, EventArgs e)
         {
             Application.Restart();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            countdown--;
+            CountdownZaehler.Text = countdown.ToString();
+
+            if (CountdownZaehler.Text == "0")
+            {
+                Timer.Stop();
+            }
         }
     }
     public class PunktE

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Button_prüfe_Land_neu = new System.Windows.Forms.Button();
             this.tb_Land = new System.Windows.Forms.TextBox();
             this.Punkte = new System.Windows.Forms.Label();
@@ -42,7 +43,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.Ergebnis_speichern = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.Ohne_Speichern = new System.Windows.Forms.Button();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.CountdownText = new System.Windows.Forms.Label();
+            this.CountdownZaehler = new System.Windows.Forms.Label();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoom)).BeginInit();
             this.SuspendLayout();
@@ -145,6 +149,8 @@
             this.tableLayoutPanel3.Controls.Add(this.label6, 1, 4);
             this.tableLayoutPanel3.Controls.Add(this.Button_prüfe_Land_neu, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.tb_Land, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.CountdownText, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.CountdownZaehler, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(1236, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -189,13 +195,12 @@
             // 
             // Ergebnis_speichern
             // 
-            this.Ergebnis_speichern.Location = new System.Drawing.Point(632, 334);
+            this.Ergebnis_speichern.Location = new System.Drawing.Point(125, 158);
             this.Ergebnis_speichern.Name = "Ergebnis_speichern";
             this.Ergebnis_speichern.Size = new System.Drawing.Size(245, 110);
             this.Ergebnis_speichern.TabIndex = 12;
             this.Ergebnis_speichern.Text = "Ergebnis speichern";
             this.Ergebnis_speichern.UseVisualStyleBackColor = true;
-            this.Ergebnis_speichern.Visible = false;
             this.Ergebnis_speichern.Click += new System.EventHandler(this.Ergebnis_speichern_Click);
             // 
             // webBrowser1
@@ -206,18 +211,38 @@
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(1584, 961);
             this.webBrowser1.TabIndex = 13;
-            this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 
-            // Ohne_Speichern
+            // Timer
             // 
-            this.Ohne_Speichern.Location = new System.Drawing.Point(274, 334);
-            this.Ohne_Speichern.Name = "Ohne_Speichern";
-            this.Ohne_Speichern.Size = new System.Drawing.Size(245, 110);
-            this.Ohne_Speichern.TabIndex = 14;
-            this.Ohne_Speichern.Text = "ohne Speichern verlassen";
-            this.Ohne_Speichern.UseVisualStyleBackColor = true;
-            this.Ohne_Speichern.Visible = false;
-            this.Ohne_Speichern.Click += new System.EventHandler(this.Ohne_Speichern_Click);
+            this.Timer.Interval = 1000;
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(442, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "label3";
+            // 
+            // CountdownText
+            // 
+            this.CountdownText.AutoSize = true;
+            this.CountdownText.Location = new System.Drawing.Point(3, 0);
+            this.CountdownText.Name = "CountdownText";
+            this.CountdownText.Size = new System.Drawing.Size(64, 13);
+            this.CountdownText.TabIndex = 11;
+            this.CountdownText.Text = "Countdown:";
+            // 
+            // CountdownZaehler
+            // 
+            this.CountdownZaehler.AutoSize = true;
+            this.CountdownZaehler.Location = new System.Drawing.Point(88, 0);
+            this.CountdownZaehler.Name = "CountdownZaehler";
+            this.CountdownZaehler.Size = new System.Drawing.Size(19, 13);
+            this.CountdownZaehler.TabIndex = 12;
+            this.CountdownZaehler.Text = "10";
             // 
             // Europaquiz
             // 
@@ -225,7 +250,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1584, 961);
             this.ControlBox = false;
-            this.Controls.Add(this.Ohne_Speichern);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.Ergebnis_speichern);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.webBrowser1);
@@ -237,6 +262,7 @@
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoom)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -256,6 +282,9 @@
         private System.Windows.Forms.PictureBox Zoom;
         private System.Windows.Forms.Button Vorzeitig_beenden;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button Ohne_Speichern;
+        private System.Windows.Forms.Label CountdownText;
+        private System.Windows.Forms.Label CountdownZaehler;
+        private System.Windows.Forms.Timer Timer;
+        private System.Windows.Forms.Label label3;
     }
 }
