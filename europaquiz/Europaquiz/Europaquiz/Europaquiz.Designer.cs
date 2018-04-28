@@ -220,6 +220,7 @@
             this.Ergebnis_speichern.TabIndex = 12;
             this.Ergebnis_speichern.Text = "Ergebnis speichern";
             this.Ergebnis_speichern.UseVisualStyleBackColor = true;
+            this.Ergebnis_speichern.Visible = false;
             this.Ergebnis_speichern.Click += new System.EventHandler(this.Ergebnis_speichern_Click);
             // 
             // webBrowser1
@@ -253,6 +254,7 @@
             this.Ohne_Speichern.TabIndex = 15;
             this.Ohne_Speichern.Text = "Ohne Speichern beenden";
             this.Ohne_Speichern.UseVisualStyleBackColor = true;
+            this.Ohne_Speichern.Visible = false;
             // 
             // Europaquiz
             // 

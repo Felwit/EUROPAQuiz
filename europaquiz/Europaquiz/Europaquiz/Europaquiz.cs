@@ -22,7 +22,7 @@ namespace Europaquiz
         Random random = new Random();
         //int anzLänder = 0;
         //int Auswahl;
-        int countdown = 10;
+        int countdown = 15;
         //int[] gespielte = new int[1];//max. Größe ergibt sich eigentlich aus Schwierigkeit
         Land[] LänderListe = new Land[2];
         string[] zeilen;
@@ -62,7 +62,7 @@ namespace Europaquiz
 
         }
 
-        
+
 
 
         public class Land
@@ -95,13 +95,13 @@ namespace Europaquiz
 
         private void Button_prüfe_Land_neu_Click(object sender, EventArgs e)
         {
-            while(spiel == true)
-                {
-
-            if (Button_prüfe_Land_neu.Text == "Nächstes Land")
+            while (spiel == true)
             {
 
-                
+                if (Button_prüfe_Land_neu.Text == "Nächstes Land")
+                {
+
+
                     zeilen = File.ReadAllLines(Application.StartupPath + @"\Länder und Hauptstadt.txt");
                     int Land = -1;
 
@@ -156,10 +156,11 @@ namespace Europaquiz
 
                     Button_prüfe_Land_neu.Text = "Prüfe";
                     tb_Land.Show();
+                    Timer.Start();
                     break;
 
                 }
-            else if (Button_prüfe_Land_neu.Text == "Prüfe")
+                else if (Button_prüfe_Land_neu.Text == "Prüfe")
                 {
                     Prüfe();
 
@@ -172,56 +173,56 @@ namespace Europaquiz
         public void Färbe(string istfarbe, string farbe)
         {
 
-        for (int i = 24; i < SVG.Length; i++)// Die Zeile durch gehen
-        {
-            if (SVG[i].Contains(istland)) // Das was in der SVG steht soll in Label1 stehen
+            for (int i = 24; i < SVG.Length; i++)// Die Zeile durch gehen
             {
-                SVG[i] = SVG[i].Replace(istfarbe, farbe);
+                if (SVG[i].Contains(istland)) // Das was in der SVG steht soll in Label1 stehen
+                {
+                    SVG[i] = SVG[i].Replace(istfarbe, farbe);
 
-            }
-        }  // Auswählen = Gelb/Orange fil8
-           // Land richtig = Hell Grün fil9
-           // Land und Hauptstad richtig = Dunkel Grün fil10
-           // Alles falsch = Rot fil11
+                }
+            }  // Auswählen = Gelb/Orange fil8
+               // Land richtig = Hell Grün fil9
+               // Land und Hauptstad richtig = Dunkel Grün fil10
+               // Alles falsch = Rot fil11
 
-        File.WriteAllLines(Application.StartupPath + @"\NeueEuropa.svg", SVG); // Soll das in diesem Namen speichern
+            File.WriteAllLines(Application.StartupPath + @"\NeueEuropa.svg", SVG); // Soll das in diesem Namen speichern
 
-        webBrowser1.Refresh();// Wb neu Laden wenn was ändert
-    }
+            webBrowser1.Refresh();// Wb neu Laden wenn was ändert
+        }
 
 
-    void spracherkennung_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
-    {
-        MessageBox.Show(e.Result.Text);
-        //foreach (RecognizedWordUnit wort in e.Result.Words)
-        //{
-        //    listBox1.Items.Add(wort.Text);
-        //}
-    }
+        void spracherkennung_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        {
+            MessageBox.Show(e.Result.Text);
+            //foreach (RecognizedWordUnit wort in e.Result.Words)
+            //{
+            //    listBox1.Items.Add(wort.Text);
+            //}
+        }
 
-    private void Ergebnis_speichern_Click(object sender, EventArgs e)
-    {
-        Ergebnis_Speichern es = new Ergebnis_Speichern();
-        es.Show();
-    }
+        private void Ergebnis_speichern_Click(object sender, EventArgs e)
+        {
+            Ergebnis_Speichern es = new Ergebnis_Speichern();
+            es.Show();
+        }
 
-    private void Vorzeitig_beenden_Click(object sender, EventArgs e)
-    {
-        Vorzeitig_verlassen_bestätigen vb = new Vorzeitig_verlassen_bestätigen();
-        vb.Show();
-    }
+        private void Vorzeitig_beenden_Click(object sender, EventArgs e)
+        {
+            Vorzeitig_verlassen_bestätigen vb = new Vorzeitig_verlassen_bestätigen();
+            vb.Show();
+        }
 
         private void tb_Land_TextChanged(object sender, EventArgs e)
         {
-          
-                
-        
+
+
+
         }
 
 
 
         private void tb_Land_KeyDown(object sender, KeyEventArgs e)
-       {
+        {
             if (e.KeyCode == Keys.Enter)
             {
                 Prüfe();
@@ -239,18 +240,21 @@ namespace Europaquiz
 
         public void Prüfe()
         {
+            Timer.Stop();
+            countdown = 15;
             if (tb_Land.Visible == true)
             {
                 string eingLand = tb_Land.Text;
 
-            if (eingLand == LänderListe[0].getLandname())
-            {
-                Färbe("fil8", "fil9");
-                // Färben mit methode-> Hell Grün (Wenn Land richtig Hauptstad nach fragen)
-                tb_Land.Hide();
-                tb_Hauptstadt.Show();
+                if (eingLand.ToUpper() == LänderListe[0].getLandname().ToUpper())
+                {
+                    Färbe("fil8", "fil9");
+                    // Färben mit methode-> Hell Grün (Wenn Land richtig Hauptstad nach fragen)
+                    tb_Land.Hide();
+                    tb_Hauptstadt.Show();
+                    Timer.Start();
 
-            }
+                }
 
                 else
                 {
@@ -264,7 +268,7 @@ namespace Europaquiz
             {
                 string eingStadt = tb_Hauptstadt.Text;
 
-                if (eingStadt == LänderListe[0].getHauptstadt())
+                if (eingStadt.ToUpper() == LänderListe[0].getHauptstadt().ToUpper())
                 {
                     Färbe("fil9", "fil10");
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
@@ -281,6 +285,8 @@ namespace Europaquiz
             }
             if (anzGespielterLänder == 15)
             {
+                Button_prüfe_Land_neu.Hide();
+                Vorzeitig_beenden.Hide();
                 Ergebnis_speichern.Show();
                 Ohne_Speichern.Show();
                 spiel = false;
@@ -304,7 +310,7 @@ namespace Europaquiz
 
             if (CountdownZaehler.Text == "0")
             {
-                Timer.Stop();
+                Prüfe();
             }
         }
     }
@@ -316,7 +322,7 @@ namespace Europaquiz
         public static int punkte { get; set; }
         public static int anzGespLändder { get; set; }
 
-        public PunktE(int maxpunkte, int punkte,int gespielteländer)
+        public PunktE(int maxpunkte, int punkte, int gespielteländer)
         {
             PunktE.maxpunkte = maxpunkte;
             PunktE.punkte = punkte;
