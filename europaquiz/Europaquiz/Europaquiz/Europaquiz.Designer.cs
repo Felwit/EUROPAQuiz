@@ -46,7 +46,6 @@
             this.Ergebnis_speichern = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.Timer = new System.Windows.Forms.Timer(this.components);
-            this.label3 = new System.Windows.Forms.Label();
             this.Ohne_Speichern = new System.Windows.Forms.Button();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoom)).BeginInit();
@@ -237,15 +236,6 @@
             this.Timer.Interval = 1000;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(442, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "label3";
-            // 
             // Ohne_Speichern
             // 
             this.Ohne_Speichern.Location = new System.Drawing.Point(525, 196);
@@ -263,7 +253,6 @@
             this.ClientSize = new System.Drawing.Size(1444, 881);
             this.ControlBox = false;
             this.Controls.Add(this.Ohne_Speichern);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.Ergebnis_speichern);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.webBrowser1);
@@ -275,7 +264,6 @@
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoom)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -298,7 +286,6 @@
         private System.Windows.Forms.Label CountdownText;
         private System.Windows.Forms.Label CountdownZaehler;
         private System.Windows.Forms.Timer Timer;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Ohne_Speichern;
     }
 }

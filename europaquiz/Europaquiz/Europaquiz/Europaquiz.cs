@@ -283,7 +283,7 @@ namespace Europaquiz
                     anzGespielterLänder++;
                 }
             }
-            if (anzGespielterLänder == 15)
+            if (anzGespielterLänder == 20)
             {
                 Button_prüfe_Land_neu.Hide();
                 Vorzeitig_beenden.Hide();

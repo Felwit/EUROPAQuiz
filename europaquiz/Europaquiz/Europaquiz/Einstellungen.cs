@@ -12,25 +12,27 @@ namespace Europaquiz
 {
     public partial class Einstellungen : Form
     {
-       bool micophon=true;
-        string art;
-        int schwierigkeit=2;
         
+        int art;
+        bool micophon=true;
+        int schwierigkeit=2;
+
+
         public Einstellungen()
         {
             InitializeComponent();
-            if (micophon == true)
-                art = "M";
-            else
-                art = "T";  
-            Schwierigkeitsbox.SelectedItem = Schwierigkeitsbox.FindStringExact(schwierigkeit.ToString());        //Standardauswahl
-            Eingabe_Artbox.SelectedItem = Eingabe_Artbox.FindString(art) ;
+
         }
+
+
 
         public void Einstellungen_Load(object sender, EventArgs e)
         {
-            Schwierigkeitsbox.SelectedItem = Schwierigkeit;        //Standardauswahl
-            Eingabe_Artbox.SelectedItem = Eingabe_Artbox;
+
+            
+            Schwierigkeitsbox.SelectedIndex = EinstellungenQuiz.Schwierigkeitsgrad - 1;        //Standardauswahl
+            Eingabe_Artbox.SelectedIndex = art;
+
         }
 
 
@@ -48,14 +50,16 @@ namespace Europaquiz
             else
                 micophon = true;
 
-            if (Schwierigkeitsbox.Text == "Anfänger")
+            if (Schwierigkeitsbox.Text == "Leicht")
                 schwierigkeit = 1;
-            else if (Schwierigkeitsbox.Text == "Profi")
+            else if (Schwierigkeitsbox.Text == "Schwehr")
                 schwierigkeit = 3;
             else
                 schwierigkeit = 2;
-            //EinstellungenQuiz EinstQ = new EinstellungenQuiz(micophon,schwierigkeit);
-                this.Close();
+            
+            EinstellungenQuiz EinstQ = new EinstellungenQuiz(micophon, schwierigkeit);
+            
+            this.Close();
         }
 
         private void info_Schwierigkeit_Click(object sender, EventArgs e)
