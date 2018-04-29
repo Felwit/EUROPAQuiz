@@ -43,4 +43,4 @@ Portugal;Lissabon;1
 Andorra;Andorra la Vella;3
 Malta;Valletta;2
 Island;Reykjavik;3
-Vatikansadt;Vatikanstadt;2
+Vatikanstadt;Vatikanstadt;2
