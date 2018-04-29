@@ -35,9 +35,9 @@ namespace Europaquiz
         bool click1 = true;
         bool spiel = true;
         int Punktestand = 0;
-        int maxpunkte=0;
+        int maxpunkte = 0;
         string Land_ID;
-        bool zoom=true;
+        bool zoom = true;
 
 
         private SpeechRecognitionEngine spracherkennung = new SpeechRecognitionEngine();
@@ -56,14 +56,14 @@ namespace Europaquiz
 
             File.WriteAllLines(Application.StartupPath + @"\NeueEuropa.svg", SVG);// Soll darauf zugreifen
             webBrowser1.Navigate(Application.StartupPath + @"\NeueEuropa.svg");
-            
+
 
             for (int i = 0; i < LH.Length; i++)
             {
                 LH[i] = -1;// Damit Array nicht mit 0 gefüllt werden soll 
             }
         }
-        
+
 
 
         public class Land
@@ -72,7 +72,7 @@ namespace Europaquiz
             private string Landname;
             private string Hauptstadt;
             private int Schwierigkeit;
-            
+
 
 
 
@@ -100,103 +100,104 @@ namespace Europaquiz
             while (spiel == true)
             {
                 Button_prüfe_Land_neu.Hide();
-                    zeilen = File.ReadAllLines(Application.StartupPath + @"\Länder und Hauptstadt.txt");
-                    int Land = -1;
+                zeilen = File.ReadAllLines(Application.StartupPath + @"\Länder und Hauptstadt.txt");
+                int Land = -1;
 
-                    do
+                do
+                {
+                    Land = random.Next(0, zeilen.Length);// Anderes Land nehmen wenn das eine Land schon vor kam
+                    istland = zeilen[Land].Split(';')[0];// 0 Weil der bei 0 anfängt zu zählen und ; weil der dort sich von HP trennt.
+                    isths = zeilen[Land].Split(';')[1];
+                    schwierigkeitL = Convert.ToInt32(zeilen[Land].Split(';')[2]);
+
+
+                } while (LH.Contains(Land) && schwierigkeitL > schwierigkeit); // Damit kein Land nochmal vor kommt
+
+                LänderListe[0] = new Land(istland, isths, schwierigkeitL);
+
+                Färbe("fil1", "fil8");
+                LH[Länder] = Land;// Land wird auf dem Wert gesetzt welches dann vorkommt NR des gespielten Landes
+                Länder++;// Die Werte werden mehr // # der gespielten Länder
+
+                string Switchcase = LänderListe[0].getLandname();
+                switch (Switchcase)// Für die Zoom Funktion
+                {
+                    case "Andorra":
+                        Land_ID = Application.StartupPath + @"\Kleine Länder\Andorra.png";
+                        break;
+                    case "Malta":
+                        Land_ID = Application.StartupPath + @"\Kleine Länder\Malta.png";
+                        break;
+                    case "San Marino":
+                        Land_ID = Application.StartupPath + @"\Kleine Länder\San Marino.png";
+                        break;
+                    case "Vatikanstadt":
+                        Land_ID = Application.StartupPath + @"\Kleine Länder\Vatikanstadt.png";
+                        break;
+                    case "Monaco":
+                        Land_ID = Application.StartupPath + @"\Kleine Länder\Monaco.png";
+                        break;
+                    case "Liechtenstein":
+                        Land_ID = Application.StartupPath + @"\Kleine Länder\Liechtenstein.png";
+                        break;
+                    default:
+                        zoom = false;
+                        break;
+                }
+                if (zoom == true)
+                {
+
+                    Zoom.Load(Land_ID);
+                    Zoom.Show();
+                }
+                else
+                {
+                    zoom = true;
+                    Zoom.Hide();
+                }
+
+
+
+
+                if (click1 == true)
+                {
+                    try
                     {
-                        Land = random.Next(0, zeilen.Length);// Anderes Land nehmen wenn das eine Land schon vor kam
-                        istland = zeilen[Land].Split(';')[0];// 0 Weil der bei 0 anfängt zu zählen und ; weil der dort sich von HP trennt.
-                        isths = zeilen[Land].Split(';')[1];
-                        schwierigkeitL = Convert.ToInt32(zeilen[Land].Split(';')[2]);
-
-
-                    } while (LH.Contains(Land) && schwierigkeitL > schwierigkeit); // Damit kein Land nochmal vor kommt
-
-                    LänderListe[0] = new Land(istland, isths, schwierigkeitL);
-
-                    Färbe("fil1", "fil8");
-                    LH[Länder] = Land;// Land wird auf dem Wert gesetzt welches dann vorkommt NR des gespielten Landes
-                    Länder++;// Die Werte werden mehr // # der gespielten Länder
-
-                    string Switchcase = LänderListe[0].getLandname();
-                    switch (Switchcase)// Für die Zoom Funktion
-                    {
-                        case "Andorra":
-                            Land_ID = Application.StartupPath + @"\Kleine Länder\Andorra.png";
-                            break;
-                        case "Malta":
-                            Land_ID = Application.StartupPath + @"\Kleine Länder\Malta.png";
-                            break;
-                        case "San Marino":
-                            Land_ID = Application.StartupPath + @"\Kleine Länder\San Marino.png";
-                            break;
-                        case "Vatikanstadt":
-                            Land_ID =Application.StartupPath + @"\Kleine Länder\Vatikanstadt.png";
-                            break;
-                        case "Monaco":
-                            Land_ID = Application.StartupPath + @"\Kleine Länder\Monaco.png";
-                            break;
-                        case "Liechtenstein":
-                            Land_ID = Application.StartupPath + @"\Kleine Länder\Liechtenstein.png";
-                            break;
-                        default:
-                            zoom = false;
-                            break;
-                    }
-                    if (zoom == true)
-                    {
-                        
-                        Zoom.Load(Land_ID);
-                        Zoom.Show();
-                    }
-                    else
-                    {
-                        zoom = true;
-                        Zoom.Hide();
-                    }
-
-
-
-
-                            if (click1 == true)
-                    {
+                        spracherkennung.SetInputToDefaultAudioDevice();
+                        spracherkennung.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(spracherkennung_SpeechRecognized);
                         try
                         {
-                            spracherkennung.SetInputToDefaultAudioDevice();
-                            spracherkennung.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(spracherkennung_SpeechRecognized);
-                            try
-                            {
-                                //Wörter laden
-                                Grammar grammar = new Grammar("grammar.xml", "LuS");
-                                spracherkennung.UnloadAllGrammars();
-                                spracherkennung.LoadGrammar(grammar);
-                                //Erkennung starten
-                                spracherkennung.RecognizeAsync(RecognizeMode.Multiple);
-                            }
-                            catch (Exception a)
-                            {
-                                MessageBox.Show("Exception aufgetreten: " + a.Message);
-                                Application.Exit();
-                            }
-
-
+                            //Wörter laden
+                            Grammar grammar = new Grammar("grammar.xml", "LuS");
+                            spracherkennung.UnloadAllGrammars();
+                            spracherkennung.LoadGrammar(grammar);
+                            //Erkennung starten
+                            spracherkennung.RecognizeAsync(RecognizeMode.Multiple);
                         }
-                        catch (Exception)
+                        catch (Exception a)
                         {
-                            MessageBox.Show("Nur Text eingabe möglich.");
-                            EingabeArt = false;
+                            MessageBox.Show("Exception aufgetreten: " + a.Message);
+                            Application.Exit();
                         }
-                        click1 = false;
+
+
                     }
-
-                    
-                    tb_Land.Show();
-                    Timer.Start();
-                    break;
-
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Nur Text eingabe möglich.");
+                        EingabeArt = false;
+                    }
+                    click1 = false;
                 }
-                
+
+
+                tb_Land.Show();
+                tb_Land.Focus();
+                Timer.Start();
+                break;
+
+            }
+
         }
 
 
@@ -288,6 +289,7 @@ namespace Europaquiz
                     // Färben mit methode-> Hell Grün (Wenn Land richtig Hauptstad nach fragen)
                     tb_Land.Hide();
                     tb_Hauptstadt.Show();
+                    tb_Hauptstadt.Focus();
                     Timer.Start();
                     Punktestand = Punktestand + LänderListe[0].getschwierigkeit();
                     PunkteZahlAnzeige.Text = Punktestand.ToString();
@@ -303,6 +305,7 @@ namespace Europaquiz
                     zeigeLösng();
                     maxpunkte = maxpunkte + (LänderListe[0].getschwierigkeit() * 2);
                     Button_prüfe_Land_neu.Show();
+                    Button_prüfe_Land_neu.Focus();
                 }
             }
             else
@@ -315,12 +318,13 @@ namespace Europaquiz
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Hauptstadt.Hide();
                     anzGespielterLänder++;
-                    Punktestand= Punktestand + LänderListe[0].getschwierigkeit();
+                    Punktestand = Punktestand + LänderListe[0].getschwierigkeit();
                     PunkteZahlAnzeige.Text = Punktestand.ToString();
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
                     zeigeLösng();
-                    
+
                     Button_prüfe_Land_neu.Show();
+                    Button_prüfe_Land_neu.Focus();
                 }
                 else
                 {
@@ -330,9 +334,10 @@ namespace Europaquiz
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
                     zeigeLösng();
                     Button_prüfe_Land_neu.Show();
+                    Button_prüfe_Land_neu.Focus();
                 }
             }
-            
+
             if (anzGespielterLänder == 20)
             {
                 Button_prüfe_Land_neu.Hide();
@@ -356,7 +361,7 @@ namespace Europaquiz
             LetzteEIngabeHS.Text = tb_Land.Text;
         }
 
-        
+
 
         private void Timer_Tick(object sender, EventArgs e)
         {
