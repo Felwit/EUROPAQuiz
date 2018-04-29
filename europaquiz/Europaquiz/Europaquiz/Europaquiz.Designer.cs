@@ -42,11 +42,11 @@
             this.LösungsAnzeige = new System.Windows.Forms.Label();
             this.CountdownText = new System.Windows.Forms.Label();
             this.CountdownZaehler = new System.Windows.Forms.Label();
+            this.PunkteZahlAnzeige = new System.Windows.Forms.Label();
             this.Ergebnis_speichern = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.Ohne_Speichern = new System.Windows.Forms.Button();
-            this.PunkteZahlAnzeige = new System.Windows.Forms.Label();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoom)).BeginInit();
             this.SuspendLayout();
@@ -69,7 +69,6 @@
             this.tb_Land.TabIndex = 1;
             this.tb_Land.Text = "Bitte Land eingeben";
             this.tb_Land.Visible = false;
-            this.tb_Land.TextChanged += new System.EventHandler(this.tb_Land_TextChanged);
             this.tb_Land.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_Land_KeyDown);
             // 
             // Punkte
@@ -201,6 +200,15 @@
             this.CountdownZaehler.TabIndex = 12;
             this.CountdownZaehler.Text = "10";
             // 
+            // PunkteZahlAnzeige
+            // 
+            this.PunkteZahlAnzeige.AutoSize = true;
+            this.PunkteZahlAnzeige.Location = new System.Drawing.Point(88, 290);
+            this.PunkteZahlAnzeige.Name = "PunkteZahlAnzeige";
+            this.PunkteZahlAnzeige.Size = new System.Drawing.Size(13, 13);
+            this.PunkteZahlAnzeige.TabIndex = 13;
+            this.PunkteZahlAnzeige.Text = "0";
+            // 
             // Ergebnis_speichern
             // 
             this.Ergebnis_speichern.Location = new System.Drawing.Point(122, 196);
@@ -235,15 +243,6 @@
             this.Ohne_Speichern.Text = "Ohne Speichern beenden";
             this.Ohne_Speichern.UseVisualStyleBackColor = true;
             this.Ohne_Speichern.Visible = false;
-            // 
-            // PunkteZahlAnzeige
-            // 
-            this.PunkteZahlAnzeige.AutoSize = true;
-            this.PunkteZahlAnzeige.Location = new System.Drawing.Point(88, 290);
-            this.PunkteZahlAnzeige.Name = "PunkteZahlAnzeige";
-            this.PunkteZahlAnzeige.Size = new System.Drawing.Size(13, 13);
-            this.PunkteZahlAnzeige.TabIndex = 13;
-            this.PunkteZahlAnzeige.Text = "0";
             // 
             // Europaquiz
             // 

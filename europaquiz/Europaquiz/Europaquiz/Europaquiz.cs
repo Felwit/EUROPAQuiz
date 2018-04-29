@@ -24,7 +24,7 @@ namespace Europaquiz
         //int Auswahl;
         int countdown = 15;
         //int[] gespielte = new int[1];//max. Größe ergibt sich eigentlich aus Schwierigkeit
-        Land[] LänderListe = new Land[2];
+        Land[] LänderListe = new Land[1];
         string[] zeilen;
         int anzGespielterLänder = 0;
         int schwierigkeit = EinstellungenQuiz.Schwierigkeitsgrad;
@@ -35,6 +35,7 @@ namespace Europaquiz
         bool click1 = true;
         bool spiel = true;
         int Punktestand = 0;
+        int maxpunkte=0;
 
 
         private SpeechRecognitionEngine spracherkennung = new SpeechRecognitionEngine();
@@ -68,7 +69,7 @@ namespace Europaquiz
             private string Landname;
             private string Hauptstadt;
             private int Schwierigkeit;
-            public int Punktestand;
+            
 
 
 
@@ -187,7 +188,7 @@ namespace Europaquiz
 
         void spracherkennung_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            
+            //MessageBox.Show(e.Result.Text);
             if (tb_Land.Visible)
             {
                 tb_Land.Text = e.Result.Text;
@@ -195,6 +196,7 @@ namespace Europaquiz
             }
             else if (tb_Hauptstadt.Visible)
             {
+                //MessageBox.Show(e.Result.Text);
                 tb_Hauptstadt.Text = e.Result.Text;
                 Prüfe();
             }
@@ -212,16 +214,13 @@ namespace Europaquiz
 
         private void Vorzeitig_beenden_Click(object sender, EventArgs e)
         {
+            PunktE.anzGespLändder = anzGespielterLänder;
+            PunktE.maxpunkte = maxpunkte;
+            PunktE.punkte = Punktestand;
             Vorzeitig_verlassen_bestätigen vb = new Vorzeitig_verlassen_bestätigen();
             vb.Show();
         }
 
-        private void tb_Land_TextChanged(object sender, EventArgs e)
-        {
-
-
-
-        }
 
 
         private void tb_Land_KeyDown(object sender, KeyEventArgs e)
@@ -248,15 +247,16 @@ namespace Europaquiz
             {
                 string eingLand = tb_Land.Text;
 
-                if (eingLand.ToUpper() == LänderListe[0].getLandname().ToUpper())
+                if (eingLand.ToUpper() == LänderListe[0].getLandname().ToUpper() || eingLand == LänderListe[0].getLandname())
                 {
                     Färbe("fil8", "fil9");
                     // Färben mit methode-> Hell Grün (Wenn Land richtig Hauptstad nach fragen)
                     tb_Land.Hide();
                     tb_Hauptstadt.Show();
                     Timer.Start();
-                    Punktestand++;
+                    Punktestand = Punktestand + LänderListe[0].getschwierigkeit();
                     PunkteZahlAnzeige.Text = Punktestand.ToString();
+                    maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
                 }
 
                 else
@@ -266,46 +266,47 @@ namespace Europaquiz
                     tb_Land.Hide();
                     anzGespielterLänder++;
                     LösungsAnzeige.Text = LänderListe[0].getLandname();
+                    maxpunkte = maxpunkte + (LänderListe[0].getschwierigkeit() * 2);
                 }
             }
             else
             {
                 string eingStadt = tb_Hauptstadt.Text;
 
-                if (eingStadt.ToUpper() == LänderListe[0].getHauptstadt().ToUpper())
+                if (eingStadt.ToUpper() == LänderListe[0].getHauptstadt().ToUpper() || eingStadt == LänderListe[0].getHauptstadt())
                 {
                     Färbe("fil9", "fil10");
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Hauptstadt.Hide();
                     anzGespielterLänder++;
-                    Punktestand++;
+                    Punktestand= Punktestand + LänderListe[0].getschwierigkeit();
                     PunkteZahlAnzeige.Text = Punktestand.ToString();
+                    maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
                 }
                 else
                 {
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Hauptstadt.Hide();
                     anzGespielterLänder++;
+                    maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
                 }
             }
             
-            if (anzGespielterLänder == 2)
+            if (anzGespielterLänder == 20)
             {
                 Button_prüfe_Land_neu.Hide();
                 Vorzeitig_beenden.Hide();
                 Ergebnis_speichern.Show();
                 Ohne_Speichern.Show();
                 spiel = false;
-                PunktE.anzGespLändder = 20;
-                //punkte und max punkte nach PunktE.
-              
+                PunktE.anzGespLändder = anzGespielterLänder;
+                PunktE.maxpunkte = maxpunkte;
+                PunktE.punkte = Punktestand;
+
+
             }
         }
 
-        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-
-        }
 
         private void Ohne_Speichern_Click(object sender, EventArgs e)
         {
@@ -334,8 +335,6 @@ namespace Europaquiz
             PunktE.maxpunkte = maxpunkte;
             PunktE.punkte = punkte;
             PunktE.anzGespLändder = gespielteländer;
-
-
         }
 
     }

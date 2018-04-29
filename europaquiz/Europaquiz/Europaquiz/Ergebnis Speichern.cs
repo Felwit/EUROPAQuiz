@@ -18,10 +18,6 @@ namespace Europaquiz
     public partial class Ergebnis_Speichern : Form
     {
         private static Document pdfdoc;
-        string pfad;
-        string Nachname;
-        string Vorname;
-
 
         public Ergebnis_Speichern()
         {
@@ -82,10 +78,10 @@ namespace Europaquiz
             pdfdoc.Add(CreateParagraph("Adolfkolping-Berufskoleg", big));
                         
             pdfdoc.Add(AddEmptyParagraph(30));
-            pdfdoc.Add(CreateParagraph($"Ausgestellt für:{Vorname}{Name} ", standard));
+            pdfdoc.Add(CreateParagraph($"Ausgestellt für:{Vorname} {Name} ", standard));
             pdfdoc.Add(CreateParagraph($"Das Quiz wurde am {DateTime.Now.ToLongDateString()} absolviert.", standard));
             pdfdoc.Add(AddEmptyParagraph(10));
-            pdfdoc.Add(CreateParagraph($"{Vorname}{Name} hat {PunktE.punkte} Punkte von {PunktE.maxpunkte} Punkten erieicht.", standard));
+            pdfdoc.Add(CreateParagraph($"{Vorname} {Name} hat {PunktE.punkte} Punkte von {PunktE.maxpunkte} Punkten erieicht.", standard));
             pdfdoc.Add(CreateParagraph($"Es wurde(n) {PunktE.anzGespLändder} Land/Länder  von 20 Ländern gespielt.", standard));
             pdfdoc.Add(AddEmptyParagraph(10));
            
@@ -123,8 +119,8 @@ namespace Europaquiz
         {
             pdfdoc = new Document(iTextSharp.text.PageSize.A4);
             pdfdoc.SetMargins(50, 50, 50, 50);
-            Name = NameTB.Text;
-            Vorname = VornameTB.Text;
+            string Name = NameTB.Text;
+            string Vorname = VornameTB.Text;
             SaveFileDialog sfd = new SaveFileDialog();
             string sfdname = saveFileDialog1.FileName;
             if (sfd.ShowDialog() == DialogResult.OK)

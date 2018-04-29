@@ -12,7 +12,6 @@ namespace Europaquiz
 {
     public partial class Einstellungen : Form
     {
-        
         int art;
         bool micophon=true;
         int schwierigkeit=2;
@@ -21,7 +20,6 @@ namespace Europaquiz
         public Einstellungen()
         {
             InitializeComponent();
-
         }
 
 
