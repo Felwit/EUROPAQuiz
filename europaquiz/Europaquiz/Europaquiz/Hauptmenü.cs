@@ -47,5 +47,11 @@ namespace Europaquiz
         {
 
         }
+
+        private void Tutorial_Click(object sender, EventArgs e)
+        {
+            Anleitungcs A = new Anleitungcs();
+            A.Show();
+        }
     }
 }

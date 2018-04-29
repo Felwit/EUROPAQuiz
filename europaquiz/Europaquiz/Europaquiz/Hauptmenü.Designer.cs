@@ -52,6 +52,7 @@
             this.Tutorial.TabIndex = 1;
             this.Tutorial.Text = "Tutorial";
             this.Tutorial.UseVisualStyleBackColor = true;
+            this.Tutorial.Click += new System.EventHandler(this.Tutorial_Click);
             // 
             // Einstellungen
             // 

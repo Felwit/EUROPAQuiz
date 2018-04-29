@@ -60,6 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Anleitungcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Anleitungcs.Designer.cs">
+      <DependentUpon>Anleitungcs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ergebnis Speichern.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     <Compile Include="Vorzeitig verlassen bestätigen.Designer.cs">
       <DependentUpon>Vorzeitig verlassen bestätigen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Anleitungcs.resx">
+      <DependentUpon>Anleitungcs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ergebnis Speichern.resx">
       <DependentUpon>Ergebnis Speichern.cs</DependentUpon>
     </EmbeddedResource>

@@ -22,7 +22,7 @@ namespace Europaquiz
         Random random = new Random();
         //int anzLänder = 0;
         //int Auswahl;
-        int countdown = 15;
+        int countdown = 15;  //<--- Variable je nach Schwierigkeitsgrad muss eingstellt werden
         //int[] gespielte = new int[1];//max. Größe ergibt sich eigentlich aus Schwierigkeit
         Land[] LänderListe = new Land[1];
         string[] zeilen;
@@ -43,13 +43,13 @@ namespace Europaquiz
         public Europaquiz()
         {
             InitializeComponent();
-
-
-
+            FalschRichtigAnzeige.Hide();
+            LösungsAnzeige.Text = "sad";
         }
 
         private void Europaquiz_Load(object sender, EventArgs e)
         {
+
             this.Bounds = Screen.PrimaryScreen.Bounds; // Formulargröße auf Größe des Bildschirms festlegen
 
             File.WriteAllLines(Application.StartupPath + @"\NeueEuropa.svg", SVG);// Soll darauf zugreifen
@@ -103,6 +103,7 @@ namespace Europaquiz
 
                     do
                     {
+                        CountdownZaehler.Show();
                         Land = random.Next(0, zeilen.Length);// Anderes Land nehmen wenn das eine Land schon vor kam
                         istland = zeilen[Land].Split(';')[0];// 0 Weil der bei 0 anfängt zu zählen und ; weil der dort sich von HP trennt.
                         isths = zeilen[Land].Split(';')[1];
@@ -242,11 +243,11 @@ namespace Europaquiz
         public void Prüfe()
         {
             Timer.Stop();
-            countdown = 15;
-            if (tb_Land.Visible == true)
+            countdown = 15;  //<--- Variable je nach Schwierigkeitsgrad muss eingstellt werden
+            if (tb_Land.Visible == true)            //LANDNAME WIRD ÜBERPRÜFT
             {
                 string eingLand = tb_Land.Text;
-
+                //RICHTIGE ANTWORT
                 if (eingLand.ToUpper() == LänderListe[0].getLandname().ToUpper() || eingLand == LänderListe[0].getLandname())
                 {
                     Färbe("fil8", "fil9");
@@ -257,38 +258,53 @@ namespace Europaquiz
                     Punktestand = Punktestand + LänderListe[0].getschwierigkeit();
                     PunkteZahlAnzeige.Text = Punktestand.ToString();
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
+                    LLösung.Hide();
+                    LösungsAnzeige.Hide();
+                    FalschRichtig(true);
                 }
 
-                else
+                else //FALSCHE ANTWORT
                 {
                     Färbe("fil8", "fil11");
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Land.Hide();
                     anzGespielterLänder++;
+                    LLösung.Show();
+                    LösungsAnzeige.Show();
                     LösungsAnzeige.Text = LänderListe[0].getLandname();
                     maxpunkte = maxpunkte + (LänderListe[0].getschwierigkeit() * 2);
+                    FalschRichtig(false);
                 }
             }
-            else
+            else //HAUPTSTAD ÜBERPRÜFUNG
             {
                 string eingStadt = tb_Hauptstadt.Text;
-
+                //RICHTIGE ANTWORT
                 if (eingStadt.ToUpper() == LänderListe[0].getHauptstadt().ToUpper() || eingStadt == LänderListe[0].getHauptstadt())
                 {
                     Färbe("fil9", "fil10");
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Hauptstadt.Hide();
+                    CountdownZaehler.Hide();
+                    CountdownZaehler.Text = "10"; //<--- Variable je nach Schwierigkeitsgrad muss eingstellt werden
                     anzGespielterLänder++;
                     Punktestand= Punktestand + LänderListe[0].getschwierigkeit();
                     PunkteZahlAnzeige.Text = Punktestand.ToString();
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
+                    LLösung.Hide();
+                    LösungsAnzeige.Hide();
+                    FalschRichtig(true);
                 }
-                else
+                else //FALSCHE ANTWORT
                 {
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Hauptstadt.Hide();
                     anzGespielterLänder++;
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
+                    LösungsAnzeige.Text = LänderListe[0].getHauptstadt();
+                    LLösung.Show();
+                    LösungsAnzeige.Show();
+                    FalschRichtig(false);
                 }
             }
             
@@ -302,11 +318,28 @@ namespace Europaquiz
                 PunktE.anzGespLändder = anzGespielterLänder;
                 PunktE.maxpunkte = maxpunkte;
                 PunktE.punkte = Punktestand;
-
-
             }
         }
 
+        private void FalschRichtig(bool RF)
+        {
+            //Ein Signal, ob der Benutzer Richtig oder Falsch lag.
+            //True = Richtige Antwort
+            //False = Falsche Antwort
+            if (RF == true)
+            {
+                FalschRichtigAnzeige.Text = "Richtig";
+                FalschRichtigAnzeige.ForeColor = Color.Green;
+                FalschRichtigAnzeige.Show();
+            }
+
+            if (RF == false)
+            {
+                FalschRichtigAnzeige.Text = "Falsch";
+                FalschRichtigAnzeige.ForeColor = Color.Red;
+                FalschRichtigAnzeige.Show();
+            }
+        }
 
         private void Ohne_Speichern_Click(object sender, EventArgs e)
         {
@@ -322,6 +355,16 @@ namespace Europaquiz
             {
                 Prüfe();
             }
+        }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
     public class PunktE
