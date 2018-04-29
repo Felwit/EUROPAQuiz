@@ -265,7 +265,7 @@ namespace Europaquiz
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Land.Hide();
                     anzGespielterLänder++;
-                    LösungsAnzeige.Text = LänderListe[0].getLandname();
+                    zeigeLösng();
                     maxpunkte = maxpunkte + (LänderListe[0].getschwierigkeit() * 2);
                 }
             }
@@ -282,6 +282,8 @@ namespace Europaquiz
                     Punktestand= Punktestand + LänderListe[0].getschwierigkeit();
                     PunkteZahlAnzeige.Text = Punktestand.ToString();
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
+                    zeigeLösng();
+                    
                 }
                 else
                 {
@@ -289,6 +291,7 @@ namespace Europaquiz
                     tb_Hauptstadt.Hide();
                     anzGespielterLänder++;
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
+                    zeigeLösng();
                 }
             }
             
@@ -307,6 +310,13 @@ namespace Europaquiz
             }
         }
 
+        private void zeigeLösng()
+        {
+            LösungLand.Text = LänderListe[0].getLandname();
+            LösungHS.Text = LänderListe[0].getHauptstadt();
+            LetzteEingabeLand.Text = tb_Land.Text;
+            LetzteEIngabeHS.Text = tb_Land.Text;
+        }
 
         private void Ohne_Speichern_Click(object sender, EventArgs e)
         {
