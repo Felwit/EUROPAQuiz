@@ -35,7 +35,9 @@ namespace Europaquiz
         bool click1 = true;
         bool spiel = true;
         int Punktestand = 0;
-        int maxpunkte=0;
+        int maxpunkte = 0;
+        string Land_ID;
+        bool zoom = true;
 
 
         private SpeechRecognitionEngine spracherkennung = new SpeechRecognitionEngine();
@@ -55,12 +57,13 @@ namespace Europaquiz
             File.WriteAllLines(Application.StartupPath + @"\NeueEuropa.svg", SVG);// Soll darauf zugreifen
             webBrowser1.Navigate(Application.StartupPath + @"\NeueEuropa.svg");
 
+
             for (int i = 0; i < LH.Length; i++)
             {
                 LH[i] = -1;// Damit Array nicht mit 0 gefüllt werden soll 
             }
         }
-        
+
 
 
         public class Land
@@ -69,7 +72,7 @@ namespace Europaquiz
             private string Landname;
             private string Hauptstadt;
             private int Schwierigkeit;
-            
+
 
 
 
@@ -96,10 +99,9 @@ namespace Europaquiz
         {
             while (spiel == true)
             {
-                if (Button_prüfe_Land_neu.Text == "Nächstes Land")
-                {
-                    zeilen = File.ReadAllLines(Application.StartupPath + @"\Länder und Hauptstadt.txt");
-                    int Land = -1;
+                Button_prüfe_Land_neu.Hide();
+                zeilen = File.ReadAllLines(Application.StartupPath + @"\Länder und Hauptstadt.txt");
+                int Land = -1;
 
                     do
                     {
@@ -110,57 +112,91 @@ namespace Europaquiz
                         schwierigkeitL = Convert.ToInt32(zeilen[Land].Split(';')[2]);
 
 
-                    } while (LH.Contains(Land) && schwierigkeitL > schwierigkeit); // Damit kein Land nochmal vor kommt
+                } while (LH.Contains(Land) && schwierigkeitL > schwierigkeit); // Damit kein Land nochmal vor kommt
 
-                    LänderListe[0] = new Land(istland, isths, schwierigkeitL);
+                LänderListe[0] = new Land(istland, isths, schwierigkeitL);
 
-                    Färbe("fil1", "fil8");
-                    LH[Länder] = Land;// Land wird auf dem Wert gesetzt welches dann vorkommt NR des gespielten Landes
-                    Länder++;// Die Werte werden mehr // # der gespielten Länder
+                Färbe("fil1", "fil8");
+                LH[Länder] = Land;// Land wird auf dem Wert gesetzt welches dann vorkommt NR des gespielten Landes
+                Länder++;// Die Werte werden mehr // # der gespielten Länder
+
+                string Switchcase = LänderListe[0].getLandname();
+                switch (Switchcase)// Für die Zoom Funktion
+                {
+                    case "Andorra":
+                        Land_ID = Application.StartupPath + @"\Kleine Länder\Andorra.png";
+                        break;
+                    case "Malta":
+                        Land_ID = Application.StartupPath + @"\Kleine Länder\Malta.png";
+                        break;
+                    case "San Marino":
+                        Land_ID = Application.StartupPath + @"\Kleine Länder\San Marino.png";
+                        break;
+                    case "Vatikanstadt":
+                        Land_ID = Application.StartupPath + @"\Kleine Länder\Vatikanstadt.png";
+                        break;
+                    case "Monaco":
+                        Land_ID = Application.StartupPath + @"\Kleine Länder\Monaco.png";
+                        break;
+                    case "Liechtenstein":
+                        Land_ID = Application.StartupPath + @"\Kleine Länder\Liechtenstein.png";
+                        break;
+                    default:
+                        zoom = false;
+                        break;
+                }
+                if (zoom == true)
+                {
+
+                    Zoom.Load(Land_ID);
+                    Zoom.Show();
+                }
+                else
+                {
+                    zoom = true;
+                    Zoom.Hide();
+                }
 
 
 
-                    if (click1 == true)
+
+                if (click1 == true)
+                {
+                    try
                     {
+                        spracherkennung.SetInputToDefaultAudioDevice();
+                        spracherkennung.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(spracherkennung_SpeechRecognized);
                         try
                         {
-                            spracherkennung.SetInputToDefaultAudioDevice();
-                            spracherkennung.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(spracherkennung_SpeechRecognized);
-                            try
-                            {
-                                //Wörter laden
-                                Grammar grammar = new Grammar("grammar.xml", "LuS");
-                                spracherkennung.UnloadAllGrammars();
-                                spracherkennung.LoadGrammar(grammar);
-                                //Erkennung starten
-                                spracherkennung.RecognizeAsync(RecognizeMode.Multiple);
-                            }
-                            catch (Exception a)
-                            {
-                                MessageBox.Show("Exception aufgetreten: " + a.Message);
-                                Application.Exit();
-                            }
-
-
+                            //Wörter laden
+                            Grammar grammar = new Grammar("grammar.xml", "LuS");
+                            spracherkennung.UnloadAllGrammars();
+                            spracherkennung.LoadGrammar(grammar);
+                            //Erkennung starten
+                            spracherkennung.RecognizeAsync(RecognizeMode.Multiple);
                         }
-                        catch (Exception)
+                        catch (Exception a)
                         {
-                            MessageBox.Show("Nur Text eingabe möglich.");
-                            EingabeArt = false;
+                            MessageBox.Show("Exception aufgetreten: " + a.Message);
+                            Application.Exit();
                         }
-                        click1 = false;
+
+
                     }
-
-                    Button_prüfe_Land_neu.Text = "Prüfe";
-                    tb_Land.Show();
-                    Timer.Start();
-                    break;
-
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Nur Text eingabe möglich.");
+                        EingabeArt = false;
+                    }
+                    click1 = false;
                 }
-                else if (Button_prüfe_Land_neu.Text == "Prüfe")
-                {
-                        Prüfe();
-                }
+
+
+                tb_Land.Show();
+                tb_Land.Focus();
+                Timer.Start();
+                break;
+
             }
 
         }
@@ -254,6 +290,7 @@ namespace Europaquiz
                     // Färben mit methode-> Hell Grün (Wenn Land richtig Hauptstad nach fragen)
                     tb_Land.Hide();
                     tb_Hauptstadt.Show();
+                    tb_Hauptstadt.Focus();
                     Timer.Start();
                     Punktestand = Punktestand + LänderListe[0].getschwierigkeit();
                     PunkteZahlAnzeige.Text = Punktestand.ToString();
@@ -269,11 +306,8 @@ namespace Europaquiz
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Land.Hide();
                     anzGespielterLänder++;
-                    LLösung.Show();
-                    LösungsAnzeige.Show();
                     LösungsAnzeige.Text = LänderListe[0].getLandname();
                     maxpunkte = maxpunkte + (LänderListe[0].getschwierigkeit() * 2);
-                    FalschRichtig(false);
                 }
             }
             else //HAUPTSTAD ÜBERPRÜFUNG
@@ -288,12 +322,9 @@ namespace Europaquiz
                     CountdownZaehler.Hide();
                     CountdownZaehler.Text = "10"; //<--- Variable je nach Schwierigkeitsgrad muss eingstellt werden
                     anzGespielterLänder++;
-                    Punktestand= Punktestand + LänderListe[0].getschwierigkeit();
+                    Punktestand = Punktestand + LänderListe[0].getschwierigkeit();
                     PunkteZahlAnzeige.Text = Punktestand.ToString();
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
-                    LLösung.Hide();
-                    LösungsAnzeige.Hide();
-                    FalschRichtig(true);
                 }
                 else //FALSCHE ANTWORT
                 {
@@ -301,13 +332,9 @@ namespace Europaquiz
                     tb_Hauptstadt.Hide();
                     anzGespielterLänder++;
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
-                    LösungsAnzeige.Text = LänderListe[0].getHauptstadt();
-                    LLösung.Show();
-                    LösungsAnzeige.Show();
-                    FalschRichtig(false);
                 }
             }
-            
+
             if (anzGespielterLänder == 20)
             {
                 Button_prüfe_Land_neu.Hide();
@@ -341,10 +368,16 @@ namespace Europaquiz
             }
         }
 
+
         private void Ohne_Speichern_Click(object sender, EventArgs e)
         {
-            Application.Restart();
+            LösungLand.Text = LänderListe[0].getLandname();
+            LösungHS.Text = LänderListe[0].getHauptstadt();
+            LetzteEingabeLand.Text = tb_Land.Text;
+            LetzteEIngabeHS.Text = tb_Land.Text;
         }
+
+
 
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -355,16 +388,6 @@ namespace Europaquiz
             {
                 Prüfe();
             }
-        }
-
-        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
     public class PunktE
@@ -382,7 +405,3 @@ namespace Europaquiz
 
     }
 }
-
-
-
-
