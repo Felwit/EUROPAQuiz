@@ -199,6 +199,7 @@ namespace Europaquiz
                 tb_Land.Show();
                 tb_Land.Focus();
                 Timer.Start();
+                CountdownZaehler.Show();
                 break;
 
             }
@@ -283,7 +284,9 @@ namespace Europaquiz
         public void Prüfe()
         {
             Timer.Stop();
+            CountdownZaehler.Hide();
             countdown = 15;
+            CountdownZaehler.Text = countdown.ToString();
             if (tb_Land.Visible == true)
             {
                 string eingLand = tb_Land.Text;
@@ -296,6 +299,7 @@ namespace Europaquiz
                     tb_Hauptstadt.Show();
                     tb_Hauptstadt.Focus();
                     Timer.Start();
+                    CountdownZaehler.Show();
                     Punktestand = Punktestand + LänderListe[0].getschwierigkeit();
                     PunkteZahlAnzeige.Text = Punktestand.ToString();
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
