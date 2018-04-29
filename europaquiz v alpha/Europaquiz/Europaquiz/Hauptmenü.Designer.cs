@@ -50,7 +50,7 @@
             this.Tutorial.Name = "Tutorial";
             this.Tutorial.Size = new System.Drawing.Size(200, 50);
             this.Tutorial.TabIndex = 1;
-            this.Tutorial.Text = "Tutorial";
+            this.Tutorial.Text = "Anleitung";
             this.Tutorial.UseVisualStyleBackColor = true;
             this.Tutorial.Click += new System.EventHandler(this.Tutorial_Click);
             // 

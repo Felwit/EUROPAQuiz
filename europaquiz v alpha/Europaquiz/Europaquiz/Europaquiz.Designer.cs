@@ -220,7 +220,7 @@
             this.CountdownZaehler.Name = "CountdownZaehler";
             this.CountdownZaehler.Size = new System.Drawing.Size(19, 13);
             this.CountdownZaehler.TabIndex = 12;
-            this.CountdownZaehler.Text = "10";
+            this.CountdownZaehler.Text = "15";
             // 
             // CountdownText
             // 

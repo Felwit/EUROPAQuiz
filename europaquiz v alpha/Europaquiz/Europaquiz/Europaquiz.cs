@@ -224,6 +224,7 @@ namespace Europaquiz
                 tb_Land.Show();
                 tb_Land.Focus();
                 Timer.Start();
+                CountdownZaehler.Show();
                 break;
 
             }
@@ -308,7 +309,9 @@ namespace Europaquiz
         public void Prüfe()
         {
             Timer.Stop();
+            CountdownZaehler.Hide();
             countdown = 15;
+            CountdownZaehler.Text = countdown.ToString();
             if (tb_Land.Visible == true)
             {
                 string eingLand = tb_Land.Text;
@@ -318,9 +321,11 @@ namespace Europaquiz
                     Färbe("fil8", "fil9");
                     // Färben mit methode-> Hell Grün (Wenn Land richtig Hauptstad nach fragen)
                     tb_Land.Hide();
+                    tb_Land.Clear();
                     tb_Hauptstadt.Show();
                     tb_Hauptstadt.Focus();
                     Timer.Start();
+                    CountdownZaehler.Show();
                     Punktestand = Punktestand + LänderListe[0].getschwierigkeit();
                     PunkteZahlAnzeige.Text = Punktestand.ToString();
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
@@ -331,6 +336,7 @@ namespace Europaquiz
                     Färbe("fil8", "fil11");
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Land.Hide();
+                    tb_Land.Clear();
                     anzGespielterLänder++;
                     zeigeLösng(false, false);
                     maxpunkte = maxpunkte + (LänderListe[0].getschwierigkeit() * 2);
@@ -347,6 +353,7 @@ namespace Europaquiz
                     Färbe("fil9", "fil10");
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Hauptstadt.Hide();
+                    tb_Hauptstadt.Clear();
                     anzGespielterLänder++;
                     Punktestand = Punktestand + LänderListe[0].getschwierigkeit();
                     PunkteZahlAnzeige.Text = Punktestand.ToString();
@@ -360,6 +367,7 @@ namespace Europaquiz
                 {
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Hauptstadt.Hide();
+                    tb_Hauptstadt.Clear();
                     anzGespielterLänder++;
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
                     zeigeLösng(true, false);
