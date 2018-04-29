@@ -45,7 +45,7 @@ namespace Europaquiz
         public Europaquiz()
         {
             InitializeComponent();
-
+            CountdownZaehler.Hide();
 
 
         }
