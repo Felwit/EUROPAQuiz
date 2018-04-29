@@ -14,11 +14,13 @@ namespace Europaquiz
     
     public partial class Hauptmenü : Form
     {
-        int z=0;
+        
+
         public Hauptmenü()
         {
             InitializeComponent();
-            
+            string[] lines = { "true", "2" };
+            System.IO.File.WriteAllLines(Application.StartupPath + @"\Einstellungen.txt", lines);
         }
 
 
@@ -32,7 +34,7 @@ namespace Europaquiz
 
         private void Einstellungen_Click(object sender, EventArgs e)
         {
-            z++;
+            
             Einstellungen E = new Einstellungen();
             E.Show();
         }

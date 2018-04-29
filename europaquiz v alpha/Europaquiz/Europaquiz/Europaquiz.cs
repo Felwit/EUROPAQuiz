@@ -27,8 +27,8 @@ namespace Europaquiz
         Land[] LänderListe = new Land[1];
         string[] zeilen;
         int anzGespielterLänder = 0;
-        int schwierigkeit = EinstellungenQuiz.Schwierigkeitsgrad;
-        bool EingabeArt = EinstellungenQuiz.Spracheingabe;
+        int schwierigkeit;
+        bool EingabeArt;
         int schwierigkeitL = 0;
         string istland;
         string isths;
@@ -63,6 +63,30 @@ namespace Europaquiz
             {
                 LH[i] = -1;// Damit Array nicht mit 0 gefüllt werden soll 
             }
+
+            string[] einstellungEN = File.ReadAllLines(Application.StartupPath + @"\Einstellungen.txt");
+            if (einstellungEN[0] == "true")
+            {
+                EingabeArt = true;
+            }
+            else
+            {
+                EingabeArt = false;
+            }
+            switch (einstellungEN[1])
+            {
+                case "1":
+                    schwierigkeit = 1;
+                    break;
+
+                case "2":
+                    schwierigkeit = 2;
+                    break;
+                case "3":
+                    schwierigkeit = 3;
+                    break;
+            }
+
         }
 
 
@@ -104,6 +128,8 @@ namespace Europaquiz
                 zeilen = File.ReadAllLines(Application.StartupPath + @"\Länder und Hauptstadt.txt");
                 int Land = -1;
 
+
+
                 do
                 {
                     Land = random.Next(0, zeilen.Length);// Anderes Land nehmen wenn das eine Land schon vor kam
@@ -111,8 +137,7 @@ namespace Europaquiz
                     isths = zeilen[Land].Split(';')[1];
                     schwierigkeitL = Convert.ToInt32(zeilen[Land].Split(';')[2]);
 
-
-                } while (LH.Contains(Land) && schwierigkeitL > schwierigkeit); // Damit kein Land nochmal vor kommt
+                } while (LH.Contains(Land) || schwierigkeitL > schwierigkeit); // Damit kein Land nochmal vor kommt
 
                 LänderListe[0] = new Land(istland, isths, schwierigkeitL);
 
@@ -307,7 +332,7 @@ namespace Europaquiz
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Land.Hide();
                     anzGespielterLänder++;
-                    zeigeLösng(false,false);
+                    zeigeLösng(false, false);
                     maxpunkte = maxpunkte + (LänderListe[0].getschwierigkeit() * 2);
                     Button_prüfe_Land_neu.Show();
                     Button_prüfe_Land_neu.Focus();
@@ -326,7 +351,7 @@ namespace Europaquiz
                     Punktestand = Punktestand + LänderListe[0].getschwierigkeit();
                     PunkteZahlAnzeige.Text = Punktestand.ToString();
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
-                    zeigeLösng(true,true);
+                    zeigeLösng(true, true);
 
                     Button_prüfe_Land_neu.Show();
                     Button_prüfe_Land_neu.Focus();
@@ -337,7 +362,7 @@ namespace Europaquiz
                     tb_Hauptstadt.Hide();
                     anzGespielterLänder++;
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
-                    zeigeLösng(true,false);
+                    zeigeLösng(true, false);
                     Button_prüfe_Land_neu.Show();
                     Button_prüfe_Land_neu.Focus();
                 }

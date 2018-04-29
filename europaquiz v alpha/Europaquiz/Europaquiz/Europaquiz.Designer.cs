@@ -36,15 +36,15 @@
             this.LLösung = new System.Windows.Forms.Label();
             this.tb_Hauptstadt = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.Zoom = new System.Windows.Forms.PictureBox();
-            this.Vorzeitig_beenden = new System.Windows.Forms.Button();
             this.LösungLand = new System.Windows.Forms.Label();
-            this.CountdownText = new System.Windows.Forms.Label();
-            this.CountdownZaehler = new System.Windows.Forms.Label();
-            this.PunkteZahlAnzeige = new System.Windows.Forms.Label();
             this.LösungHS = new System.Windows.Forms.Label();
-            this.LetzteEingabeLand = new System.Windows.Forms.Label();
             this.LetzteEIngabeHS = new System.Windows.Forms.Label();
+            this.Vorzeitig_beenden = new System.Windows.Forms.Button();
+            this.Zoom = new System.Windows.Forms.PictureBox();
+            this.PunkteZahlAnzeige = new System.Windows.Forms.Label();
+            this.LetzteEingabeLand = new System.Windows.Forms.Label();
+            this.CountdownZaehler = new System.Windows.Forms.Label();
+            this.CountdownText = new System.Windows.Forms.Label();
             this.Ergebnis_speichern = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.Timer = new System.Windows.Forms.Timer(this.components);
@@ -119,9 +119,6 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.73094F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.77578F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.49328F));
-            this.tableLayoutPanel3.Controls.Add(this.LösungLand, 1, 4);
-            this.tableLayoutPanel3.Controls.Add(this.LösungHS, 2, 4);
-            this.tableLayoutPanel3.Controls.Add(this.LetzteEIngabeHS, 2, 3);
             this.tableLayoutPanel3.Controls.Add(this.Vorzeitig_beenden, 2, 6);
             this.tableLayoutPanel3.Controls.Add(this.Zoom, 1, 6);
             this.tableLayoutPanel3.Controls.Add(this.LLösung, 0, 5);
@@ -131,9 +128,12 @@
             this.tableLayoutPanel3.Controls.Add(this.Button_prüfe_Land_neu, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.tb_Land, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.tb_Hauptstadt, 2, 2);
-            this.tableLayoutPanel3.Controls.Add(this.LetzteEingabeLand, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.CountdownZaehler, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.CountdownText, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.LösungLand, 1, 5);
+            this.tableLayoutPanel3.Controls.Add(this.LetzteEingabeLand, 1, 4);
+            this.tableLayoutPanel3.Controls.Add(this.LösungHS, 2, 5);
+            this.tableLayoutPanel3.Controls.Add(this.LetzteEIngabeHS, 2, 4);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(923, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -148,14 +148,32 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(447, 749);
             this.tableLayoutPanel3.TabIndex = 11;
             // 
-            // Zoom
+            // LösungLand
             // 
-            this.Zoom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Zoom.Location = new System.Drawing.Point(91, 412);
-            this.Zoom.Name = "Zoom";
-            this.Zoom.Size = new System.Drawing.Size(216, 334);
-            this.Zoom.TabIndex = 8;
-            this.Zoom.TabStop = false;
+            this.LösungLand.AutoSize = true;
+            this.LösungLand.Location = new System.Drawing.Point(91, 363);
+            this.LösungLand.Name = "LösungLand";
+            this.LösungLand.Size = new System.Drawing.Size(19, 13);
+            this.LösungLand.TabIndex = 10;
+            this.LösungLand.Text = "    ";
+            // 
+            // LösungHS
+            // 
+            this.LösungHS.AutoSize = true;
+            this.LösungHS.Location = new System.Drawing.Point(313, 363);
+            this.LösungHS.Name = "LösungHS";
+            this.LösungHS.Size = new System.Drawing.Size(16, 13);
+            this.LösungHS.TabIndex = 14;
+            this.LösungHS.Text = "   ";
+            // 
+            // LetzteEIngabeHS
+            // 
+            this.LetzteEIngabeHS.AutoSize = true;
+            this.LetzteEIngabeHS.Location = new System.Drawing.Point(313, 315);
+            this.LetzteEIngabeHS.Name = "LetzteEIngabeHS";
+            this.LetzteEIngabeHS.Size = new System.Drawing.Size(19, 13);
+            this.LetzteEIngabeHS.TabIndex = 16;
+            this.LetzteEIngabeHS.Text = "    ";
             // 
             // Vorzeitig_beenden
             // 
@@ -168,32 +186,14 @@
             this.Vorzeitig_beenden.UseVisualStyleBackColor = true;
             this.Vorzeitig_beenden.Click += new System.EventHandler(this.Vorzeitig_beenden_Click);
             // 
-            // LösungLand
+            // Zoom
             // 
-            this.LösungLand.AutoSize = true;
-            this.LösungLand.Location = new System.Drawing.Point(91, 315);
-            this.LösungLand.Name = "LösungLand";
-            this.LösungLand.Size = new System.Drawing.Size(19, 13);
-            this.LösungLand.TabIndex = 10;
-            this.LösungLand.Text = "    ";
-            // 
-            // CountdownText
-            // 
-            this.CountdownText.AutoSize = true;
-            this.CountdownText.Location = new System.Drawing.Point(3, 117);
-            this.CountdownText.Name = "CountdownText";
-            this.CountdownText.Size = new System.Drawing.Size(64, 13);
-            this.CountdownText.TabIndex = 11;
-            this.CountdownText.Text = "Countdown:";
-            // 
-            // CountdownZaehler
-            // 
-            this.CountdownZaehler.AutoSize = true;
-            this.CountdownZaehler.Location = new System.Drawing.Point(91, 117);
-            this.CountdownZaehler.Name = "CountdownZaehler";
-            this.CountdownZaehler.Size = new System.Drawing.Size(19, 13);
-            this.CountdownZaehler.TabIndex = 12;
-            this.CountdownZaehler.Text = "10";
+            this.Zoom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Zoom.Location = new System.Drawing.Point(91, 412);
+            this.Zoom.Name = "Zoom";
+            this.Zoom.Size = new System.Drawing.Size(216, 334);
+            this.Zoom.TabIndex = 8;
+            this.Zoom.TabStop = false;
             // 
             // PunkteZahlAnzeige
             // 
@@ -204,32 +204,32 @@
             this.PunkteZahlAnzeige.TabIndex = 13;
             this.PunkteZahlAnzeige.Text = "0";
             // 
-            // LösungHS
-            // 
-            this.LösungHS.AutoSize = true;
-            this.LösungHS.Location = new System.Drawing.Point(313, 315);
-            this.LösungHS.Name = "LösungHS";
-            this.LösungHS.Size = new System.Drawing.Size(16, 13);
-            this.LösungHS.TabIndex = 14;
-            this.LösungHS.Text = "   ";
-            // 
             // LetzteEingabeLand
             // 
             this.LetzteEingabeLand.AutoSize = true;
-            this.LetzteEingabeLand.Location = new System.Drawing.Point(91, 0);
+            this.LetzteEingabeLand.Location = new System.Drawing.Point(91, 315);
             this.LetzteEingabeLand.Name = "LetzteEingabeLand";
             this.LetzteEingabeLand.Size = new System.Drawing.Size(19, 13);
             this.LetzteEingabeLand.TabIndex = 15;
             this.LetzteEingabeLand.Text = "    ";
             // 
-            // LetzteEIngabeHS
+            // CountdownZaehler
             // 
-            this.LetzteEIngabeHS.AutoSize = true;
-            this.LetzteEIngabeHS.Location = new System.Drawing.Point(313, 266);
-            this.LetzteEIngabeHS.Name = "LetzteEIngabeHS";
-            this.LetzteEIngabeHS.Size = new System.Drawing.Size(19, 13);
-            this.LetzteEIngabeHS.TabIndex = 16;
-            this.LetzteEIngabeHS.Text = "    ";
+            this.CountdownZaehler.AutoSize = true;
+            this.CountdownZaehler.Location = new System.Drawing.Point(91, 117);
+            this.CountdownZaehler.Name = "CountdownZaehler";
+            this.CountdownZaehler.Size = new System.Drawing.Size(19, 13);
+            this.CountdownZaehler.TabIndex = 12;
+            this.CountdownZaehler.Text = "10";
+            // 
+            // CountdownText
+            // 
+            this.CountdownText.AutoSize = true;
+            this.CountdownText.Location = new System.Drawing.Point(3, 117);
+            this.CountdownText.Name = "CountdownText";
+            this.CountdownText.Size = new System.Drawing.Size(64, 13);
+            this.CountdownText.TabIndex = 11;
+            this.CountdownText.Text = "Countdown:";
             // 
             // Ergebnis_speichern
             // 

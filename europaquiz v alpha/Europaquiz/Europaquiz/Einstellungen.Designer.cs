@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Speichern = new System.Windows.Forms.Button();
             this.Schwierigkeit = new System.Windows.Forms.Label();
             this.Schwierigkeitsbox = new System.Windows.Forms.ComboBox();
-            this.info_Schwierigkeit = new System.Windows.Forms.Button();
             this.Eing_Art = new System.Windows.Forms.Label();
             this.Eingabe_Artbox = new System.Windows.Forms.ComboBox();
-            this.info_Eing_art = new System.Windows.Forms.Button();
+            this.Info = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // Speichern
@@ -69,17 +69,7 @@
             this.Schwierigkeitsbox.Name = "Schwierigkeitsbox";
             this.Schwierigkeitsbox.Size = new System.Drawing.Size(121, 21);
             this.Schwierigkeitsbox.TabIndex = 2;
-            // 
-            // info_Schwierigkeit
-            // 
-            this.info_Schwierigkeit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.info_Schwierigkeit.Location = new System.Drawing.Point(244, 23);
-            this.info_Schwierigkeit.Name = "info_Schwierigkeit";
-            this.info_Schwierigkeit.Size = new System.Drawing.Size(25, 25);
-            this.info_Schwierigkeit.TabIndex = 3;
-            this.info_Schwierigkeit.Text = "i";
-            this.info_Schwierigkeit.UseVisualStyleBackColor = true;
-            this.info_Schwierigkeit.Click += new System.EventHandler(this.info_Schwierigkeit_Click);
+            this.Info.SetToolTip(this.Schwierigkeitsbox, "Wählen Sie ihre Schwiegigkeitsstufe.");
             // 
             // Eing_Art
             // 
@@ -93,6 +83,7 @@
             // 
             // Eingabe_Artbox
             // 
+            this.Eingabe_Artbox.AccessibleDescription = "";
             this.Eingabe_Artbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Eingabe_Artbox.FormattingEnabled = true;
             this.Eingabe_Artbox.Items.AddRange(new object[] {
@@ -102,27 +93,16 @@
             this.Eingabe_Artbox.Name = "Eingabe_Artbox";
             this.Eingabe_Artbox.Size = new System.Drawing.Size(121, 21);
             this.Eingabe_Artbox.TabIndex = 5;
-            // 
-            // info_Eing_art
-            // 
-            this.info_Eing_art.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.info_Eing_art.Location = new System.Drawing.Point(244, 70);
-            this.info_Eing_art.Name = "info_Eing_art";
-            this.info_Eing_art.Size = new System.Drawing.Size(25, 25);
-            this.info_Eing_art.TabIndex = 6;
-            this.info_Eing_art.Text = "i";
-            this.info_Eing_art.UseVisualStyleBackColor = true;
-            this.info_Eing_art.Click += new System.EventHandler(this.info_Eing_art_Click);
+            this.Info.SetToolTip(this.Eingabe_Artbox, "Wählen Sie ihre Eingabemethode. Wenn Sie kein Mikrofon besitzen oder kein Mikrofo" +
+        "n angeschlossen haben wählen Sie \'Text\'.");
             // 
             // Einstellungen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(281, 156);
-            this.Controls.Add(this.info_Eing_art);
+            this.ClientSize = new System.Drawing.Size(263, 156);
             this.Controls.Add(this.Eingabe_Artbox);
             this.Controls.Add(this.Eing_Art);
-            this.Controls.Add(this.info_Schwierigkeit);
             this.Controls.Add(this.Schwierigkeitsbox);
             this.Controls.Add(this.Schwierigkeit);
             this.Controls.Add(this.Speichern);
@@ -139,9 +119,8 @@
         private System.Windows.Forms.Button Speichern;
         private System.Windows.Forms.Label Schwierigkeit;
         private System.Windows.Forms.ComboBox Schwierigkeitsbox;
-        private System.Windows.Forms.Button info_Schwierigkeit;
         private System.Windows.Forms.Label Eing_Art;
         private System.Windows.Forms.ComboBox Eingabe_Artbox;
-        private System.Windows.Forms.Button info_Eing_art;
+        private System.Windows.Forms.ToolTip Info;
     }
 }

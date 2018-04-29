@@ -15,6 +15,7 @@ namespace Europaquiz
         int art;
         bool micophon=true;
         int schwierigkeit=2;
+       
 
 
         public Einstellungen()
@@ -26,13 +27,31 @@ namespace Europaquiz
 
         public void Einstellungen_Load(object sender, EventArgs e)
         {
+            //Eingabe_Artbox.SelectedIndex = art;
+            string[] einstellungEN = System.IO.File.ReadAllLines(Application.StartupPath + @"\Einstellungen.txt");
+            if (einstellungEN[0] == "true")
+            {
+                Eingabe_Artbox.SelectedIndex = 0;
+            }
+            else
+            {
+                Eingabe_Artbox.SelectedIndex = 1;
+            }
+            switch (einstellungEN[1])
+            {
+                case "1":
+                    Schwierigkeitsbox.SelectedIndex = 0;
+                    break;
 
-            
-            Schwierigkeitsbox.SelectedIndex = EinstellungenQuiz.Schwierigkeitsgrad - 1;        //Standardauswahl
-            Eingabe_Artbox.SelectedIndex = art;
-
+                case "2":
+                    Schwierigkeitsbox.SelectedIndex = 1;
+                    break;
+                case "3":
+                    Schwierigkeitsbox.SelectedIndex = 2;
+                    break;
+            }
         }
-
+        
 
         private void Speichern_Click_1(object sender, EventArgs e)
         {
@@ -48,44 +67,34 @@ namespace Europaquiz
             else
                 micophon = true;
 
-            if (Schwierigkeitsbox.Text == "Leicht")
+            if (Schwierigkeitsbox.Text == "Einfach")
                 schwierigkeit = 1;
             else if (Schwierigkeitsbox.Text == "Schwehr")
                 schwierigkeit = 3;
             else
                 schwierigkeit = 2;
-            EinstellungenQuiz.Schwierigkeitsgrad = schwierigkeit;
-            EinstellungenQuiz.Spracheingabe = micophon;
-            //EinstellungenQuiz EinstQ = new EinstellungenQuiz(micophon, schwierigkeit);
-            
+            string[] lines = { micophon.ToString(), schwierigkeit.ToString()  };
+            System.IO.File.WriteAllLines(Application.StartupPath + @"\Einstellungen.txt", lines);
             this.Close();
         }
 
-        private void info_Schwierigkeit_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Wählen Sie ihre Schwiegigkeitsstufe.");
+        
 
-        }
-
-        private void info_Eing_art_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Wählen Sie ihre Eingabemethode.Wenn Sie kein Mikrofon besitzen oder kein Mikrofon angeschlossen haben wählen Sie 'Text'.");
-        }
         
     }
-    public class EinstellungenQuiz
-    {
+////    (//public class EinstellungenQuiz
+////    {
 
-        //Einstellungen Schwieriegkeit und Eingabe Art
+////        Einstellungen Schwieriegkeit und Eingabe Art
 
-        public static int Schwierigkeitsgrad { get; set; }
-        public static bool Spracheingabe { get; set; }
+////        public static int Schwierigkeitsgrad { get; set; }
+////    public static bool Spracheingabe { get; set; }
 
-        public EinstellungenQuiz(bool Spracheingabe, int Schwierigkeitsgrad)
-        {
-            EinstellungenQuiz.Schwierigkeitsgrad = Schwierigkeitsgrad;
-            EinstellungenQuiz.Spracheingabe = Spracheingabe;
-        }
+////    public EinstellungenQuiz(bool Spracheingabe, int Schwierigkeitsgrad)
+////    {
+////        EinstellungenQuiz.Schwierigkeitsgrad = Schwierigkeitsgrad;
+////        EinstellungenQuiz.Spracheingabe = Spracheingabe;
+////    }
 
-    }
+////}
 }
