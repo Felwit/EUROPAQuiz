@@ -36,6 +36,8 @@ namespace Europaquiz
         bool spiel = true;
         int Punktestand = 0;
         int maxpunkte=0;
+        string Land_ID;
+        bool zoom=true;
 
 
         private SpeechRecognitionEngine spracherkennung = new SpeechRecognitionEngine();
@@ -54,6 +56,7 @@ namespace Europaquiz
 
             File.WriteAllLines(Application.StartupPath + @"\NeueEuropa.svg", SVG);// Soll darauf zugreifen
             webBrowser1.Navigate(Application.StartupPath + @"\NeueEuropa.svg");
+            
 
             for (int i = 0; i < LH.Length; i++)
             {
@@ -96,8 +99,7 @@ namespace Europaquiz
         {
             while (spiel == true)
             {
-                if (Button_prüfe_Land_neu.Text == "Nächstes Land")
-                {
+                Button_prüfe_Land_neu.Hide();
                     zeilen = File.ReadAllLines(Application.StartupPath + @"\Länder und Hauptstadt.txt");
                     int Land = -1;
 
@@ -117,9 +119,47 @@ namespace Europaquiz
                     LH[Länder] = Land;// Land wird auf dem Wert gesetzt welches dann vorkommt NR des gespielten Landes
                     Länder++;// Die Werte werden mehr // # der gespielten Länder
 
+                    string Switchcase = LänderListe[0].getLandname();
+                    switch (Switchcase)// Für die Zoom Funktion
+                    {
+                        case "Andorra":
+                            Land_ID = Application.StartupPath + @"\Kleine Länder\Andorra.png";
+                            break;
+                        case "Malta":
+                            Land_ID = Application.StartupPath + @"\Kleine Länder\Malta.png";
+                            break;
+                        case "San Marino":
+                            Land_ID = Application.StartupPath + @"\Kleine Länder\San Marino.png";
+                            break;
+                        case "Vatikanstadt":
+                            Land_ID =Application.StartupPath + @"\Kleine Länder\Vatikanstadt.png";
+                            break;
+                        case "Monaco":
+                            Land_ID = Application.StartupPath + @"\Kleine Länder\Monaco.png";
+                            break;
+                        case "Liechtenstein":
+                            Land_ID = Application.StartupPath + @"\Kleine Länder\Liechtenstein.png";
+                            break;
+                        default:
+                            zoom = false;
+                            break;
+                    }
+                    if (zoom == true)
+                    {
+                        
+                        Zoom.Load(Land_ID);
+                        Zoom.Show();
+                    }
+                    else
+                    {
+                        zoom = true;
+                        Zoom.Hide();
+                    }
 
 
-                    if (click1 == true)
+
+
+                            if (click1 == true)
                     {
                         try
                         {
@@ -150,18 +190,13 @@ namespace Europaquiz
                         click1 = false;
                     }
 
-                    Button_prüfe_Land_neu.Text = "Prüfe";
+                    
                     tb_Land.Show();
                     Timer.Start();
                     break;
 
                 }
-                else if (Button_prüfe_Land_neu.Text == "Prüfe")
-                {
-                        Prüfe();
-                }
-            }
-
+                
         }
 
 
@@ -267,6 +302,7 @@ namespace Europaquiz
                     anzGespielterLänder++;
                     zeigeLösng();
                     maxpunkte = maxpunkte + (LänderListe[0].getschwierigkeit() * 2);
+                    Button_prüfe_Land_neu.Show();
                 }
             }
             else
@@ -284,6 +320,7 @@ namespace Europaquiz
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
                     zeigeLösng();
                     
+                    Button_prüfe_Land_neu.Show();
                 }
                 else
                 {
@@ -292,6 +329,7 @@ namespace Europaquiz
                     anzGespielterLänder++;
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
                     zeigeLösng();
+                    Button_prüfe_Land_neu.Show();
                 }
             }
             
@@ -318,10 +356,7 @@ namespace Europaquiz
             LetzteEIngabeHS.Text = tb_Land.Text;
         }
 
-        private void Ohne_Speichern_Click(object sender, EventArgs e)
-        {
-            Application.Restart();
-        }
+        
 
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -332,6 +367,11 @@ namespace Europaquiz
             {
                 Prüfe();
             }
+        }
+
+        private void Ohne_Speichern_Click_1(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
     public class PunktE
@@ -349,7 +389,3 @@ namespace Europaquiz
 
     }
 }
-
-
-
-
