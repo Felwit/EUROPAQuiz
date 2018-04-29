@@ -34,6 +34,7 @@ namespace Europaquiz
         string isths;
         bool click1 = true;
         bool spiel = true;
+        int Punktestand = 0;
 
 
         private SpeechRecognitionEngine spracherkennung = new SpeechRecognitionEngine();
@@ -57,12 +58,8 @@ namespace Europaquiz
             {
                 LH[i] = -1;// Damit Array nicht mit 0 gefüllt werden soll 
             }
-
-
-
         }
-
-
+        
 
 
         public class Land
@@ -71,6 +68,7 @@ namespace Europaquiz
             private string Landname;
             private string Hauptstadt;
             private int Schwierigkeit;
+            public int Punktestand;
 
 
 
@@ -97,11 +95,8 @@ namespace Europaquiz
         {
             while (spiel == true)
             {
-
                 if (Button_prüfe_Land_neu.Text == "Nächstes Land")
                 {
-
-
                     zeilen = File.ReadAllLines(Application.StartupPath + @"\Länder und Hauptstadt.txt");
                     int Land = -1;
 
@@ -229,14 +224,12 @@ namespace Europaquiz
         }
 
 
-
         private void tb_Land_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 Prüfe();
             }
-
         }
 
         private void tb_Hauptstadt_KeyDown(object sender, KeyEventArgs e)
@@ -262,7 +255,8 @@ namespace Europaquiz
                     tb_Land.Hide();
                     tb_Hauptstadt.Show();
                     Timer.Start();
-
+                    Punktestand++;
+                    PunkteZahlAnzeige.Text = Punktestand.ToString();
                 }
 
                 else
@@ -271,7 +265,7 @@ namespace Europaquiz
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Land.Hide();
                     anzGespielterLänder++;
-
+                    LösungsAnzeige.Text = LänderListe[0].getLandname();
                 }
             }
             else
@@ -284,8 +278,8 @@ namespace Europaquiz
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Hauptstadt.Hide();
                     anzGespielterLänder++;
-
-
+                    Punktestand++;
+                    PunkteZahlAnzeige.Text = Punktestand.ToString();
                 }
                 else
                 {
@@ -331,8 +325,6 @@ namespace Europaquiz
     }
     public class PunktE
     {
-
-
         public static int maxpunkte { get; set; }
         public static int punkte { get; set; }
         public static int anzGespLändder { get; set; }
@@ -342,6 +334,8 @@ namespace Europaquiz
             PunktE.maxpunkte = maxpunkte;
             PunktE.punkte = punkte;
             PunktE.anzGespLändder = gespielteländer;
+
+
         }
 
     }
