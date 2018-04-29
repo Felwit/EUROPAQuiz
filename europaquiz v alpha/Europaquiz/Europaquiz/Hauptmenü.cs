@@ -43,9 +43,10 @@ namespace Europaquiz
             v.Show();
         }
 
-        private void Hauptmenü_Load(object sender, EventArgs e)
+        private void Tutorial_Click(object sender, EventArgs e)
         {
-
+            Anleitung A = new Anleitung();
+            A.Show();
         }
     }
 }

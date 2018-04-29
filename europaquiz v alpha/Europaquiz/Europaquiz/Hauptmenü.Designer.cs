@@ -52,6 +52,7 @@
             this.Tutorial.TabIndex = 1;
             this.Tutorial.Text = "Tutorial";
             this.Tutorial.UseVisualStyleBackColor = true;
+            this.Tutorial.Click += new System.EventHandler(this.Tutorial_Click);
             // 
             // Einstellungen
             // 
@@ -84,7 +85,6 @@
             this.Controls.Add(this.Neues_Spiel);
             this.Name = "Hauptmenü";
             this.Text = "Hauptmenü";
-            this.Load += new System.EventHandler(this.Hauptmenü_Load);
             this.ResumeLayout(false);
 
         }

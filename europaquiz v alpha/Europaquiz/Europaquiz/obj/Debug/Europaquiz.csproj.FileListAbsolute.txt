@@ -260,3 +260,22 @@ C:\Users\SENEL\Desktop\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Eur
 C:\Users\SENEL\Desktop\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Vorzeitig_verlassen_bestätigen.resources
 C:\Users\SENEL\Desktop\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\obj\Debug\Europaquiz.csproj.GenerateResource.Cache
 C:\Users\SENEL\Desktop\EUROPAQuiz\europaquiz\Europaquiz\Europaquiz\bin\Debug\Europaquiz.pdb
+C:\Users\NoMiGXZ\Source\EUROPAQuiz\europaquiz v alpha\Europaquiz\Europaquiz\bin\Debug\Europaquiz.exe.config
+C:\Users\NoMiGXZ\Source\EUROPAQuiz\europaquiz v alpha\Europaquiz\Europaquiz\obj\Debug\Europaquiz.exe
+C:\Users\NoMiGXZ\Source\EUROPAQuiz\europaquiz v alpha\Europaquiz\Europaquiz\obj\Debug\Europaquiz.pdb
+C:\Users\NoMiGXZ\Source\EUROPAQuiz\europaquiz v alpha\Europaquiz\Europaquiz\bin\Debug\Europaquiz.exe
+C:\Users\NoMiGXZ\Source\EUROPAQuiz\europaquiz v alpha\Europaquiz\Europaquiz\bin\Debug\Europaquiz.pdb
+C:\Users\NoMiGXZ\Source\EUROPAQuiz\europaquiz v alpha\Europaquiz\Europaquiz\bin\Debug\Svg.dll
+C:\Users\NoMiGXZ\Source\EUROPAQuiz\europaquiz v alpha\Europaquiz\Europaquiz\bin\Debug\itextsharp.xml
+C:\Users\NoMiGXZ\Source\EUROPAQuiz\europaquiz v alpha\Europaquiz\Europaquiz\bin\Debug\Svg.pdb
+C:\Users\NoMiGXZ\Source\EUROPAQuiz\europaquiz v alpha\Europaquiz\Europaquiz\bin\Debug\Svg.xml
+C:\Users\NoMiGXZ\Source\EUROPAQuiz\europaquiz v alpha\Europaquiz\Europaquiz\obj\Debug\Europaquiz.csprojResolveAssemblyReference.cache
+C:\Users\NoMiGXZ\Source\EUROPAQuiz\europaquiz v alpha\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Anleitung.resources
+C:\Users\NoMiGXZ\Source\EUROPAQuiz\europaquiz v alpha\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Ergebnis_Speichern.resources
+C:\Users\NoMiGXZ\Source\EUROPAQuiz\europaquiz v alpha\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Europaquiz.resources
+C:\Users\NoMiGXZ\Source\EUROPAQuiz\europaquiz v alpha\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Einstellungen.resources
+C:\Users\NoMiGXZ\Source\EUROPAQuiz\europaquiz v alpha\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Hauptmenü.resources
+C:\Users\NoMiGXZ\Source\EUROPAQuiz\europaquiz v alpha\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Properties.Resources.resources
+C:\Users\NoMiGXZ\Source\EUROPAQuiz\europaquiz v alpha\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Verlassen_bestätigen.resources
+C:\Users\NoMiGXZ\Source\EUROPAQuiz\europaquiz v alpha\Europaquiz\Europaquiz\obj\Debug\Europaquiz.Vorzeitig_verlassen_bestätigen.resources
+C:\Users\NoMiGXZ\Source\EUROPAQuiz\europaquiz v alpha\Europaquiz\Europaquiz\obj\Debug\Europaquiz.csproj.GenerateResource.Cache
