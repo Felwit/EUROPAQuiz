@@ -34,6 +34,8 @@ namespace Europaquiz
         string isths;
         bool click1 = true;
         bool spiel = true;
+        string Land_ID;
+        bool zoom;
 
 
         private SpeechRecognitionEngine spracherkennung = new SpeechRecognitionEngine();
@@ -121,9 +123,47 @@ namespace Europaquiz
                     LH[Länder] = Land;// Land wird auf dem Wert gesetzt welches dann vorkommt NR des gespielten Landes
                     Länder++;// Die Werte werden mehr // # der gespielten Länder
 
+                    string Switchcase = LänderListe[0].getLandname();
+                    switch (Switchcase)// Für die Zoom Funktion
+                    {
+                        case "Andorra":
+                            Land_ID = Application.StartupPath + @"\Kleine Länder\Andorra.png";
+                            break;
+                        case "Malta":
+                            Land_ID = Application.StartupPath + @"\Kleine Länder\Malta.png";
+                            break;
+                        case "San Marino":
+                            Land_ID = Application.StartupPath + @"\Kleine Länder\San Marino.png";
+                            break;
+                        case "Vatikanstadt":
+                            Land_ID =Application.StartupPath + @"\Kleine Länder\Vatikanstadt.png";
+                            break;
+                        case "Monaco":
+                            Land_ID = Application.StartupPath + @"\Kleine Länder\Monaco.png";
+                            break;
+                        case "Liechtenstein":
+                            Land_ID = Application.StartupPath + @"\Kleine Länder\Liechtenstein.png";
+                            break;
+                        default:
+                            zoom = false;
+                            break;
+                    }
+                    if (zoom == true)
+                    {
+                        
+                        Zoom.Load(Land_ID);
+                        Zoom.Show();
+                    }
+                    else
+                    {
+                        zoom = true;
+                        Zoom.Hide();
+                    }
 
 
-                    if (click1 == true)
+
+
+                            if (click1 == true)
                     {
                         try
                         {
@@ -279,7 +319,7 @@ namespace Europaquiz
                     anzGespielterLänder++;
                 }
             }
-            if (anzGespielterLänder == 15)
+            if (anzGespielterLänder == 40)
             {
                 Ergebnis_speichern.Show();
                 Ohne_Speichern.Show();
@@ -325,7 +365,3 @@ namespace Europaquiz
 
     }
 }
-
-
-
-
