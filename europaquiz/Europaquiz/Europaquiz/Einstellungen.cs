@@ -56,8 +56,9 @@ namespace Europaquiz
                 schwierigkeit = 3;
             else
                 schwierigkeit = 2;
-            
-            EinstellungenQuiz EinstQ = new EinstellungenQuiz(micophon, schwierigkeit);
+            EinstellungenQuiz.Schwierigkeitsgrad = schwierigkeit;
+            EinstellungenQuiz.Spracheingabe = micophon;
+            //EinstellungenQuiz EinstQ = new EinstellungenQuiz(micophon, schwierigkeit);
             
             this.Close();
         }

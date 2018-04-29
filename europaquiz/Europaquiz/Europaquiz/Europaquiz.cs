@@ -162,8 +162,7 @@ namespace Europaquiz
                 }
                 else if (Button_prüfe_Land_neu.Text == "Prüfe")
                 {
-                    Prüfe();
-
+                        Prüfe();
                 }
             }
 
@@ -193,7 +192,17 @@ namespace Europaquiz
 
         void spracherkennung_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            MessageBox.Show(e.Result.Text);
+            
+            if (tb_Land.Visible)
+            {
+                tb_Land.Text = e.Result.Text;
+                Prüfe();
+            }
+            else if (tb_Hauptstadt.Visible)
+            {
+                tb_Hauptstadt.Text = e.Result.Text;
+                Prüfe();
+            }
             //foreach (RecognizedWordUnit wort in e.Result.Words)
             //{
             //    listBox1.Items.Add(wort.Text);
@@ -262,6 +271,7 @@ namespace Europaquiz
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Land.Hide();
                     anzGespielterLänder++;
+
                 }
             }
             else
@@ -275,6 +285,7 @@ namespace Europaquiz
                     tb_Hauptstadt.Hide();
                     anzGespielterLänder++;
 
+
                 }
                 else
                 {
@@ -283,13 +294,17 @@ namespace Europaquiz
                     anzGespielterLänder++;
                 }
             }
-            if (anzGespielterLänder == 20)
+            
+            if (anzGespielterLänder == 2)
             {
                 Button_prüfe_Land_neu.Hide();
                 Vorzeitig_beenden.Hide();
                 Ergebnis_speichern.Show();
                 Ohne_Speichern.Show();
                 spiel = false;
+                PunktE.anzGespLändder = 20;
+                //punkte und max punkte nach PunktE.
+              
             }
         }
 

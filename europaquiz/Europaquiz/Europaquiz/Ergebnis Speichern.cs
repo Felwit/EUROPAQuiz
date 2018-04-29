@@ -79,21 +79,20 @@ namespace Europaquiz
 
             pdfdoc.Add(AddEmptyParagraph(10));
             pdfdoc.Add(CreateParagraph("für die Teilanhme am Europa - Quiz des", big));
-            pdfdoc.Add(CreateParagraph("des Adolfkolping-Berufskoleg", big));
-
-            
+            pdfdoc.Add(CreateParagraph("Adolfkolping-Berufskoleg", big));
+                        
             pdfdoc.Add(AddEmptyParagraph(30));
             pdfdoc.Add(CreateParagraph($"Ausgestellt für:{Vorname}{Name} ", standard));
             pdfdoc.Add(CreateParagraph($"Das Quiz wurde am {DateTime.Now.ToLongDateString()} absolviert.", standard));
             pdfdoc.Add(AddEmptyParagraph(10));
             pdfdoc.Add(CreateParagraph($"{Vorname}{Name} hat {PunktE.punkte} Punkte von {PunktE.maxpunkte} Punkten erieicht.", standard));
-            pdfdoc.Add(CreateParagraph($"Es wurde(n) {PunktE.anzGespLändder}Land/Ländern  von 20 Ländern gespielt.", standard));
+            pdfdoc.Add(CreateParagraph($"Es wurde(n) {PunktE.anzGespLändder} Land/Länder  von 20 Ländern gespielt.", standard));
             pdfdoc.Add(AddEmptyParagraph(10));
            
             pdfdoc.Add(new Paragraph("Ihr Ergebnis als Bild:", standardbold));
 
             //read svg document from file system
-            var svgDocument = SvgDocument.Open(Application.StartupPath + @"\Europa.svg");
+            var svgDocument = SvgDocument.Open(Application.StartupPath + @"\NeueEuropa.svg");
             var bitmap = svgDocument.Draw();
             
             bitmap.Save(Application.StartupPath + @"\Europa.png", ImageFormat.Png);
