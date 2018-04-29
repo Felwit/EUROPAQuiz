@@ -397,16 +397,16 @@ namespace Europaquiz
             LetzteEingabeLand.Text = tb_Land.Text;
             if (land)
             {
-                LetzteEingabeLand.BackColor = Color.Green;
+                LetzteEingabeLand.BackColor = Color.DarkSeaGreen;
             }
             else
             {
-                LetzteEingabeLand.BackColor = Color.Red;
+                LetzteEingabeLand.BackColor = Color.IndianRed;
             }
             LetzteEIngabeHS.Text = tb_Hauptstadt.Text;
             if (hs)
             {
-                LetzteEIngabeHS.BackColor = Color.Green;
+                LetzteEIngabeHS.BackColor = Color.DarkSeaGreen;
             }
             else
             {

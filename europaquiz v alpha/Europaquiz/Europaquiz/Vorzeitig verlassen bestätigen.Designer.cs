@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vorzeitig_verlassen_bestätigen));
             this.Ja = new System.Windows.Forms.Button();
             this.Nein = new System.Windows.Forms.Button();
             this.Kontrollfrage = new System.Windows.Forms.Label();
@@ -83,8 +84,9 @@
             this.Controls.Add(this.Ja);
             this.Controls.Add(this.Nein);
             this.Controls.Add(this.Kontrollfrage);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Vorzeitig_verlassen_bestätigen";
-            this.Text = "Verlassen bestätigen.";
+            this.Text = "Verlassen bestätigen";
             this.ResumeLayout(false);
             this.PerformLayout();
 

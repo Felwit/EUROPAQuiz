@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Verlassen_bestätigen));
             this.Kontrollfrage = new System.Windows.Forms.Label();
             this.Nein = new System.Windows.Forms.Button();
             this.Ja = new System.Windows.Forms.Button();
@@ -71,6 +72,7 @@
             this.Controls.Add(this.Ja);
             this.Controls.Add(this.Nein);
             this.Controls.Add(this.Kontrollfrage);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Verlassen_bestätigen";
             this.Text = "Verlassen_bestätigen";
             this.ResumeLayout(false);
