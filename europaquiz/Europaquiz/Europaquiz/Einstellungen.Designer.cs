@@ -62,9 +62,9 @@
             this.Schwierigkeitsbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Schwierigkeitsbox.FormattingEnabled = true;
             this.Schwierigkeitsbox.Items.AddRange(new object[] {
-            "Anfänger(1)",
-            "Fortgeschritten(2)",
-            "Profi(3)"});
+            "Einfach",
+            "Normal",
+            "Schwehr"});
             this.Schwierigkeitsbox.Location = new System.Drawing.Point(111, 27);
             this.Schwierigkeitsbox.Name = "Schwierigkeitsbox";
             this.Schwierigkeitsbox.Size = new System.Drawing.Size(121, 21);

@@ -34,19 +34,18 @@
             this.Punkte = new System.Windows.Forms.Label();
             this.LEingaben = new System.Windows.Forms.Label();
             this.LLösung = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tb_Hauptstadt = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.Zoom = new System.Windows.Forms.PictureBox();
             this.Vorzeitig_beenden = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.LösungsAnzeige = new System.Windows.Forms.Label();
             this.CountdownText = new System.Windows.Forms.Label();
             this.CountdownZaehler = new System.Windows.Forms.Label();
+            this.PunkteZahlAnzeige = new System.Windows.Forms.Label();
             this.Ergebnis_speichern = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.Timer = new System.Windows.Forms.Timer(this.components);
-            this.label3 = new System.Windows.Forms.Label();
             this.Ohne_Speichern = new System.Windows.Forms.Button();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoom)).BeginInit();
@@ -70,7 +69,6 @@
             this.tb_Land.TabIndex = 1;
             this.tb_Land.Text = "Bitte Land eingeben";
             this.tb_Land.Visible = false;
-            this.tb_Land.TextChanged += new System.EventHandler(this.tb_Land_TextChanged);
             this.tb_Land.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_Land_KeyDown);
             // 
             // Punkte
@@ -79,9 +77,9 @@
             this.Punkte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Punkte.Location = new System.Drawing.Point(3, 194);
             this.Punkte.Name = "Punkte";
-            this.Punkte.Size = new System.Drawing.Size(62, 16);
+            this.Punkte.Size = new System.Drawing.Size(52, 16);
             this.Punkte.TabIndex = 3;
-            this.Punkte.Text = "Punkte: 0";
+            this.Punkte.Text = "Punkte:";
             // 
             // LEingaben
             // 
@@ -102,16 +100,6 @@
             this.LLösung.Size = new System.Drawing.Size(70, 16);
             this.LLösung.TabIndex = 5;
             this.LLösung.Text = "Lösungen:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(91, 194);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 16);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Land";
             // 
             // label2
             // 
@@ -142,16 +130,16 @@
             this.tableLayoutPanel3.Controls.Add(this.LLösung, 0, 4);
             this.tableLayoutPanel3.Controls.Add(this.LEingaben, 0, 3);
             this.tableLayoutPanel3.Controls.Add(this.Punkte, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.label1, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.label2, 2, 2);
             this.tableLayoutPanel3.Controls.Add(this.tb_Hauptstadt, 2, 1);
             this.tableLayoutPanel3.Controls.Add(this.Zoom, 1, 5);
             this.tableLayoutPanel3.Controls.Add(this.Vorzeitig_beenden, 2, 5);
-            this.tableLayoutPanel3.Controls.Add(this.label6, 1, 4);
+            this.tableLayoutPanel3.Controls.Add(this.LösungsAnzeige, 1, 4);
             this.tableLayoutPanel3.Controls.Add(this.Button_prüfe_Land_neu, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.tb_Land, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.CountdownText, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.CountdownZaehler, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.PunkteZahlAnzeige, 1, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(923, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -186,14 +174,14 @@
             this.Vorzeitig_beenden.UseVisualStyleBackColor = true;
             this.Vorzeitig_beenden.Click += new System.EventHandler(this.Vorzeitig_beenden_Click);
             // 
-            // label6
+            // LösungsAnzeige
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(91, 335);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "label6";
+            this.LösungsAnzeige.AutoSize = true;
+            this.LösungsAnzeige.Location = new System.Drawing.Point(88, 467);
+            this.LösungsAnzeige.Name = "LösungsAnzeige";
+            this.LösungsAnzeige.Size = new System.Drawing.Size(38, 13);
+            this.LösungsAnzeige.TabIndex = 10;
+            this.LösungsAnzeige.Text = "lösung";
             // 
             // CountdownText
             // 
@@ -213,6 +201,15 @@
             this.CountdownZaehler.TabIndex = 12;
             this.CountdownZaehler.Text = "10";
             // 
+            // PunkteZahlAnzeige
+            // 
+            this.PunkteZahlAnzeige.AutoSize = true;
+            this.PunkteZahlAnzeige.Location = new System.Drawing.Point(88, 290);
+            this.PunkteZahlAnzeige.Name = "PunkteZahlAnzeige";
+            this.PunkteZahlAnzeige.Size = new System.Drawing.Size(13, 13);
+            this.PunkteZahlAnzeige.TabIndex = 13;
+            this.PunkteZahlAnzeige.Text = "0";
+            // 
             // Ergebnis_speichern
             // 
             this.Ergebnis_speichern.Location = new System.Drawing.Point(122, 196);
@@ -221,6 +218,7 @@
             this.Ergebnis_speichern.TabIndex = 12;
             this.Ergebnis_speichern.Text = "Ergebnis speichern";
             this.Ergebnis_speichern.UseVisualStyleBackColor = true;
+            this.Ergebnis_speichern.Visible = false;
             this.Ergebnis_speichern.Click += new System.EventHandler(this.Ergebnis_speichern_Click);
             // 
             // webBrowser1
@@ -237,15 +235,6 @@
             this.Timer.Interval = 1000;
             this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(442, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "label3";
-            // 
             // Ohne_Speichern
             // 
             this.Ohne_Speichern.Location = new System.Drawing.Point(525, 196);
@@ -254,6 +243,7 @@
             this.Ohne_Speichern.TabIndex = 15;
             this.Ohne_Speichern.Text = "Ohne Speichern beenden";
             this.Ohne_Speichern.UseVisualStyleBackColor = true;
+            this.Ohne_Speichern.Visible = false;
             // 
             // Europaquiz
             // 
@@ -262,7 +252,6 @@
             this.ClientSize = new System.Drawing.Size(1370, 749);
             this.ControlBox = false;
             this.Controls.Add(this.Ohne_Speichern);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.Ergebnis_speichern);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.webBrowser1);
@@ -274,7 +263,6 @@
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoom)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -285,7 +273,6 @@
         private System.Windows.Forms.Label Punkte;
         private System.Windows.Forms.Label LEingaben;
         private System.Windows.Forms.Label LLösung;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tb_Hauptstadt;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
@@ -293,11 +280,11 @@
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.PictureBox Zoom;
         private System.Windows.Forms.Button Vorzeitig_beenden;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label LösungsAnzeige;
         private System.Windows.Forms.Label CountdownText;
         private System.Windows.Forms.Label CountdownZaehler;
         private System.Windows.Forms.Timer Timer;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button Ohne_Speichern;
+        private System.Windows.Forms.Label PunkteZahlAnzeige;
     }
 }
