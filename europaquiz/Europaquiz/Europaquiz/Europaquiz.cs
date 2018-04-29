@@ -37,7 +37,7 @@ namespace Europaquiz
         int Punktestand = 0;
         int maxpunkte=0;
         string Land_ID;
-        bool zoom;
+        bool zoom=true;
 
 
         private SpeechRecognitionEngine spracherkennung = new SpeechRecognitionEngine();
@@ -56,6 +56,7 @@ namespace Europaquiz
 
             File.WriteAllLines(Application.StartupPath + @"\NeueEuropa.svg", SVG);// Soll darauf zugreifen
             webBrowser1.Navigate(Application.StartupPath + @"\NeueEuropa.svg");
+            
 
             for (int i = 0; i < LH.Length; i++)
             {
@@ -98,8 +99,7 @@ namespace Europaquiz
         {
             while (spiel == true)
             {
-                if (Button_prüfe_Land_neu.Text == "Nächstes Land")
-                {
+                Button_prüfe_Land_neu.Hide();
                     zeilen = File.ReadAllLines(Application.StartupPath + @"\Länder und Hauptstadt.txt");
                     int Land = -1;
 
@@ -190,18 +190,13 @@ namespace Europaquiz
                         click1 = false;
                     }
 
-                    Button_prüfe_Land_neu.Text = "Prüfe";
+                    
                     tb_Land.Show();
                     Timer.Start();
                     break;
 
                 }
-                else if (Button_prüfe_Land_neu.Text == "Prüfe")
-                {
-                        Prüfe();
-                }
-            }
-
+                
         }
 
 
@@ -307,6 +302,7 @@ namespace Europaquiz
                     anzGespielterLänder++;
                     LösungsAnzeige.Text = LänderListe[0].getLandname();
                     maxpunkte = maxpunkte + (LänderListe[0].getschwierigkeit() * 2);
+                    Button_prüfe_Land_neu.Show();
                 }
             }
             else
@@ -322,6 +318,7 @@ namespace Europaquiz
                     Punktestand= Punktestand + LänderListe[0].getschwierigkeit();
                     PunkteZahlAnzeige.Text = Punktestand.ToString();
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
+                    Button_prüfe_Land_neu.Show();
                 }
                 else
                 {
@@ -329,6 +326,7 @@ namespace Europaquiz
                     tb_Hauptstadt.Hide();
                     anzGespielterLänder++;
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
+                    Button_prüfe_Land_neu.Show();
                 }
             }
             
@@ -348,10 +346,7 @@ namespace Europaquiz
         }
 
 
-        private void Ohne_Speichern_Click(object sender, EventArgs e)
-        {
-            Application.Restart();
-        }
+        
 
         private void Timer_Tick(object sender, EventArgs e)
         {
@@ -362,6 +357,11 @@ namespace Europaquiz
             {
                 Prüfe();
             }
+        }
+
+        private void Ohne_Speichern_Click_1(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
     public class PunktE

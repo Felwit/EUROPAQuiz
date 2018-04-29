@@ -177,7 +177,7 @@
             // LösungsAnzeige
             // 
             this.LösungsAnzeige.AutoSize = true;
-            this.LösungsAnzeige.Location = new System.Drawing.Point(88, 467);
+            this.LösungsAnzeige.Location = new System.Drawing.Point(91, 335);
             this.LösungsAnzeige.Name = "LösungsAnzeige";
             this.LösungsAnzeige.Size = new System.Drawing.Size(38, 13);
             this.LösungsAnzeige.TabIndex = 10;
@@ -204,7 +204,7 @@
             // PunkteZahlAnzeige
             // 
             this.PunkteZahlAnzeige.AutoSize = true;
-            this.PunkteZahlAnzeige.Location = new System.Drawing.Point(88, 290);
+            this.PunkteZahlAnzeige.Location = new System.Drawing.Point(91, 194);
             this.PunkteZahlAnzeige.Name = "PunkteZahlAnzeige";
             this.PunkteZahlAnzeige.Size = new System.Drawing.Size(13, 13);
             this.PunkteZahlAnzeige.TabIndex = 13;
@@ -244,6 +244,7 @@
             this.Ohne_Speichern.Text = "Ohne Speichern beenden";
             this.Ohne_Speichern.UseVisualStyleBackColor = true;
             this.Ohne_Speichern.Visible = false;
+            this.Ohne_Speichern.Click += new System.EventHandler(this.Ohne_Speichern_Click_1);
             // 
             // Europaquiz
             // 
