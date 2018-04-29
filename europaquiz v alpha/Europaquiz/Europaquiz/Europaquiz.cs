@@ -321,7 +321,7 @@ namespace Europaquiz
                     Färbe("fil8", "fil9");
                     // Färben mit methode-> Hell Grün (Wenn Land richtig Hauptstad nach fragen)
                     tb_Land.Hide();
-                    tb_Land.Clear();
+                    
                     tb_Hauptstadt.Show();
                     tb_Hauptstadt.Focus();
                     Timer.Start();
@@ -336,9 +336,9 @@ namespace Europaquiz
                     Färbe("fil8", "fil11");
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Land.Hide();
-                    tb_Land.Clear();
                     anzGespielterLänder++;
                     zeigeLösng(false, false);
+
                     maxpunkte = maxpunkte + (LänderListe[0].getschwierigkeit() * 2);
                     Button_prüfe_Land_neu.Show();
                     Button_prüfe_Land_neu.Focus();
@@ -353,13 +353,12 @@ namespace Europaquiz
                     Färbe("fil9", "fil10");
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Hauptstadt.Hide();
-                    tb_Hauptstadt.Clear();
                     anzGespielterLänder++;
                     Punktestand = Punktestand + LänderListe[0].getschwierigkeit();
                     PunkteZahlAnzeige.Text = Punktestand.ToString();
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
                     zeigeLösng(true, true);
-
+;
                     Button_prüfe_Land_neu.Show();
                     Button_prüfe_Land_neu.Focus();
                 }
@@ -367,10 +366,10 @@ namespace Europaquiz
                 {
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Hauptstadt.Hide();
-                    tb_Hauptstadt.Clear();
                     anzGespielterLänder++;
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
                     zeigeLösng(true, false);
+
                     Button_prüfe_Land_neu.Show();
                     Button_prüfe_Land_neu.Focus();
                 }
@@ -413,6 +412,8 @@ namespace Europaquiz
             {
                 LetzteEIngabeHS.BackColor = Color.Red;
             }
+            tb_Hauptstadt.Clear();
+            tb_Land.Clear();
         }
 
 

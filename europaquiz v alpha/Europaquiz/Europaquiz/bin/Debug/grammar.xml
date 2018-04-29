@@ -28,7 +28,7 @@
 		<item>Irland</item>
 		<item>Dublin</item>
 		<item>Island</item>
-		<item>Reykjavík</item>
+		<item>Reykjavik</item>
 		<item>Italien</item>
 		<item>Rom</item>
 		<item>Kroatien</item>
@@ -60,7 +60,7 @@
 		<item>Portugal</item>
 		<item>Lissabon</item>
 		<item>Rumänien</item>
-		<item>Bukarest</item><!-- test-->
+		<item>Bukarest</item>
 		<item>Russland</item>
 		<item>Moskau</item>
 		<item>San Marino</item>
@@ -71,9 +71,9 @@
 		<item>Serbien</item>
 		<item>Belgrad</item>
 		<item>Slowakei</item>
-		<item>Bratislava</item><!-- test-->
+		<item>Bratislava</item>
 		<item>Slowenien</item>
-		<item>Ljubljana</item> <!-- test-->
+		<item>Ljubljana</item>
 		<item>Spanien</item>
 		<item>Madrid</item>
 		<item>Tschechien</item>
@@ -83,7 +83,7 @@
 		<item>Ukraine</item>
 		<item>Kiew</item>
 		<item>Ungarn</item>
-		<item>Budapest</item><!-- test-->
+		<item>Budapest</item>
 		<item>Vatikanstadt</item>
 		<item>Vereinigtes Königreich</item>
 		<item>Großbritannien</item>

@@ -86,7 +86,7 @@ namespace Europaquiz
             pdfdoc.Add(AddEmptyParagraph(10));
            
             pdfdoc.Add(new Paragraph("Ihr Ergebnis als Bild:", standardbold));
-
+            pdfdoc.Add(AddEmptyParagraph(10));
             //read svg document from file system
             var svgDocument = SvgDocument.Open(Application.StartupPath + @"\NeueEuropa.svg");
             var bitmap = svgDocument.Draw();

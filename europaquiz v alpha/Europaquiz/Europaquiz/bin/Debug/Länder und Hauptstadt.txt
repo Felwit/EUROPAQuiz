@@ -23,7 +23,7 @@ Montenegro;Podgorica;2
 Bosnien;Sarajevo;3
 Kroatien;Zagreb;2
 Tschechien;Prag;1
-Ungarn;	Budapest;2
+Ungarn;Budapest;2
 Slowenien;Ljubljana;2
 Slowakei;Bratislava;3
 Österreich;Wien;1
