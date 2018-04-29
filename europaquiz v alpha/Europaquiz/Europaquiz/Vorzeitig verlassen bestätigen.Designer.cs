@@ -38,9 +38,9 @@
             // 
             this.Ja.Location = new System.Drawing.Point(15, 72);
             this.Ja.Name = "Ja";
-            this.Ja.Size = new System.Drawing.Size(75, 52);
+            this.Ja.Size = new System.Drawing.Size(75, 74);
             this.Ja.TabIndex = 5;
-            this.Ja.Text = "Ja, ohne Speichern";
+            this.Ja.Text = "Ja, ohne Urkunde beenden.";
             this.Ja.UseVisualStyleBackColor = true;
             this.Ja.Click += new System.EventHandler(this.Ja_Click);
             // 
@@ -48,7 +48,7 @@
             // 
             this.Nein.Location = new System.Drawing.Point(199, 72);
             this.Nein.Name = "Nein";
-            this.Nein.Size = new System.Drawing.Size(75, 52);
+            this.Nein.Size = new System.Drawing.Size(75, 74);
             this.Nein.TabIndex = 4;
             this.Nein.Text = "Nein. Nicht verlassen";
             this.Nein.UseVisualStyleBackColor = true;
@@ -57,20 +57,20 @@
             // Kontrollfrage
             // 
             this.Kontrollfrage.AutoSize = true;
-            this.Kontrollfrage.Location = new System.Drawing.Point(12, 40);
+            this.Kontrollfrage.Location = new System.Drawing.Point(95, 28);
             this.Kontrollfrage.Name = "Kontrollfrage";
-            this.Kontrollfrage.Size = new System.Drawing.Size(286, 13);
+            this.Kontrollfrage.Size = new System.Drawing.Size(97, 13);
             this.Kontrollfrage.TabIndex = 3;
-            this.Kontrollfrage.Text = "Wirklich Beenden? Es kann keine Urkunde erstellt werden!";
+            this.Kontrollfrage.Text = "Wirklich Beenden?";
             this.Kontrollfrage.Click += new System.EventHandler(this.Kontrollfrage_Click);
             // 
             // mitSpeichern
             // 
             this.mitSpeichern.Location = new System.Drawing.Point(107, 72);
             this.mitSpeichern.Name = "mitSpeichern";
-            this.mitSpeichern.Size = new System.Drawing.Size(75, 52);
+            this.mitSpeichern.Size = new System.Drawing.Size(75, 74);
             this.mitSpeichern.TabIndex = 6;
-            this.mitSpeichern.Text = "Ja, aber denoch speichern";
+            this.mitSpeichern.Text = "Ja, beenden und Urkunde erstellen.";
             this.mitSpeichern.UseVisualStyleBackColor = true;
             this.mitSpeichern.Click += new System.EventHandler(this.mitSpeichern_Click);
             // 
@@ -84,7 +84,7 @@
             this.Controls.Add(this.Nein);
             this.Controls.Add(this.Kontrollfrage);
             this.Name = "Vorzeitig_verlassen_bestätigen";
-            this.Text = "Vorzeitig_verlassen_bestätigen";
+            this.Text = "Verlassen bestätigen.";
             this.ResumeLayout(false);
             this.PerformLayout();
 

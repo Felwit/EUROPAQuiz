@@ -56,6 +56,7 @@ namespace Europaquiz
 
             File.WriteAllLines(Application.StartupPath + @"\NeueEuropa.svg", SVG);// Soll darauf zugreifen
             webBrowser1.Navigate(Application.StartupPath + @"\NeueEuropa.svg");
+            webBrowser1.Document.BackColor = SystemColors.Control;
 
 
             for (int i = 0; i < LH.Length; i++)
@@ -184,8 +185,12 @@ namespace Europaquiz
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Nur Text eingabe möglich.");
-                        EingabeArt = false;
+                        if (EingabeArt)
+                        {
+                            MessageBox.Show("Nur Text eingabe möglich.");
+                            EingabeArt = false;
+                        }
+
                     }
                     click1 = false;
                 }
@@ -302,7 +307,7 @@ namespace Europaquiz
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Land.Hide();
                     anzGespielterLänder++;
-                    zeigeLösng();
+                    zeigeLösng(false,false);
                     maxpunkte = maxpunkte + (LänderListe[0].getschwierigkeit() * 2);
                     Button_prüfe_Land_neu.Show();
                     Button_prüfe_Land_neu.Focus();
@@ -321,7 +326,7 @@ namespace Europaquiz
                     Punktestand = Punktestand + LänderListe[0].getschwierigkeit();
                     PunkteZahlAnzeige.Text = Punktestand.ToString();
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
-                    zeigeLösng();
+                    zeigeLösng(true,true);
 
                     Button_prüfe_Land_neu.Show();
                     Button_prüfe_Land_neu.Focus();
@@ -332,7 +337,7 @@ namespace Europaquiz
                     tb_Hauptstadt.Hide();
                     anzGespielterLänder++;
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
-                    zeigeLösng();
+                    zeigeLösng(true,false);
                     Button_prüfe_Land_neu.Show();
                     Button_prüfe_Land_neu.Focus();
                 }
@@ -353,12 +358,28 @@ namespace Europaquiz
             }
         }
 
-        private void zeigeLösng()
+        private void zeigeLösng(bool land, bool hs)
         {
             LösungLand.Text = LänderListe[0].getLandname();
             LösungHS.Text = LänderListe[0].getHauptstadt();
             LetzteEingabeLand.Text = tb_Land.Text;
-            LetzteEIngabeHS.Text = tb_Land.Text;
+            if (land)
+            {
+                LetzteEingabeLand.BackColor = Color.Green;
+            }
+            else
+            {
+                LetzteEingabeLand.BackColor = Color.Red;
+            }
+            LetzteEIngabeHS.Text = tb_Hauptstadt.Text;
+            if (hs)
+            {
+                LetzteEIngabeHS.BackColor = Color.Green;
+            }
+            else
+            {
+                LetzteEIngabeHS.BackColor = Color.Red;
+            }
         }
 
 

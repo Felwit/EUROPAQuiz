@@ -34,7 +34,6 @@
             this.Punkte = new System.Windows.Forms.Label();
             this.LEingaben = new System.Windows.Forms.Label();
             this.LLösung = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.tb_Hauptstadt = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.Zoom = new System.Windows.Forms.PictureBox();
@@ -43,30 +42,30 @@
             this.CountdownText = new System.Windows.Forms.Label();
             this.CountdownZaehler = new System.Windows.Forms.Label();
             this.PunkteZahlAnzeige = new System.Windows.Forms.Label();
+            this.LösungHS = new System.Windows.Forms.Label();
+            this.LetzteEingabeLand = new System.Windows.Forms.Label();
+            this.LetzteEIngabeHS = new System.Windows.Forms.Label();
             this.Ergebnis_speichern = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.Ohne_Speichern = new System.Windows.Forms.Button();
-            this.LösungHS = new System.Windows.Forms.Label();
-            this.LetzteEingabeLand = new System.Windows.Forms.Label();
-            this.LetzteEIngabeHS = new System.Windows.Forms.Label();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoom)).BeginInit();
             this.SuspendLayout();
             // 
             // Button_prüfe_Land_neu
             // 
-            this.Button_prüfe_Land_neu.Location = new System.Drawing.Point(3, 77);
+            this.Button_prüfe_Land_neu.Location = new System.Drawing.Point(3, 183);
             this.Button_prüfe_Land_neu.Name = "Button_prüfe_Land_neu";
             this.Button_prüfe_Land_neu.Size = new System.Drawing.Size(79, 52);
             this.Button_prüfe_Land_neu.TabIndex = 0;
-            this.Button_prüfe_Land_neu.Text = "Nächstes Land";
+            this.Button_prüfe_Land_neu.Text = "Start";
             this.Button_prüfe_Land_neu.UseVisualStyleBackColor = true;
             this.Button_prüfe_Land_neu.Click += new System.EventHandler(this.Button_prüfe_Land_neu_Click);
             // 
             // tb_Land
             // 
-            this.tb_Land.Location = new System.Drawing.Point(91, 77);
+            this.tb_Land.Location = new System.Drawing.Point(91, 183);
             this.tb_Land.Name = "tb_Land";
             this.tb_Land.Size = new System.Drawing.Size(117, 20);
             this.tb_Land.TabIndex = 1;
@@ -78,7 +77,7 @@
             // 
             this.Punkte.AutoSize = true;
             this.Punkte.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Punkte.Location = new System.Drawing.Point(3, 194);
+            this.Punkte.Location = new System.Drawing.Point(3, 266);
             this.Punkte.Name = "Punkte";
             this.Punkte.Size = new System.Drawing.Size(52, 16);
             this.Punkte.TabIndex = 3;
@@ -88,7 +87,7 @@
             // 
             this.LEingaben.AutoSize = true;
             this.LEingaben.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LEingaben.Location = new System.Drawing.Point(3, 266);
+            this.LEingaben.Location = new System.Drawing.Point(3, 315);
             this.LEingaben.Name = "LEingaben";
             this.LEingaben.Size = new System.Drawing.Size(69, 32);
             this.LEingaben.TabIndex = 4;
@@ -98,25 +97,15 @@
             // 
             this.LLösung.AutoSize = true;
             this.LLösung.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LLösung.Location = new System.Drawing.Point(3, 335);
+            this.LLösung.Location = new System.Drawing.Point(3, 363);
             this.LLösung.Name = "LLösung";
             this.LLösung.Size = new System.Drawing.Size(70, 16);
             this.LLösung.TabIndex = 5;
             this.LLösung.Text = "Lösungen:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(313, 194);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 16);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Hauptstadt";
-            // 
             // tb_Hauptstadt
             // 
-            this.tb_Hauptstadt.Location = new System.Drawing.Point(313, 77);
+            this.tb_Hauptstadt.Location = new System.Drawing.Point(313, 183);
             this.tb_Hauptstadt.Name = "tb_Hauptstadt";
             this.tb_Hauptstadt.Size = new System.Drawing.Size(131, 20);
             this.tb_Hauptstadt.TabIndex = 2;
@@ -127,52 +116,51 @@
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.6868F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.66443F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.42506F));
-            this.tableLayoutPanel3.Controls.Add(this.LLösung, 0, 4);
-            this.tableLayoutPanel3.Controls.Add(this.LEingaben, 0, 3);
-            this.tableLayoutPanel3.Controls.Add(this.Punkte, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.label2, 2, 2);
-            this.tableLayoutPanel3.Controls.Add(this.tb_Hauptstadt, 2, 1);
-            this.tableLayoutPanel3.Controls.Add(this.Zoom, 1, 5);
-            this.tableLayoutPanel3.Controls.Add(this.Vorzeitig_beenden, 2, 5);
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.73094F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.77578F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.49328F));
             this.tableLayoutPanel3.Controls.Add(this.LösungLand, 1, 4);
-            this.tableLayoutPanel3.Controls.Add(this.Button_prüfe_Land_neu, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.tb_Land, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.CountdownText, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.CountdownZaehler, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.PunkteZahlAnzeige, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.LösungHS, 2, 4);
-            this.tableLayoutPanel3.Controls.Add(this.LetzteEingabeLand, 1, 3);
             this.tableLayoutPanel3.Controls.Add(this.LetzteEIngabeHS, 2, 3);
+            this.tableLayoutPanel3.Controls.Add(this.Vorzeitig_beenden, 2, 6);
+            this.tableLayoutPanel3.Controls.Add(this.Zoom, 1, 6);
+            this.tableLayoutPanel3.Controls.Add(this.LLösung, 0, 5);
+            this.tableLayoutPanel3.Controls.Add(this.LEingaben, 0, 4);
+            this.tableLayoutPanel3.Controls.Add(this.Punkte, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.PunkteZahlAnzeige, 1, 3);
+            this.tableLayoutPanel3.Controls.Add(this.Button_prüfe_Land_neu, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.tb_Land, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.tb_Hauptstadt, 2, 2);
+            this.tableLayoutPanel3.Controls.Add(this.LetzteEingabeLand, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.CountdownZaehler, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.CountdownText, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(923, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 6;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.92793F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.04504F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.14007F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
+            this.tableLayoutPanel3.RowCount = 7;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.98496F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.68421F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32.33083F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 364F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 338F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(447, 749);
             this.tableLayoutPanel3.TabIndex = 11;
             // 
             // Zoom
             // 
             this.Zoom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Zoom.Location = new System.Drawing.Point(91, 387);
+            this.Zoom.Location = new System.Drawing.Point(91, 412);
             this.Zoom.Name = "Zoom";
-            this.Zoom.Size = new System.Drawing.Size(216, 359);
+            this.Zoom.Size = new System.Drawing.Size(216, 334);
             this.Zoom.TabIndex = 8;
             this.Zoom.TabStop = false;
             // 
             // Vorzeitig_beenden
             // 
             this.Vorzeitig_beenden.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Vorzeitig_beenden.Location = new System.Drawing.Point(313, 387);
+            this.Vorzeitig_beenden.Location = new System.Drawing.Point(313, 412);
             this.Vorzeitig_beenden.Name = "Vorzeitig_beenden";
             this.Vorzeitig_beenden.Size = new System.Drawing.Size(131, 23);
             this.Vorzeitig_beenden.TabIndex = 9;
@@ -183,7 +171,7 @@
             // LösungLand
             // 
             this.LösungLand.AutoSize = true;
-            this.LösungLand.Location = new System.Drawing.Point(88, 467);
+            this.LösungLand.Location = new System.Drawing.Point(91, 315);
             this.LösungLand.Name = "LösungLand";
             this.LösungLand.Size = new System.Drawing.Size(19, 13);
             this.LösungLand.TabIndex = 10;
@@ -192,7 +180,7 @@
             // CountdownText
             // 
             this.CountdownText.AutoSize = true;
-            this.CountdownText.Location = new System.Drawing.Point(3, 0);
+            this.CountdownText.Location = new System.Drawing.Point(3, 117);
             this.CountdownText.Name = "CountdownText";
             this.CountdownText.Size = new System.Drawing.Size(64, 13);
             this.CountdownText.TabIndex = 11;
@@ -201,7 +189,7 @@
             // CountdownZaehler
             // 
             this.CountdownZaehler.AutoSize = true;
-            this.CountdownZaehler.Location = new System.Drawing.Point(91, 0);
+            this.CountdownZaehler.Location = new System.Drawing.Point(91, 117);
             this.CountdownZaehler.Name = "CountdownZaehler";
             this.CountdownZaehler.Size = new System.Drawing.Size(19, 13);
             this.CountdownZaehler.TabIndex = 12;
@@ -210,11 +198,38 @@
             // PunkteZahlAnzeige
             // 
             this.PunkteZahlAnzeige.AutoSize = true;
-            this.PunkteZahlAnzeige.Location = new System.Drawing.Point(91, 194);
+            this.PunkteZahlAnzeige.Location = new System.Drawing.Point(91, 266);
             this.PunkteZahlAnzeige.Name = "PunkteZahlAnzeige";
             this.PunkteZahlAnzeige.Size = new System.Drawing.Size(13, 13);
             this.PunkteZahlAnzeige.TabIndex = 13;
             this.PunkteZahlAnzeige.Text = "0";
+            // 
+            // LösungHS
+            // 
+            this.LösungHS.AutoSize = true;
+            this.LösungHS.Location = new System.Drawing.Point(313, 315);
+            this.LösungHS.Name = "LösungHS";
+            this.LösungHS.Size = new System.Drawing.Size(16, 13);
+            this.LösungHS.TabIndex = 14;
+            this.LösungHS.Text = "   ";
+            // 
+            // LetzteEingabeLand
+            // 
+            this.LetzteEingabeLand.AutoSize = true;
+            this.LetzteEingabeLand.Location = new System.Drawing.Point(91, 0);
+            this.LetzteEingabeLand.Name = "LetzteEingabeLand";
+            this.LetzteEingabeLand.Size = new System.Drawing.Size(19, 13);
+            this.LetzteEingabeLand.TabIndex = 15;
+            this.LetzteEingabeLand.Text = "    ";
+            // 
+            // LetzteEIngabeHS
+            // 
+            this.LetzteEIngabeHS.AutoSize = true;
+            this.LetzteEIngabeHS.Location = new System.Drawing.Point(313, 266);
+            this.LetzteEIngabeHS.Name = "LetzteEIngabeHS";
+            this.LetzteEIngabeHS.Size = new System.Drawing.Size(19, 13);
+            this.LetzteEIngabeHS.TabIndex = 16;
+            this.LetzteEIngabeHS.Text = "    ";
             // 
             // Ergebnis_speichern
             // 
@@ -252,33 +267,6 @@
             this.Ohne_Speichern.Visible = false;
             this.Ohne_Speichern.Click += new System.EventHandler(this.Ohne_Speichern_Click_1);
             // 
-            // LösungHS
-            // 
-            this.LösungHS.AutoSize = true;
-            this.LösungHS.Location = new System.Drawing.Point(211, 467);
-            this.LösungHS.Name = "LösungHS";
-            this.LösungHS.Size = new System.Drawing.Size(16, 13);
-            this.LösungHS.TabIndex = 14;
-            this.LösungHS.Text = "   ";
-            // 
-            // LetzteEingabeLand
-            // 
-            this.LetzteEingabeLand.AutoSize = true;
-            this.LetzteEingabeLand.Location = new System.Drawing.Point(88, 398);
-            this.LetzteEingabeLand.Name = "LetzteEingabeLand";
-            this.LetzteEingabeLand.Size = new System.Drawing.Size(19, 13);
-            this.LetzteEingabeLand.TabIndex = 15;
-            this.LetzteEingabeLand.Text = "    ";
-            // 
-            // LetzteEIngabeHS
-            // 
-            this.LetzteEIngabeHS.AutoSize = true;
-            this.LetzteEIngabeHS.Location = new System.Drawing.Point(211, 398);
-            this.LetzteEIngabeHS.Name = "LetzteEIngabeHS";
-            this.LetzteEIngabeHS.Size = new System.Drawing.Size(19, 13);
-            this.LetzteEIngabeHS.TabIndex = 16;
-            this.LetzteEIngabeHS.Text = "    ";
-            // 
             // Europaquiz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -307,7 +295,6 @@
         private System.Windows.Forms.Label Punkte;
         private System.Windows.Forms.Label LEingaben;
         private System.Windows.Forms.Label LLösung;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tb_Hauptstadt;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Button Ergebnis_speichern;
