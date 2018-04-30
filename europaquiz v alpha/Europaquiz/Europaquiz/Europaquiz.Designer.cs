@@ -50,8 +50,10 @@
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.Ohne_Speichern = new System.Windows.Forms.Button();
+            this.LogoBox = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
             this.SuspendLayout();
             // 
             // Button_prüfe_Land_neu
@@ -268,6 +270,15 @@
             this.Ohne_Speichern.Visible = false;
             this.Ohne_Speichern.Click += new System.EventHandler(this.Ohne_Speichern_Click_1);
             // 
+            // LogoBox
+            // 
+            this.LogoBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("LogoBox.InitialImage")));
+            this.LogoBox.Location = new System.Drawing.Point(601, 424);
+            this.LogoBox.Name = "LogoBox";
+            this.LogoBox.Size = new System.Drawing.Size(257, 171);
+            this.LogoBox.TabIndex = 17;
+            this.LogoBox.TabStop = false;
+            // 
             // Europaquiz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,6 +289,7 @@
             this.Controls.Add(this.Ergebnis_speichern);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.webBrowser1);
+            this.Controls.Add(this.LogoBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Europaquiz";
             this.Text = "Europaquiz";
@@ -286,6 +298,7 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -312,5 +325,6 @@
         private System.Windows.Forms.Label LösungHS;
         private System.Windows.Forms.Label LetzteEingabeLand;
         private System.Windows.Forms.Label LetzteEIngabeHS;
+        private System.Windows.Forms.PictureBox LogoBox;
     }
 }
