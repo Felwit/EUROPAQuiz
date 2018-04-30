@@ -18,25 +18,23 @@ namespace Europaquiz
     {
 
         int[] LH = new int[48]; // Die Anzahl der Länder mit Array
-        int Länder = 0;
-        int countdown = 15;
-        string[] zeilen;
-        int anzGespielterLänder = 0;
-        int schwierigkeit;
-        bool EingabeArt;
-        int schwierigkeitL = 0;
-        string istland;
-        string isths;
-        bool click1 = true;
-
-        int Punktestand = 0;
-        int maxpunkte = 0;
+        int Länder = 0;       //# Gespielter Länder
+        int countdown = 15;   
+        string[] zeilen;//Array zum Einlesen der SVG
+        int anzGespielterLänder = 0;//#Gespielter Länder
+        int schwierigkeit;       //Schwirigkeitsstufe wird aus Einstellungen übernommen
+        bool EingabeArt;         //True -> mic wird aus Einstellungen übernommen
+        int schwierigkeitL = 0;  // Schwirigkeitsstufe des ausgewälten Landes
+        string istland;          //Name des ausgewälten Landes
+        string isths;            //HS des ausgewälten Landes
+        int Punktestand = 0;   // Punte werden gezählt
+        int maxpunkte = 0;    // Maximal zu ereichende Punkte
         string Land_ID;
-        bool zoom = true;
+        bool zoom = true;   //Ist ein Zoom notwendig
 
 
-        Random random = new Random();
-        Land[] LänderListe = new Land[1];
+        Random random = new Random();  
+        Land[] LänderListe = new Land[1];  //Liste mit aktuell ausgewältem Land
         private SpeechRecognitionEngine spracherkennung = new SpeechRecognitionEngine();
         string[] SVG = File.ReadAllLines(Application.StartupPath + @"\Europa.svg");// SVG wird in Array eingelesen
 
@@ -62,7 +60,7 @@ namespace Europaquiz
             string[] einstellungEN = File.ReadAllLines(Application.StartupPath + @"\Einstellungen.txt");//einstellungen aus Textdatei werden ausgewertet
             if (einstellungEN[0] == "true")
             {
-                EingabeArt = true;//Eingabe über Mikrofon aktiviert
+                EingabeArt = true;//Eingabe über Mikrofon in Einstellungen aktiviert
             }
             else
             {
@@ -120,17 +118,19 @@ namespace Europaquiz
 
             do
             {
-                Land = random.Next(0, zeilen.Length);// 
+                Land = random.Next(0, zeilen.Length);
                 istland = zeilen[Land].Split(';')[0];// 0 Weil der bei 0 anfängt zu zählen und ; weil der dort sich von HP trennt.
                 isths = zeilen[Land].Split(';')[1];
                 schwierigkeitL = Convert.ToInt32(zeilen[Land].Split(';')[2]);
 
             } while (LH.Contains(Land) || schwierigkeitL > schwierigkeit); // Anderes Land nehmen, wenn das eine Land schon vor kam und Überprüfung ob Schwierigkeit <= Einstellung
+
             LänderListe[0] = new Land(istland, isths, schwierigkeitL);//Schreibe in Liste von Ländern
-            maxpunkte = maxpunkte + (LänderListe[0].getschwierigkeit() * 2);//erhöhe maxpunkt um 2-mal Schwierigkeit je ein mal für Land und HS
-            Färbe("fil1", "fil8");
+            maxpunkte = maxpunkte + (LänderListe[0].getschwierigkeit() * 2);//erhöhe maxpunkte um 2-mal Schwierigkeit je ein mal für Land und HS
+
+            Färbe("fil1", "fil8");//färbe gelb-orange
             LH[Länder] = Land;// Land wird auf dem Wert gesetzt, welches dann vorkommt NR des gespielten Landes
-            Länder++;// Die Werte werden mehr // # der gespielten Länder
+            Länder++;// Die Werte werden mehr - # der gespielten Länder
 
             string Switchcase = LänderListe[0].getLandname();
             switch (Switchcase)// Für die Zoom Funktion 
@@ -153,7 +153,7 @@ namespace Europaquiz
                 case "Liechtenstein":
                     Land_ID = Application.StartupPath + @"\Kleine Länder\Liechtenstein.png";
                     break;
-                default:
+                default://nicht zoomen
                     zoom = false;
                     break;
             }
@@ -185,10 +185,10 @@ namespace Europaquiz
                 }
                 catch (Exception) //glingt das nicht wird...
                 {
-                    if (EingabeArt)
+                    if (EingabeArt)//nur wenn Eingabeart Mikrofon
                     {
-                        MessageBox.Show("Nur Text eingabe möglich."); //... eine Information Angezeigt
-                        EingabeArt = false;// und Standerteingabe methode auf "Text" gesetzt
+                        MessageBox.Show("Nur Text eingabe möglich."); //... eine Information angezeigt
+                        EingabeArt = false;// und Standerteingabemethode auf "Text" gesetzt
                     }
                 }
 
@@ -205,7 +205,7 @@ namespace Europaquiz
         {
             for (int i = 24; i < SVG.Length; i++)// Die Zeile durch gehen
             {
-                if (SVG[i].Contains(istland)) // Das was in der SVG steht soll in Label1 stehen
+                if (SVG[i].Contains(istland)) //Wenn Zeile Landnamen enthält
                 {
                     SVG[i] = SVG[i].Replace(istfarbe, farbe);
                 }
@@ -220,9 +220,8 @@ namespace Europaquiz
         }
 
 
-        void spracherkennung_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        void spracherkennung_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)//Schreibe erkannte Eingabe in aktuelle TB
         {
-
             if (tb_Land.Visible)
             {
                 tb_Land.Text = e.Result.Text;
@@ -236,15 +235,15 @@ namespace Europaquiz
             }
         }
 
-        private void Ergebnis_speichern_Click(object sender, EventArgs e)//Offne Fenster zum Speichern
+        private void Ergebnis_speichern_Click(object sender, EventArgs e)//öffne Fenster zum Speichern
         {
             Ergebnis_Speichern es = new Ergebnis_Speichern();
             es.Show();
         }
 
-        private void Vorzeitig_beenden_Click(object sender, EventArgs e)//offne Fenster zum Vorzeitigen verlassen
+        private void Vorzeitig_beenden_Click(object sender, EventArgs e)//öffne Fenster zum Vorzeitigen verlassen
         {
-            PunktE.anzGespLändder = anzGespielterLänder;// und übergebe #gespielter Länder sowie Punktestand und Bis hierher zuerreichende maxpunkte
+            PunktE.anzGespLändder = anzGespielterLänder;// und übergebe #gespielter Länder sowie Punktestand und bis hierher zuerreichende maxpunkte
             PunktE.maxpunkte = maxpunkte;
             PunktE.punkte = Punktestand;
             Vorzeitig_verlassen_bestätigen vb = new Vorzeitig_verlassen_bestätigen();
@@ -256,13 +255,13 @@ namespace Europaquiz
 
         private void tb_Land_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)//Wenn in TB Land Enter gedrückt
+            if (e.KeyCode == Keys.Enter)//Wenn in TB_Land Enter gedrückt
                 Prüfe();
         }
 
         private void tb_Hauptstadt_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)//Wenn in TB Land Enter gedrückt
+            if (e.KeyCode == Keys.Enter)//Wenn in TB_HS Enter gedrückt
                 Prüfe();
         }
 
@@ -279,7 +278,7 @@ namespace Europaquiz
                 if (eingLand.ToUpper() == LänderListe[0].getLandname().ToUpper() || eingLand == LänderListe[0].getLandname())
                 {
                     Färbe("fil8", "fil9");
-                    // Färben mit methode-> Hell Grün (Wenn Land richtig Hauptstad nach fragen)
+                    // Färben mit Methode-> Hell Grün (Wenn Land richtig Hauptstad nach fragen)
                     tb_Land.Hide();
                     tb_Hauptstadt.Show();       //tb = Textbox. Textbox Land und Hauptstadt werden ein-/ausgeblendet.
                     tb_Hauptstadt.Focus();
@@ -311,7 +310,7 @@ namespace Europaquiz
                     anzGespielterLänder++;      //#gespielter Länder wird erhöht und Punkte vergeben/angezeigt
                     Punktestand = Punktestand + LänderListe[0].getschwierigkeit();
                     PunkteZahlAnzeige.Text = Punktestand.ToString();
-                    zeigeLösng(true, true);         //Lösungen und Buttonfür Nächstes Land werden angezeigt
+                    zeigeLösng(true, true);         //Lösungen und Button für Nächstes Land werden angezeigt
                     Button_prüfe_Land_neu.Show();  
                     Button_prüfe_Land_neu.Focus();
                 }
@@ -333,7 +332,7 @@ namespace Europaquiz
                 Ergebnis_speichern.Show();//dafür 2 Zum Speicher/nicht Speichern angeziegt
                 Ohne_Speichern.Show();
 
-                PunktE.anzGespLändder = anzGespielterLänder;// Übergebe #gespielter Länder sowie Punktestand und Bis hierher zuerreichende maxpunkte
+                PunktE.anzGespLändder = anzGespielterLänder;// Übergebe #gespielter Länder sowie Punktestand und bis hierher zuerreichende maxpunkte
                 PunktE.maxpunkte = maxpunkte;
                 PunktE.punkte = Punktestand;
             }
@@ -359,7 +358,7 @@ namespace Europaquiz
                 LetzteEIngabeHS.BackColor = Color.IndianRed;
 
             tb_Hauptstadt.Clear();
-            tb_Land.Clear();        //Letzte Eingabe wird gelöscht
+            tb_Land.Clear();        //Letzte Eingaben werden gelöscht
         }
 
         //Countdown, welcher runterzählt
@@ -374,7 +373,7 @@ namespace Europaquiz
 
         private void Ohne_Speichern_Click_1(object sender, EventArgs e)
         {
-            Application.Restart();
+            Application.Exit();
         }
     }
     public class PunktE //Klasse zum über geben von Werten in Urkunden Fenster

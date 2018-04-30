@@ -49,7 +49,7 @@ namespace Europaquiz
         }
         
 
-        private void Speichern_Click_1(object sender, EventArgs e)//Lese EIngaben aus 
+        private void Speichern_Click_1(object sender, EventArgs e)//Lese Eingaben aus 
         {
             if (Eingabe_Artbox.Text == "Text")
             {

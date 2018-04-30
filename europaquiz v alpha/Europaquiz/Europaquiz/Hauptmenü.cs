@@ -14,22 +14,18 @@ namespace Europaquiz
     
     public partial class Hauptmenü : Form
     {
-        
 
         public Hauptmenü()
         {
             InitializeComponent();
-            string[] lines = { "true", "2" };//setze bei jedem Start Einstellungen auf Standart Werte 
+            string[] lines = { "true", "2" };//setze bei jedem Start Einstellungen auf Standartwerte 
             System.IO.File.WriteAllLines(Application.StartupPath + @"\Einstellungen.txt", lines);
         }
-
-
 
         private void Neues_Spiel_Click(object sender, EventArgs e)//Starte neues Quizfenster
         {
             Europaquiz f = new Europaquiz();
             f.Show();
-          
         }
 
         private void Einstellungen_Click(object sender, EventArgs e)//öffne Einstellungen
@@ -38,7 +34,7 @@ namespace Europaquiz
             E.Show();
         }
 
-        private void Spiel_verlassen_Click_1(object sender, EventArgs e)//Öffne Fenster zur Bestätigung des Schließen
+        private void Spiel_verlassen_Click_1(object sender, EventArgs e)//öffne Fenster zur Bestätigung des Schließen
         {
             Verlassen_bestätigen v = new Verlassen_bestätigen();
             v.Show();

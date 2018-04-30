@@ -236,7 +236,7 @@
             // 
             // Ergebnis_speichern
             // 
-            this.Ergebnis_speichern.Location = new System.Drawing.Point(122, 196);
+            this.Ergebnis_speichern.Location = new System.Drawing.Point(124, 266);
             this.Ergebnis_speichern.Name = "Ergebnis_speichern";
             this.Ergebnis_speichern.Size = new System.Drawing.Size(245, 110);
             this.Ergebnis_speichern.TabIndex = 12;
@@ -261,7 +261,7 @@
             // 
             // Ohne_Speichern
             // 
-            this.Ohne_Speichern.Location = new System.Drawing.Point(525, 196);
+            this.Ohne_Speichern.Location = new System.Drawing.Point(534, 269);
             this.Ohne_Speichern.Name = "Ohne_Speichern";
             this.Ohne_Speichern.Size = new System.Drawing.Size(245, 110);
             this.Ohne_Speichern.TabIndex = 15;

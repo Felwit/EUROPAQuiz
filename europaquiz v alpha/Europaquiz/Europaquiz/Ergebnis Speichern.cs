@@ -66,25 +66,24 @@ namespace Europaquiz
             logo.SetAbsolutePosition(0, 765);
             pdfdoc.Add(logo);
 
-            Paragraph headline = CreateParagraph("URKUNDE", Titleunderline);//Titel bzw. Überschrift schreiben 
+            Paragraph headline = CreateParagraph("URKUNDE", Titleunderline);//Titel schreiben 
             headline.Alignment = Element.ALIGN_CENTER;
             pdfdoc.Add(headline);
 
-            pdfdoc.Add(AddEmptyParagraph(10)); // Leere Zeile der Schrift Höhe 10
-            pdfdoc.Add(CreateParagraph("für die Teilanhme am Europa - Quiz des", big)); // Untertitel
-            pdfdoc.Add(CreateParagraph("Adolfkolping-Berufskoleg", big));
+            pdfdoc.Add(AddEmptyParagraph(10)); // Leere Zeile der Schriftgröße 10
+            pdfdoc.Add(CreateParagraph("für die Teilanhme am Europa - Quiz", big)); // Untertitel
+            pdfdoc.Add(CreateParagraph("des Adolfkolping-Berufskoleg", big));
                         
-            pdfdoc.Add(AddEmptyParagraph(30));// Leere Zeile der Schrift Höhe 30
+            pdfdoc.Add(AddEmptyParagraph(30));// Leere Zeile der Schriftgröße 30
             pdfdoc.Add(CreateParagraph($"Ausgestellt für:{Vorname} {Name} ", standard));    //Ausgabe von Name des Spielers sowie Datum 
             pdfdoc.Add(CreateParagraph($"Das Quiz wurde am {DateTime.Now.ToLongDateString()} absolviert.", standard));
 
-            pdfdoc.Add(AddEmptyParagraph(10)); // Leere Zeile der Schrift Höhe 10
+            pdfdoc.Add(AddEmptyParagraph(10)); // Leere Zeile der Schriftgröße 10
             pdfdoc.Add(CreateParagraph($"{Vorname} {Name} hat {PunktE.punkte} Punkte von {PunktE.maxpunkte} Punkten erieicht.", standard));// Ausgabe Ergebnis als Text
             pdfdoc.Add(CreateParagraph($"Es wurde(n) {PunktE.anzGespLändder} Land/Länder  von 20 Ländern gespielt.", standard));
 
            
             pdfdoc.Add(new Paragraph("Ihr Ergebnis als Bild:", standardbold));
-            //read svg document from file system
             var svgDocument = SvgDocument.Open(Application.StartupPath + @"\NeueEuropa.svg"); //svg in png umwandeln
             var bitmap = svgDocument.Draw();
             
@@ -111,12 +110,12 @@ namespace Europaquiz
 
         private void erstellen_Click(object sender, EventArgs e)
         {
-            pdfdoc = new Document(iTextSharp.text.PageSize.A4);//Grlße =A4
+            pdfdoc = new Document(iTextSharp.text.PageSize.A4);//Größe = A4
             pdfdoc.SetMargins(50, 50, 50, 50);// Seitenränder
             string Name = NameTB.Text;//Auslesen der Eingaben
             string Vorname = VornameTB.Text;
 
-            SaveFileDialog sfd = new SaveFileDialog();//Abfrage Speicherort
+            SaveFileDialog sfd = new SaveFileDialog();//Abfrage gewünschter Speicherort
             string sfdname = saveFileDialog1.FileName;
             if (sfd.ShowDialog() == DialogResult.OK)
             {
@@ -124,7 +123,7 @@ namespace Europaquiz
             }
             string pfad =  Path.GetFullPath(sfd.FileName+".pdf");
 
-            CreatePDF(Name,Vorname,pfad);//Begine mit dem erstellen
+            CreatePDF(Name,Vorname,pfad);//Beginne mit dem erstellen
             Application.Exit();// Verlasse Programm
         }
 

@@ -37,7 +37,7 @@
             // 
             // Ja
             // 
-            this.Ja.Location = new System.Drawing.Point(15, 72);
+            this.Ja.Location = new System.Drawing.Point(12, 50);
             this.Ja.Name = "Ja";
             this.Ja.Size = new System.Drawing.Size(75, 74);
             this.Ja.TabIndex = 5;
@@ -47,7 +47,7 @@
             // 
             // Nein
             // 
-            this.Nein.Location = new System.Drawing.Point(199, 72);
+            this.Nein.Location = new System.Drawing.Point(199, 50);
             this.Nein.Name = "Nein";
             this.Nein.Size = new System.Drawing.Size(75, 74);
             this.Nein.TabIndex = 4;
@@ -58,7 +58,7 @@
             // Kontrollfrage
             // 
             this.Kontrollfrage.AutoSize = true;
-            this.Kontrollfrage.Location = new System.Drawing.Point(95, 28);
+            this.Kontrollfrage.Location = new System.Drawing.Point(95, 9);
             this.Kontrollfrage.Name = "Kontrollfrage";
             this.Kontrollfrage.Size = new System.Drawing.Size(97, 13);
             this.Kontrollfrage.TabIndex = 3;
@@ -66,7 +66,7 @@
             // 
             // mitSpeichern
             // 
-            this.mitSpeichern.Location = new System.Drawing.Point(107, 72);
+            this.mitSpeichern.Location = new System.Drawing.Point(107, 50);
             this.mitSpeichern.Name = "mitSpeichern";
             this.mitSpeichern.Size = new System.Drawing.Size(75, 74);
             this.mitSpeichern.TabIndex = 6;
@@ -78,7 +78,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(311, 158);
+            this.ClientSize = new System.Drawing.Size(286, 136);
             this.Controls.Add(this.mitSpeichern);
             this.Controls.Add(this.Ja);
             this.Controls.Add(this.Nein);

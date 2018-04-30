@@ -30,7 +30,7 @@ namespace Europaquiz
 
         private void mitSpeichern_Click(object sender, EventArgs e)
         {
-            Ergebnis_Speichern es = new Ergebnis_Speichern();//ermögliche das speichern Schließen erfolgt nach Speicherung
+            Ergebnis_Speichern es = new Ergebnis_Speichern();//öffe FEnster zum Speichern; Schließen erfolgt nach Speicherung
             es.Show();
         }
     }

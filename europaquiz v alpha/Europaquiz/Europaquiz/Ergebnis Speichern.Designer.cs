@@ -79,7 +79,7 @@
             this.Info.Name = "Info";
             this.Info.Size = new System.Drawing.Size(277, 13);
             this.Info.TabIndex = 6;
-            this.Info.Text = "Bitte geben  Sie folgendes, zum erstellen der Urkunde ein";
+            this.Info.Text = "Bitte geben Sie folgendes, zum erstellen der Urkunde ein:";
             // 
             // erstellen
             // 
@@ -105,7 +105,7 @@
             this.Controls.Add(this.NameTB);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Ergebnis_Speichern";
-            this.Text = "Ergebnis_Speichern";
+            this.Text = "Ergebnis Speichern";
             this.ResumeLayout(false);
             this.PerformLayout();
 

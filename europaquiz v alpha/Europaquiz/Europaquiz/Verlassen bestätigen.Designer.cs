@@ -37,7 +37,7 @@
             // Kontrollfrage
             // 
             this.Kontrollfrage.AutoSize = true;
-            this.Kontrollfrage.Location = new System.Drawing.Point(92, 9);
+            this.Kontrollfrage.Location = new System.Drawing.Point(89, 18);
             this.Kontrollfrage.Name = "Kontrollfrage";
             this.Kontrollfrage.Size = new System.Drawing.Size(99, 13);
             this.Kontrollfrage.TabIndex = 0;
@@ -73,7 +73,7 @@
             this.Controls.Add(this.Kontrollfrage);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Verlassen_bestätigen";
-            this.Text = "Verlassen_bestätigen";
+            this.Text = "Verlassen bestätigen";
             this.ResumeLayout(false);
             this.PerformLayout();
 
