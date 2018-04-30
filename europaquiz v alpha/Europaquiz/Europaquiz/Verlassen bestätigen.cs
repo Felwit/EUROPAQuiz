@@ -15,21 +15,18 @@ namespace Europaquiz
         public Verlassen_bestätigen()
         {
             InitializeComponent();
+            Ja.Focus();//setze Fokus auf Button_JA
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+        private void JA_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Application.Exit();// Beende Program
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Nein_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void Kontrollfrage_Click(object sender, EventArgs e)
-        {
-
+            this.Close();//Schließe nur dieses Fenster
         }
     }
 }

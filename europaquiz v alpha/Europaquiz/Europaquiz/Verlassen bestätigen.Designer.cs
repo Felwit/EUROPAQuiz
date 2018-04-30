@@ -42,7 +42,6 @@
             this.Kontrollfrage.Size = new System.Drawing.Size(99, 13);
             this.Kontrollfrage.TabIndex = 0;
             this.Kontrollfrage.Text = "Wirklich verlassen?";
-            this.Kontrollfrage.Click += new System.EventHandler(this.Kontrollfrage_Click);
             // 
             // Nein
             // 
@@ -52,7 +51,7 @@
             this.Nein.TabIndex = 1;
             this.Nein.Text = "Nein";
             this.Nein.UseVisualStyleBackColor = true;
-            this.Nein.Click += new System.EventHandler(this.button1_Click);
+            this.Nein.Click += new System.EventHandler(this.Nein_Click);
             // 
             // Ja
             // 
@@ -62,7 +61,7 @@
             this.Ja.TabIndex = 2;
             this.Ja.Text = "Ja";
             this.Ja.UseVisualStyleBackColor = true;
-            this.Ja.Click += new System.EventHandler(this.button2_Click);
+            this.Ja.Click += new System.EventHandler(this.JA_Click);
             // 
             // Verlassen_bestätigen
             // 

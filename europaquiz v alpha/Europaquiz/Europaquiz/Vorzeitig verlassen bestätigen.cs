@@ -18,24 +18,19 @@ namespace Europaquiz
             InitializeComponent();
         }
 
-        private void Kontrollfrage_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Nein_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close();//schließe dieses Fensters
         }
 
         private void Ja_Click(object sender, EventArgs e)
         {
-            Application.Restart();
+            Application.Exit(); // schließe Anwendung
         }
 
         private void mitSpeichern_Click(object sender, EventArgs e)
         {
-            Ergebnis_Speichern es = new Ergebnis_Speichern();
+            Ergebnis_Speichern es = new Ergebnis_Speichern();//ermögliche das speichern Schließen erfolgt nach Speicherung
             es.Show();
         }
     }

@@ -12,11 +12,8 @@ namespace Europaquiz
 {
     public partial class Einstellungen : Form
     {
-        int art;
         bool micophon=true;
         int schwierigkeit=2;
-       
-
 
         public Einstellungen()
         {
@@ -25,9 +22,8 @@ namespace Europaquiz
 
 
 
-        public void Einstellungen_Load(object sender, EventArgs e)
+        public void Einstellungen_Load(object sender, EventArgs e)//Lade Aktuelle EInstellungen und Zeige diese an
         {
-            //Eingabe_Artbox.SelectedIndex = art;
             string[] einstellungEN = System.IO.File.ReadAllLines(Application.StartupPath + @"\Einstellungen.txt");
             if (einstellungEN[0] == "true")
             {
@@ -53,13 +49,8 @@ namespace Europaquiz
         }
         
 
-        private void Speichern_Click_1(object sender, EventArgs e)
+        private void Speichern_Click_1(object sender, EventArgs e)//Lese EIngaben aus 
         {
-            //string Schwierigkeitsgrad = Schwierigkeitsbox.Text;        // NOCH NICHT FERTIG
-            //string Eingabeart = Eingabe_Artbox.Text;
-            //Europaquiz.Einstellungen l = new Europaquiz.Einstellungen(Schwierigkeitsgrad, Eingabeart);
-            //string Eingabe_Art = Eingabe_Artbox.Text;
-
             if (Eingabe_Artbox.Text == "Text")
             {
                 micophon = false;
@@ -73,28 +64,11 @@ namespace Europaquiz
                 schwierigkeit = 3;
             else
                 schwierigkeit = 2;
-            string[] lines = { micophon.ToString(), schwierigkeit.ToString()  };
+            string[] lines = { micophon.ToString(), schwierigkeit.ToString()  };// und speichere diese
             System.IO.File.WriteAllLines(Application.StartupPath + @"\Einstellungen.txt", lines);
             this.Close();
         }
-
-        
-
         
     }
-////    (//public class EinstellungenQuiz
-////    {
 
-////        Einstellungen Schwieriegkeit und Eingabe Art
-
-////        public static int Schwierigkeitsgrad { get; set; }
-////    public static bool Spracheingabe { get; set; }
-
-////    public EinstellungenQuiz(bool Spracheingabe, int Schwierigkeitsgrad)
-////    {
-////        EinstellungenQuiz.Schwierigkeitsgrad = Schwierigkeitsgrad;
-////        EinstellungenQuiz.Spracheingabe = Spracheingabe;
-////    }
-
-////}
 }

@@ -63,7 +63,6 @@
             this.Kontrollfrage.Size = new System.Drawing.Size(97, 13);
             this.Kontrollfrage.TabIndex = 3;
             this.Kontrollfrage.Text = "Wirklich Beenden?";
-            this.Kontrollfrage.Click += new System.EventHandler(this.Kontrollfrage_Click);
             // 
             // mitSpeichern
             // 

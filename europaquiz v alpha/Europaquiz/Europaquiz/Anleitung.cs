@@ -19,9 +19,7 @@ namespace Europaquiz
 
         private void Anleitung_Load(object sender, EventArgs e)
         {
-            //webBrowser1.Navigate(@"C:\Users\NoMiGXZ\Source\EUROPAQuiz\Anleitung.htm");
-
-            webBrowser1.Navigate(Application.StartupPath + @"\Anleitung.htm");
+            webBrowser1.Navigate(Application.StartupPath + @"\Anleitung.htm");//lade Anleitung aus Datei
         }
     }
 }
