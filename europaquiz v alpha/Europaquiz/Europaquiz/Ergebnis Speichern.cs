@@ -120,11 +120,16 @@ namespace Europaquiz
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 Path.GetFullPath(sfd.FileName);
-            }
-            string pfad =  Path.GetFullPath(sfd.FileName+".pdf");
+                string pfad = Path.GetFullPath(sfd.FileName + ".pdf");
 
-            CreatePDF(Name,Vorname,pfad);//Beginne mit dem erstellen
-            Application.Exit();// Verlasse Programm
+                CreatePDF(Name, Vorname, pfad);//Beginne mit dem erstellen
+                Application.Exit();// Verlasse Programm
+            }
+            else//wenn SaveFileDialog Abbrechen an geklickt
+            {
+                this.Close();
+            }
+  
         }
 
         private void NameTB_TextChanged(object sender, EventArgs e)//Erstellen nur möglich, wenn bei TB ausgefüllt

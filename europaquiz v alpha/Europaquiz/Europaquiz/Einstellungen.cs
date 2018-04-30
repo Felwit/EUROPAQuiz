@@ -20,8 +20,6 @@ namespace Europaquiz
             InitializeComponent();
         }
 
-
-
         public void Einstellungen_Load(object sender, EventArgs e)//Lade Aktuelle EInstellungen und Zeige diese an
         {
             string[] einstellungEN = System.IO.File.ReadAllLines(Application.StartupPath + @"\Einstellungen.txt");
@@ -47,7 +45,6 @@ namespace Europaquiz
                     break;
             }
         }
-        
 
         private void Speichern_Click_1(object sender, EventArgs e)//Lese Eingaben aus 
         {
@@ -67,8 +64,7 @@ namespace Europaquiz
             string[] lines = { micophon.ToString(), schwierigkeit.ToString()  };// und speichere diese
             System.IO.File.WriteAllLines(Application.StartupPath + @"\Einstellungen.txt", lines);
             this.Close();
-        }
-        
+        }  
     }
 
 }
