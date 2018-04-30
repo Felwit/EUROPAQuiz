@@ -195,6 +195,7 @@ namespace Europaquiz
             }
             tb_Land.Show();//frage Land ab
             tb_Land.Focus();
+            BitteLandEingebenTitel.Show();
             Timer.Start();//Starte Timer
             CountdownZaehler.Show(); //zeige Countdown Zähler
 
@@ -280,8 +281,10 @@ namespace Europaquiz
                     Färbe("fil8", "fil9");
                     // Färben mit Methode-> Hell Grün (Wenn Land richtig Hauptstad nach fragen)
                     tb_Land.Hide();
+                    BitteLandEingebenTitel.Hide();
                     tb_Hauptstadt.Show();       //tb = Textbox. Textbox Land und Hauptstadt werden ein-/ausgeblendet.
                     tb_Hauptstadt.Focus();
+                    BitteHaupstadteingebenTitel.Show();
                     Timer.Start();              //Timer startet und Punkte werden vergeben/angezeigt
                     CountdownZaehler.Show();
                     Punktestand = Punktestand + LänderListe[0].getschwierigkeit();
@@ -293,6 +296,7 @@ namespace Europaquiz
                     Färbe("fil8", "fil11");     //Land wird rot gefärbt
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Land.Hide();
+                    BitteLandEingebenTitel.Hide();
                     anzGespielterLänder++;
                     zeigeLösng(false, false);   //Lösungen werden angezeigt
                     Button_prüfe_Land_neu.Show();
@@ -307,6 +311,7 @@ namespace Europaquiz
                     Färbe("fil9", "fil10");     //Land wird dunkel grün gefärbt
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Hauptstadt.Hide();
+                    BitteHaupstadteingebenTitel.Hide();
                     anzGespielterLänder++;      //#gespielter Länder wird erhöht und Punkte vergeben/angezeigt
                     Punktestand = Punktestand + LänderListe[0].getschwierigkeit();
                     PunkteZahlAnzeige.Text = Punktestand.ToString();
@@ -318,6 +323,7 @@ namespace Europaquiz
                 {
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Hauptstadt.Hide();
+                    BitteHaupstadteingebenTitel.Hide();
                     anzGespielterLänder++;
                     zeigeLösng(true, false);     //Es wird farblich signalisiert, dass Land richtig & Hauptstadt falsch ist
                     Button_prüfe_Land_neu.Show();
@@ -375,6 +381,8 @@ namespace Europaquiz
         {
             Application.Exit();
         }
+
+
     }
     public class PunktE //Klasse zum über geben von Werten in Urkunden Fenster
     {
