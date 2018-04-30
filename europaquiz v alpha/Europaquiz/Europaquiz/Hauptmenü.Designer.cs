@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hauptmenü));
             this.Neues_Spiel = new System.Windows.Forms.Button();
             this.Tutorial = new System.Windows.Forms.Button();
             this.Einstellungen = new System.Windows.Forms.Button();
@@ -83,6 +84,7 @@
             this.Controls.Add(this.Einstellungen);
             this.Controls.Add(this.Tutorial);
             this.Controls.Add(this.Neues_Spiel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Hauptmenü";
             this.Text = "Hauptmenü";
             this.ResumeLayout(false);

@@ -45,9 +45,7 @@ namespace Europaquiz
         public Europaquiz()
         {
             InitializeComponent();
-            CountdownZaehler.Hide();
-
-
+            CountdownZaehler.Hide();    //Der Countdown wird zu Beginn ausgeblendet
         }
 
         private void Europaquiz_Load(object sender, EventArgs e)
@@ -73,12 +71,12 @@ namespace Europaquiz
             {
                 EingabeArt = false;
             }
+
             switch (einstellungEN[1])
             {
                 case "1":
                     schwierigkeit = 1;
                     break;
-
                 case "2":
                     schwierigkeit = 2;
                     break;
@@ -86,7 +84,6 @@ namespace Europaquiz
                     schwierigkeit = 3;
                     break;
             }
-
         }
 
 
@@ -97,9 +94,6 @@ namespace Europaquiz
             private string Landname;
             private string Hauptstadt;
             private int Schwierigkeit;
-
-
-
 
             public Land(string Landname, string Hauptstadt, int Schwierigkeit)
             {
@@ -128,11 +122,9 @@ namespace Europaquiz
                 zeilen = File.ReadAllLines(Application.StartupPath + @"\Länder und Hauptstadt.txt");
                 int Land = -1;
 
-
-
                 do
                 {
-                    Land = random.Next(0, zeilen.Length);// Anderes Land nehmen wenn das eine Land schon vor kam
+                    Land = random.Next(0, zeilen.Length);// Anderes Land nehmen, wenn das eine Land schon vor kam
                     istland = zeilen[Land].Split(';')[0];// 0 Weil der bei 0 anfängt zu zählen und ; weil der dort sich von HP trennt.
                     isths = zeilen[Land].Split(';')[1];
                     schwierigkeitL = Convert.ToInt32(zeilen[Land].Split(';')[2]);
@@ -142,7 +134,7 @@ namespace Europaquiz
                 LänderListe[0] = new Land(istland, isths, schwierigkeitL);
 
                 Färbe("fil1", "fil8");
-                LH[Länder] = Land;// Land wird auf dem Wert gesetzt welches dann vorkommt NR des gespielten Landes
+                LH[Länder] = Land;// Land wird auf dem Wert gesetzt, welches dann vorkommt NR des gespielten Landes
                 Länder++;// Die Werte werden mehr // # der gespielten Länder
 
                 string Switchcase = LänderListe[0].getLandname();
@@ -172,7 +164,6 @@ namespace Europaquiz
                 }
                 if (zoom == true)
                 {
-
                     Zoom.Load(Land_ID);
                     Zoom.Show();
                 }
@@ -181,9 +172,6 @@ namespace Europaquiz
                     zoom = true;
                     Zoom.Hide();
                 }
-
-
-
 
                 if (click1 == true)
                 {
@@ -205,8 +193,6 @@ namespace Europaquiz
                             MessageBox.Show("Exception aufgetreten: " + a.Message);
                             Application.Exit();
                         }
-
-
                     }
                     catch (Exception)
                     {
@@ -215,32 +201,25 @@ namespace Europaquiz
                             MessageBox.Show("Nur Text eingabe möglich.");
                             EingabeArt = false;
                         }
-
                     }
                     click1 = false;
                 }
-
-
                 tb_Land.Show();
                 tb_Land.Focus();
                 Timer.Start();
                 CountdownZaehler.Show();
                 break;
-
             }
-
         }
 
 
         public void Färbe(string istfarbe, string farbe)
         {
-
             for (int i = 24; i < SVG.Length; i++)// Die Zeile durch gehen
             {
                 if (SVG[i].Contains(istland)) // Das was in der SVG steht soll in Label1 stehen
                 {
                     SVG[i] = SVG[i].Replace(istfarbe, farbe);
-
                 }
             }  // Auswählen = Gelb/Orange fil8
                // Land richtig = Hell Grün fil9
@@ -293,89 +272,79 @@ namespace Europaquiz
         private void tb_Land_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-            {
                 Prüfe();
-            }
         }
 
         private void tb_Hauptstadt_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-            {
                 Prüfe();
-            }
         }
 
         public void Prüfe()
         {
-            Timer.Stop();
+            Timer.Stop();           //Countdown
             CountdownZaehler.Hide();
             countdown = 15;
             CountdownZaehler.Text = countdown.ToString();
             if (tb_Land.Visible == true)
             {
+                //Landeingabe RICHTIG:
                 string eingLand = tb_Land.Text;
-
                 if (eingLand.ToUpper() == LänderListe[0].getLandname().ToUpper() || eingLand == LänderListe[0].getLandname())
                 {
                     Färbe("fil8", "fil9");
                     // Färben mit methode-> Hell Grün (Wenn Land richtig Hauptstad nach fragen)
                     tb_Land.Hide();
-                    
-                    tb_Hauptstadt.Show();
+                    tb_Hauptstadt.Show();       //tb = Textbox. Textbox Land und Hauptstadt werden ein-/ausgeblendet.
                     tb_Hauptstadt.Focus();
-                    Timer.Start();
+                    Timer.Start();              //Timer startet und Punkte werden vergeben/angezeigt
                     CountdownZaehler.Show();
                     Punktestand = Punktestand + LänderListe[0].getschwierigkeit();
                     PunkteZahlAnzeige.Text = Punktestand.ToString();
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
                 }
-
-                else
+                else //Landeingabe FALSCH:
                 {
-                    Färbe("fil8", "fil11");
+                    Färbe("fil8", "fil11");     //Land wird rot gefärbt
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Land.Hide();
                     anzGespielterLänder++;
-                    zeigeLösng(false, false);
-
+                    zeigeLösng(false, false);   //Lösungen werden angezeigt
                     maxpunkte = maxpunkte + (LänderListe[0].getschwierigkeit() * 2);
                     Button_prüfe_Land_neu.Show();
                     Button_prüfe_Land_neu.Focus();
                 }
             }
-            else
+            else  //Hauptstadteingabe RICHTIG:
             {
                 string eingStadt = tb_Hauptstadt.Text;
-
                 if (eingStadt.ToUpper() == LänderListe[0].getHauptstadt().ToUpper() || eingStadt == LänderListe[0].getHauptstadt())
                 {
-                    Färbe("fil9", "fil10");
+                    Färbe("fil9", "fil10");     //Land wird dunkel grün gefärbt
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Hauptstadt.Hide();
                     anzGespielterLänder++;
                     Punktestand = Punktestand + LänderListe[0].getschwierigkeit();
                     PunkteZahlAnzeige.Text = Punktestand.ToString();
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
-                    zeigeLösng(true, true);
-;
+                    zeigeLösng(true, true);         //Lösungen werden angezeigt
                     Button_prüfe_Land_neu.Show();
                     Button_prüfe_Land_neu.Focus();
                 }
-                else
+                else  //Hauptstadteingabe FALSCH
                 {
                     Button_prüfe_Land_neu.Text = "Nächstes Land";
                     tb_Hauptstadt.Hide();
                     anzGespielterLänder++;
                     maxpunkte = maxpunkte + LänderListe[0].getschwierigkeit();
-                    zeigeLösng(true, false);
-
+                    zeigeLösng(true, false);     //Es wird farblich signalisiert, dass Land richtig & Hauptstadt falsch ist
                     Button_prüfe_Land_neu.Show();
                     Button_prüfe_Land_neu.Focus();
                 }
             }
 
-            if (anzGespielterLänder == 20)
+            if (anzGespielterLänder == 20)      //Maximale Anzahl an gespielten Ländern bis das Spiel vorbei ist
             {
                 Button_prüfe_Land_neu.Hide();
                 Vorzeitig_beenden.Hide();
@@ -385,48 +354,40 @@ namespace Europaquiz
                 PunktE.anzGespLändder = anzGespielterLänder;
                 PunktE.maxpunkte = maxpunkte;
                 PunktE.punkte = Punktestand;
-
-
             }
         }
 
-        private void zeigeLösng(bool land, bool hs)
+        private void zeigeLösng(bool land, bool hs)     //Lösungen werden farblich makiert
         {
             LösungLand.Text = LänderListe[0].getLandname();
             LösungHS.Text = LänderListe[0].getHauptstadt();
+
+            //Land
             LetzteEingabeLand.Text = tb_Land.Text;
-            if (land)
-            {
-                LetzteEingabeLand.BackColor = Color.Green;
-            }
-            else
-            {
-                LetzteEingabeLand.BackColor = Color.Red;
-            }
+            if (land)   //RICHTIGE Eingabe = Grün makiert
+                LetzteEingabeLand.BackColor = Color.DarkSeaGreen;
+            else        //FALSCHE Eingabe = rot makiert
+                LetzteEingabeLand.BackColor = Color.IndianRed;
+
+            //Haupstadt
             LetzteEIngabeHS.Text = tb_Hauptstadt.Text;
-            if (hs)
-            {
-                LetzteEIngabeHS.BackColor = Color.Green;
-            }
-            else
-            {
-                LetzteEIngabeHS.BackColor = Color.Red;
-            }
+            if (hs)     //RICHITGE Eingabe = Grün makiert
+                LetzteEIngabeHS.BackColor = Color.DarkSeaGreen;
+            else        //FALSCHE Eingabe = Grün makiert
+                LetzteEIngabeHS.BackColor = Color.IndianRed;
+
             tb_Hauptstadt.Clear();
-            tb_Land.Clear();
+            tb_Land.Clear();        //Letzte Eingabe wird gelöscht
         }
 
-
-
+        //Countdown, welcher runterzählt
         private void Timer_Tick(object sender, EventArgs e)
         {
             countdown--;
             CountdownZaehler.Text = countdown.ToString();
 
             if (CountdownZaehler.Text == "0")
-            {
                 Prüfe();
-            }
         }
 
         private void Ohne_Speichern_Click_1(object sender, EventArgs e)
@@ -446,6 +407,5 @@ namespace Europaquiz
             PunktE.punkte = punkte;
             PunktE.anzGespLändder = gespielteländer;
         }
-
     }
 }

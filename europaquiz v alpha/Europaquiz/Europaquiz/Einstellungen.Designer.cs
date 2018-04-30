@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Einstellungen));
             this.Speichern = new System.Windows.Forms.Button();
             this.Schwierigkeit = new System.Windows.Forms.Label();
             this.Schwierigkeitsbox = new System.Windows.Forms.ComboBox();
@@ -106,6 +107,7 @@
             this.Controls.Add(this.Schwierigkeitsbox);
             this.Controls.Add(this.Schwierigkeit);
             this.Controls.Add(this.Speichern);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Einstellungen";
             this.Text = "Einstellungen";
             this.Load += new System.EventHandler(this.Einstellungen_Load);

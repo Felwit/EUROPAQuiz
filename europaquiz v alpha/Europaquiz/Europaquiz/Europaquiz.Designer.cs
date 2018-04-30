@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Europaquiz));
             this.Button_prüfe_Land_neu = new System.Windows.Forms.Button();
             this.tb_Land = new System.Windows.Forms.TextBox();
             this.Punkte = new System.Windows.Forms.Label();
@@ -36,21 +37,23 @@
             this.LLösung = new System.Windows.Forms.Label();
             this.tb_Hauptstadt = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.LösungLand = new System.Windows.Forms.Label();
-            this.LösungHS = new System.Windows.Forms.Label();
-            this.LetzteEIngabeHS = new System.Windows.Forms.Label();
             this.Vorzeitig_beenden = new System.Windows.Forms.Button();
             this.Zoom = new System.Windows.Forms.PictureBox();
             this.PunkteZahlAnzeige = new System.Windows.Forms.Label();
-            this.LetzteEingabeLand = new System.Windows.Forms.Label();
             this.CountdownZaehler = new System.Windows.Forms.Label();
             this.CountdownText = new System.Windows.Forms.Label();
+            this.LösungLand = new System.Windows.Forms.Label();
+            this.LetzteEingabeLand = new System.Windows.Forms.Label();
+            this.LösungHS = new System.Windows.Forms.Label();
+            this.LetzteEIngabeHS = new System.Windows.Forms.Label();
             this.Ergebnis_speichern = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.Ohne_Speichern = new System.Windows.Forms.Button();
+            this.LogoBox = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).BeginInit();
             this.SuspendLayout();
             // 
             // Button_prüfe_Land_neu
@@ -148,33 +151,6 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(447, 749);
             this.tableLayoutPanel3.TabIndex = 11;
             // 
-            // LösungLand
-            // 
-            this.LösungLand.AutoSize = true;
-            this.LösungLand.Location = new System.Drawing.Point(91, 363);
-            this.LösungLand.Name = "LösungLand";
-            this.LösungLand.Size = new System.Drawing.Size(19, 13);
-            this.LösungLand.TabIndex = 10;
-            this.LösungLand.Text = "    ";
-            // 
-            // LösungHS
-            // 
-            this.LösungHS.AutoSize = true;
-            this.LösungHS.Location = new System.Drawing.Point(313, 363);
-            this.LösungHS.Name = "LösungHS";
-            this.LösungHS.Size = new System.Drawing.Size(16, 13);
-            this.LösungHS.TabIndex = 14;
-            this.LösungHS.Text = "   ";
-            // 
-            // LetzteEIngabeHS
-            // 
-            this.LetzteEIngabeHS.AutoSize = true;
-            this.LetzteEIngabeHS.Location = new System.Drawing.Point(313, 315);
-            this.LetzteEIngabeHS.Name = "LetzteEIngabeHS";
-            this.LetzteEIngabeHS.Size = new System.Drawing.Size(19, 13);
-            this.LetzteEIngabeHS.TabIndex = 16;
-            this.LetzteEIngabeHS.Text = "    ";
-            // 
             // Vorzeitig_beenden
             // 
             this.Vorzeitig_beenden.Dock = System.Windows.Forms.DockStyle.Top;
@@ -204,15 +180,6 @@
             this.PunkteZahlAnzeige.TabIndex = 13;
             this.PunkteZahlAnzeige.Text = "0";
             // 
-            // LetzteEingabeLand
-            // 
-            this.LetzteEingabeLand.AutoSize = true;
-            this.LetzteEingabeLand.Location = new System.Drawing.Point(91, 315);
-            this.LetzteEingabeLand.Name = "LetzteEingabeLand";
-            this.LetzteEingabeLand.Size = new System.Drawing.Size(19, 13);
-            this.LetzteEingabeLand.TabIndex = 15;
-            this.LetzteEingabeLand.Text = "    ";
-            // 
             // CountdownZaehler
             // 
             this.CountdownZaehler.AutoSize = true;
@@ -230,6 +197,42 @@
             this.CountdownText.Size = new System.Drawing.Size(64, 13);
             this.CountdownText.TabIndex = 11;
             this.CountdownText.Text = "Countdown:";
+            // 
+            // LösungLand
+            // 
+            this.LösungLand.AutoSize = true;
+            this.LösungLand.Location = new System.Drawing.Point(91, 363);
+            this.LösungLand.Name = "LösungLand";
+            this.LösungLand.Size = new System.Drawing.Size(19, 13);
+            this.LösungLand.TabIndex = 10;
+            this.LösungLand.Text = "    ";
+            // 
+            // LetzteEingabeLand
+            // 
+            this.LetzteEingabeLand.AutoSize = true;
+            this.LetzteEingabeLand.Location = new System.Drawing.Point(91, 315);
+            this.LetzteEingabeLand.Name = "LetzteEingabeLand";
+            this.LetzteEingabeLand.Size = new System.Drawing.Size(19, 13);
+            this.LetzteEingabeLand.TabIndex = 15;
+            this.LetzteEingabeLand.Text = "    ";
+            // 
+            // LösungHS
+            // 
+            this.LösungHS.AutoSize = true;
+            this.LösungHS.Location = new System.Drawing.Point(313, 363);
+            this.LösungHS.Name = "LösungHS";
+            this.LösungHS.Size = new System.Drawing.Size(16, 13);
+            this.LösungHS.TabIndex = 14;
+            this.LösungHS.Text = "   ";
+            // 
+            // LetzteEIngabeHS
+            // 
+            this.LetzteEIngabeHS.AutoSize = true;
+            this.LetzteEIngabeHS.Location = new System.Drawing.Point(313, 315);
+            this.LetzteEIngabeHS.Name = "LetzteEIngabeHS";
+            this.LetzteEIngabeHS.Size = new System.Drawing.Size(19, 13);
+            this.LetzteEIngabeHS.TabIndex = 16;
+            this.LetzteEIngabeHS.Text = "    ";
             // 
             // Ergebnis_speichern
             // 
@@ -267,6 +270,15 @@
             this.Ohne_Speichern.Visible = false;
             this.Ohne_Speichern.Click += new System.EventHandler(this.Ohne_Speichern_Click_1);
             // 
+            // LogoBox
+            // 
+            this.LogoBox.InitialImage = ((System.Drawing.Image)(resources.GetObject("LogoBox.InitialImage")));
+            this.LogoBox.Location = new System.Drawing.Point(601, 424);
+            this.LogoBox.Name = "LogoBox";
+            this.LogoBox.Size = new System.Drawing.Size(257, 171);
+            this.LogoBox.TabIndex = 17;
+            this.LogoBox.TabStop = false;
+            // 
             // Europaquiz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -277,6 +289,8 @@
             this.Controls.Add(this.Ergebnis_speichern);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.webBrowser1);
+            this.Controls.Add(this.LogoBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Europaquiz";
             this.Text = "Europaquiz";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -284,6 +298,7 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Zoom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -310,5 +325,6 @@
         private System.Windows.Forms.Label LösungHS;
         private System.Windows.Forms.Label LetzteEingabeLand;
         private System.Windows.Forms.Label LetzteEIngabeHS;
+        private System.Windows.Forms.PictureBox LogoBox;
     }
 }
