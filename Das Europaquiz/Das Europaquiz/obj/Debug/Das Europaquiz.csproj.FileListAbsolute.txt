@@ -1,0 +1,57 @@
+E:\Das Europaquiz\Das Europaquiz\bin\Debug\Das Europaquiz.exe.config
+E:\Das Europaquiz\Das Europaquiz\bin\Debug\Das Europaquiz.exe
+E:\Das Europaquiz\Das Europaquiz\bin\Debug\Das Europaquiz.pdb
+E:\Das Europaquiz\Das Europaquiz\obj\Debug\Das Europaquiz.csprojResolveAssemblyReference.cache
+E:\Das Europaquiz\Das Europaquiz\obj\Debug\Das_Europaquiz.Form1.resources
+E:\Das Europaquiz\Das Europaquiz\obj\Debug\Das_Europaquiz.Properties.Resources.resources
+E:\Das Europaquiz\Das Europaquiz\obj\Debug\Das Europaquiz.csproj.GenerateResource.Cache
+E:\Das Europaquiz\Das Europaquiz\obj\Debug\Das Europaquiz.exe
+E:\Das Europaquiz\Das Europaquiz\obj\Debug\Das Europaquiz.pdb
+E:\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Das Europaquiz.exe.config
+E:\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das Europaquiz.exe
+E:\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das Europaquiz.pdb
+E:\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Das Europaquiz.exe
+E:\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Das Europaquiz.pdb
+E:\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das_Europaquiz.Form1.resources
+E:\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das_Europaquiz.Properties.Resources.resources
+E:\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das Europaquiz.csproj.GenerateResource.Cache
+E:\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Svg.dll
+E:\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Svg.pdb
+E:\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Svg.xml
+E:\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das Europaquiz.csprojResolveAssemblyReference.cache
+F:\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Das Europaquiz.exe.config
+F:\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das Europaquiz.exe
+F:\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das Europaquiz.pdb
+F:\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Das Europaquiz.exe
+F:\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Das Europaquiz.pdb
+F:\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Svg.dll
+F:\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Svg.pdb
+F:\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Svg.xml
+F:\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das Europaquiz.csprojResolveAssemblyReference.cache
+F:\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das_Europaquiz.Form1.resources
+F:\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das_Europaquiz.Properties.Resources.resources
+F:\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das Europaquiz.csproj.GenerateResource.Cache
+C:\Users\SENEL\Desktop\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Das Europaquiz.exe.config
+C:\Users\SENEL\Desktop\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das Europaquiz.exe
+C:\Users\SENEL\Desktop\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das Europaquiz.pdb
+C:\Users\SENEL\Desktop\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Das Europaquiz.exe
+C:\Users\SENEL\Desktop\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Das Europaquiz.pdb
+C:\Users\SENEL\Desktop\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Svg.dll
+C:\Users\SENEL\Desktop\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Svg.pdb
+C:\Users\SENEL\Desktop\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Svg.xml
+C:\Users\SENEL\Desktop\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das_Europaquiz.Form1.resources
+C:\Users\SENEL\Desktop\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das_Europaquiz.Properties.Resources.resources
+C:\Users\SENEL\Desktop\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das Europaquiz.csproj.GenerateResource.Cache
+C:\Users\SENEL\Desktop\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das Europaquiz.csprojResolveAssemblyReference.cache
+E:\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Das Europaquiz.exe.config
+E:\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das Europaquiz.exe
+E:\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das Europaquiz.pdb
+E:\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Das Europaquiz.exe
+E:\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Das Europaquiz.pdb
+E:\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Svg.dll
+E:\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Svg.pdb
+E:\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\bin\Debug\Svg.xml
+E:\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das Europaquiz.csprojResolveAssemblyReference.cache
+E:\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das_Europaquiz.Form1.resources
+E:\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das_Europaquiz.Properties.Resources.resources
+E:\Neuer Ordner (2)\Info Projekt\Das Europaquiz\Das Europaquiz\obj\Debug\Das Europaquiz.csproj.GenerateResource.Cache
